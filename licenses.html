@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>استعلام مجوزهای رسمی کافی‌نت طلوع</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+      background: #f8f9fa;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem 8rem;
+    }
+
+    .rtl-wrap {
+      direction: rtl;
+      width: 100%;
+      max-width: 560px;
+    }
+
+    .page-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 0.5px solid #ddd;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-title {
+      font-size: 22px;
+      font-weight: 500;
+      color: #1a1a1a;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.5px;
+    }
+
+    .page-subtitle {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 2rem;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 2rem;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: #EAF3DE;
+      color: #3B6D11;
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #639922;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .alert-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #fffbeb;
+      border: 0.5px solid #fcd34d;
+      border-right: 3px solid #d97706;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 1.75rem;
+    }
+
+    .alert-box i {
+      color: #b45309;
+      font-size: 18px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .alert-text {
+      font-size: 13px;
+      font-weight: 500;
+      color: #92400e;
+      line-height: 1.6;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #aaa;
+      margin-bottom: 10px;
+    }
+
+    .license-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .license-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: #fff;
+      border: 0.5px solid #e5e7eb;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #1a1a1a;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .license-link:hover {
+      border-color: #d1d5db;
+      background: #f9fafb;
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .link-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .num-1 { background: #EAF3DE; color: #3B6D11; }
+    .num-2 { background: #E6F1FB; color: #185FA5; }
+    .num-3 { background: #FBEAF0; color: #993556; }
+
+    .link-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .link-url {
+      font-size: 11px;
+      color: #aaa;
+      margin-top: 2px;
+      font-family: monospace;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .link-arrow {
+      color: #bbb;
+      font-size: 16px;
+      transition: transform 0.15s;
+    }
+
+    .license-link:hover .link-arrow {
+      transform: translateX(-3px);
+      color: #888;
+    }
+
+    .divider {
+      height: 0.5px;
+      background: #e5e7eb;
+      margin: 0 0 1.75rem;
+    }
+
+    .img-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 1.75rem;
+    }
+
+    .img-grid-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 0.5px solid #e5e7eb;
+      background: #f3f4f6;
+    }
+
+    .img-grid-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .img-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .back-section {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-label {
+      font-size: 11px;
+      color: #bbb;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #555;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.15s;
+    }
+
+    .back-link:hover {
+      color: #1a1a1a;
+    }
+
+    .back-link:hover .back-home-icon {
+      transform: translateX(3px);
+    }
+
+    .back-home-icon {
+      width: 36px;
+      height: 36px;
+      background: #f0f0f0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: transform 0.2s, background 0.15s;
+    }
+
+    .back-link:hover .back-home-icon {
+      background: #e4e4e4;
+    }
+  </style>
+</head>
+<body>
+<div class="rtl-wrap">
+
+  <div class="page-badge">
+    <i class="ti ti-shield-check" style="font-size:13px"></i>
+    کافی‌نت طلوع
+  </div>
+
+  <h1 class="page-title">استعلام مجوزهای رسمی</h1>
+  <p class="page-subtitle">سه مجوز فعال — قابل راستی‌آزمایی از سامانه رسمی وزارتخانه</p>
+
+  <div class="status-row">
+    <div class="status-pill">
+      <div class="pill-dot"></div>
+      مجوزها فعال هستند
+    </div>
+  </div>
+
+  <div class="alert-box" role="alert">
+    <i class="ti ti-wifi-off"></i>
+    <p class="alert-text">پیش از بازکردن لینک‌های زیر، فیلترشکن خود را خاموش کنید.</p>
+  </div>
+
+  <p class="section-label">لینک‌های استعلام</p>
+  <div class="license-links">
+    <a rel="nofollow" target="_blank" href="https://qr.mojavez.ir/track/5583850" class="license-link">
+      <div class="link-left">
+        <div class="link-num num-1">۱</div>
+        <div>
+          <div class="link-title">استعلام مجوز شماره یک</div>
+          <div class="link-url">qr.mojavez.ir/track/5583850</div>
+        </div>
+      </div>
+      <i class="ti ti-arrow-left link-arrow"></i>
+    </a>
+
+    <a rel="nofollow" target="_blank" href="https://qr.mojavez.ir/track/10904765" class="license-link">
+      <div class="link-left">
+        <div class="link-num num-2">۲</div>
+        <div>
+          <div class="link-title">استعلام مجوز شماره دو</div>
+          <div class="link-url">qr.mojavez.ir/track/10904765</div>
+        </div>
+      </div>
+      <i class="ti ti-arrow-left link-arrow"></i>
+    </a>
+
+    <a rel="nofollow" target="_blank" href="https://qr.mojavez.ir/track/18367287" class="license-link">
+      <div class="link-left">
+        <div class="link-num num-3">۳</div>
+        <div>
+          <div class="link-title">استعلام مجوز شماره سه</div>
+          <div class="link-url">qr.mojavez.ir/track/18367287</div>
+        </div>
+      </div>
+      <i class="ti ti-arrow-left link-arrow"></i>
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="section-label">تصاویر مجوزها</p>
+  <div class="img-grid">
+    <div class="img-grid-item">
+      <img src="https://i.imgur.com/3d9vdf8.jpeg" loading="lazy" alt="مجوز رسمی ۱">
+      <span class="img-badge">مجوز ۱</span>
+    </div>
+    <div class="img-grid-item">
+      <img src="https://i.imgur.com/hLsckd0.jpeg" loading="lazy" alt="مجوز رسمی ۲">
+      <span class="img-badge">مجوز ۲</span>
+    </div>
+    <div class="img-grid-item">
+      <img src="https://i.imgur.com/B7OLw1z.jpeg" loading="lazy" alt="مجوز رسمی ۳">
+      <span class="img-badge">مجوز ۳</span>
+    </div>
+  </div>
+
+  <div class="back-section">
+    <span class="back-label">بازگشت</span>
+    <a class="back-link" href="/">
+      <div class="back-home-icon">🏠</div>
+      صفحه اصلی
+    </a>
+  </div>
+
+</div>
+</body>
+</html>
