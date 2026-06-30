@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حمایت از کافی‌نت طلوع سبزوار</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Vazirmatn', Tahoma, sans-serif;
+  direction: rtl;
+  background: #f4f6f0;
+  min-height: 100vh;
+  color: #1a1a1a;
+  padding: 2rem 1rem 4rem;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.18;
+}
+
+.bg-orb-1 {
+  width: 420px; height: 420px;
+  background: #C0DD97;
+  top: -100px; right: -80px;
+}
+
+.bg-orb-2 {
+  width: 320px; height: 320px;
+  background: #97C459;
+  bottom: 60px; left: -100px;
+}
+
+.bg-orb-3 {
+  width: 200px; height: 200px;
+  background: #5DCAA5;
+  top: 40%; left: 50%;
+  transform: translateX(-50%);
+}
+
+.floating-icons {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.float-icon {
+  position: absolute;
+  font-size: 26px;
+  opacity: 0.07;
+  color: #3B6D11;
+  animation: floatUp 8s ease-in-out infinite;
+}
+
+.float-icon:nth-child(1) { top: 10%; right: 8%; animation-delay: 0s; }
+.float-icon:nth-child(2) { top: 25%; left: 6%; animation-delay: 1.5s; }
+.float-icon:nth-child(3) { top: 50%; right: 12%; animation-delay: 3s; }
+.float-icon:nth-child(4) { top: 70%; left: 10%; animation-delay: 4.5s; }
+.float-icon:nth-child(5) { top: 85%; right: 20%; animation-delay: 2s; }
+.float-icon:nth-child(6) { top: 40%; left: 25%; animation-delay: 6s; }
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.07; }
+  50% { transform: translateY(-18px) rotate(8deg); opacity: 0.14; }
+}
+
+.page-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.brand-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.brand-dot {
+  width: 8px; height: 8px;
+  background: #639922;
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.brand-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  letter-spacing: 0.03em;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #EAF3DE;
+  color: #3B6D11;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 40px;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.hero-icon-ring {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #EAF3DE 0%, #C0DD97 100%);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.25rem;
+  position: relative;
+}
+
+.hero-icon-ring::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(#C0DD97, #97C459, #3B6D11, #C0DD97);
+  z-index: -1;
+  opacity: 0.4;
+  animation: ring-spin 6s linear infinite;
+}
+
+@keyframes ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-icon-ring i {
+  font-size: 32px;
+  color: #3B6D11;
+}
+
+.hero-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.hero-sub {
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.9;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.stat-pill {
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 12px 8px;
+  text-align: center;
+}
+
+.stat-num {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #639922;
+  line-height: 1;
+  margin-bottom: 4px;
+  direction: ltr;
+}
+
+.stat-label {
+  display: block;
+  font-size: 10px;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+.main-card {
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.card-top-bar {
+  background: linear-gradient(135deg, #3B6D11 0%, #639922 60%, #97C459 100%);
+  padding: 18px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-top-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%),
+                    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 50%);
+}
+
+.card-top-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-top-icon {
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-top-icon i { font-size: 20px; color: #fff; }
+
+.card-top-text .title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.card-top-text .sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  display: block;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.section-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #bbb;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: #e5e7eb;
+}
+
+.bank-card {
+  background: #f9fafb;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bank-card::before {
+  content: '';
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #97C459, #3B6D11);
+  border-radius: 0 14px 14px 0;
+}
+
+.bank-card:hover {
+  border-color: #97C459;
+  background: #EAF3DE;
+}
+
+.bank-card:hover .copy-circle {
+  background: #97C459;
+}
+
+.bank-card:hover .copy-circle i {
+  color: #fff;
+}
+
+.bank-icon-wrap {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  background: #EAF3DE;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.bank-icon-wrap i {
+  font-size: 20px;
+  color: #3B6D11;
+}
+
+.bank-info { flex: 1; min-width: 0; }
+
+.card-number {
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.1em;
+  direction: ltr;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.card-owner {
+  font-size: 11.5px;
+  color: #888;
+  display: block;
+}
+
+.copy-circle {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: #EAF3DE;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.copy-circle i {
+  font-size: 16px;
+  color: #3B6D11;
+  transition: color 0.15s;
+}
+
+.divider-or {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.divider-or .line {
+  flex: 1;
+  height: 0.5px;
+  background: #e5e7eb;
+}
+
+.divider-or .label {
+  font-size: 11px;
+  color: #bbb;
+  font-weight: 500;
+}
+
+.gateway-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #639922;
+  color: #fff;
+  padding: 14px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s, transform 0.1s;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+
+.gateway-btn:hover {
+  background: #3B6D11;
+  transform: translateY(-1px);
+}
+
+.gateway-btn:active {
+  transform: translateY(0);
+}
+
+.gateway-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gw-icon {
+  width: 34px; height: 34px;
+  background: rgba(255,255,255,0.18);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.gw-icon i { font-size: 17px; }
+
+.gw-sub {
+  font-size: 10.5px;
+  opacity: 0.75;
+  font-weight: 400;
+  display: block;
+  margin-top: 1px;
+}
+
+.support-ways {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.way-card {
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 16px 12px;
+  text-align: center;
+  transition: border-color 0.15s;
+}
+
+.way-card:hover {
+  border-color: #C0DD97;
+}
+
+.way-icon {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.way-icon.green { background: #EAF3DE; }
+.way-icon.teal  { background: #E1F5EE; }
+
+.way-icon i { font-size: 20px; }
+.way-icon.green i { color: #3B6D11; }
+.way-icon.teal i  { color: #0F6E56; }
+
+.way-title {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1a1a1a;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.way-desc {
+  font-size: 11px;
+  color: #aaa;
+  display: block;
+  line-height: 1.5;
+}
+
+.trust-strip {
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.trust-item i {
+  font-size: 18px;
+  color: #639922;
+}
+
+.trust-item span {
+  font-size: 10px;
+  color: #aaa;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.trust-sep {
+  width: 0.5px;
+  height: 30px;
+  background: #e5e7eb;
+}
+
+.footer-card {
+  background: #fff;
+  border: 0.5px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+}
+
+.footer-heart-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.footer-heart-row i {
+  font-size: 16px;
+  color: #97C459;
+  animation: heartbeat 1.6s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.25); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.1); }
+}
+
+.footer-msg {
+  font-size: 12.5px;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #3B6D11;
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 8px 16px;
+  background: #EAF3DE;
+  border-radius: 40px;
+  transition: background 0.15s;
+}
+
+.home-link:hover { background: #C0DD97; }
+.home-link i { font-size: 15px; }
+
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: #27500A;
+  color: #C0DD97;
+  padding: 10px 20px;
+  border-radius: 40px;
+  font-size: 13px;
+  font-family: 'Vazirmatn', sans-serif;
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+#toast i { font-size: 15px; }
+</style>
+</head>
+<body>
+
+<div class="bg-pattern">
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+</div>
+
+<div class="floating-icons" aria-hidden="true">
+  <i class="ti ti-heart float-icon"></i>
+  <i class="ti ti-coin float-icon"></i>
+  <i class="ti ti-hand-heart float-icon"></i>
+  <i class="ti ti-gift float-icon"></i>
+  <i class="ti ti-star float-icon"></i>
+  <i class="ti ti-users float-icon"></i>
+</div>
+
+<div class="page-inner">
+
+  <div class="brand-header">
+    <div class="brand-dot"></div>
+    <span class="brand-name">کافی‌نت طلوع سبزوار</span>
+  </div>
+
+  <div class="hero-section">
+    <div class="hero-badge">
+      <i class="ti ti-hand-heart" aria-hidden="true"></i>
+      حمایت مالی
+    </div>
+    <div class="hero-icon-ring">
+      <i class="ti ti-heart-handshake" aria-hidden="true"></i>
+    </div>
+    <h1 class="hero-title">با ما همراه باشید</h1>
+    <p class="hero-sub">هر حمایتی، هر چند کوچک، ادامه مسیر خدمت‌رسانی ما را ممکن می‌کند. ممنون که کنار ما هستید.</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-pill">
+      <span class="stat-num">۵+</span>
+      <span class="stat-label">سال فعالیت</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-num">۲۴/۷</span>
+      <span class="stat-label">در دسترس</span>
+    </div>
+    <div class="stat-pill">
+      <span class="stat-num">۱۰۰٪</span>
+      <span class="stat-label">اخبار دقیق</span>
+    </div>
+  </div>
+
+  <div class="support-ways">
+    <div class="way-card">
+      <div class="way-icon green">
+        <i class="ti ti-bell" aria-hidden="true"></i>
+      </div>
+      <span class="way-title">حمایت معنوی</span>
+      <span class="way-desc">عضویت، اشتراک‌گذاری و بازنشر</span>
+    </div>
+    <div class="way-card">
+      <div class="way-icon teal">
+        <i class="ti ti-diamond" aria-hidden="true"></i>
+      </div>
+      <span class="way-title">حمایت مالی</span>
+      <span class="way-desc">تقویت زیرساخت و ادامه مسیر</span>
+    </div>
+  </div>
+
+  <div class="main-card">
+    <div class="card-top-bar">
+      <div class="card-top-inner">
+        <div class="card-top-icon">
+          <i class="ti ti-credit-card" aria-hidden="true"></i>
+        </div>
+        <div class="card-top-text">
+          <span class="title">پرداخت مستقیم</span>
+          <span class="sub">انتقال به کارت بانکی</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="section-eyebrow">شماره کارت</div>
+
+      <div class="bank-card" onclick="copyCard()" role="button" tabindex="0" aria-label="کپی شماره کارت">
+        <div class="bank-icon-wrap">
+          <i class="ti ti-building-bank" aria-hidden="true"></i>
+        </div>
+        <div class="bank-info">
+          <span class="card-number">5041  7212  2806  9770</span>
+          <span class="card-owner">سید محمدرضا طلوع مقدم سبزوار</span>
+        </div>
+        <div class="copy-circle">
+          <i class="ti ti-copy" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div class="divider-or">
+        <div class="line"></div>
+        <span class="label">یا</span>
+        <div class="line"></div>
+      </div>
+
+      <a rel="nofollow" href="https://daramet.com/cafenet55" target="_blank" class="gateway-btn">
+        <div class="gateway-left">
+          <div class="gw-icon">
+            <i class="ti ti-device-mobile-dollar" aria-hidden="true"></i>
+          </div>
+          <div>
+            <span>پرداخت از درگاه آنلاین</span>
+            <span class="gw-sub">امن، سریع و مطمئن</span>
+          </div>
+        </div>
+        <i class="ti ti-arrow-left" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-item">
+      <i class="ti ti-shield-check" aria-hidden="true"></i>
+      <span>پرداخت امن</span>
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <i class="ti ti-lock" aria-hidden="true"></i>
+      <span>اطلاعات خصوصی</span>
+    </div>
+    <div class="trust-sep"></div>
+    <div class="trust-item">
+      <i class="ti ti-award" aria-hidden="true"></i>
+      <span>قابل اعتماد</span>
+    </div>
+  </div>
+
+  <div class="footer-card">
+    <div class="footer-heart-row">
+      <i class="ti ti-heart-filled" aria-hidden="true"></i>
+      <span>سپاس از همراهی شما</span>
+      <i class="ti ti-heart-filled" aria-hidden="true"></i>
+    </div>
+    <p class="footer-msg">هر حمایت شما یک قدم بزرگ برای ادامه مسیر ماست. از صمیمیت و مهربانی‌تان سپاسگزاریم.</p>
+    <a href="/" class="home-link">
+      <i class="ti ti-home" aria-hidden="true"></i>
+      صفحه اصلی
+    </a>
+  </div>
+
+</div>
+
+<div id="toast" role="status" aria-live="polite">
+  <i class="ti ti-circle-check" aria-hidden="true"></i>
+  شماره کارت کپی شد
+</div>
+
+<script>
+function copyCard() {
+  var text = "5041721228069770";
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(showToast).catch(fallback);
+  } else { fallback(); }
+  function fallback() {
+    var el = document.createElement("textarea");
+    el.value = text;
+    el.style.cssText = "position:fixed;left:-9999px;top:-9999px";
+    document.body.appendChild(el);
+    el.select();
+    try { document.execCommand('copy'); showToast(); } catch(e) {}
+    document.body.removeChild(el);
+  }
+}
+
+function showToast() {
+  var t = document.getElementById("toast");
+  t.classList.add("show");
+  setTimeout(function(){ t.classList.remove("show"); }, 2800);
+}
+
+document.querySelector('.bank-card').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyCard(); }
+});
+</script>
+</body>
+</html>
