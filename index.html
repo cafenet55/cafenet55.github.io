@@ -1,10 +1,389 @@
 <!DOCTYPE html>
-<html>
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>My Site</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>کافی نت طلوع سبزوار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --ink:#14213D;
+    --amber:#E8A33D;
+    --amber-deep:#C9842A;
+    --cream:#FAF7F2;
+    --surface:#FFFFFF;
+    --slate:#5C6470;
+    --hairline:#ECE7DD;
+    --teal:#2E8B7E;
+    --shadow-sm: 0 1px 2px rgba(20,33,61,0.04);
+    --shadow-md: 0 6px 20px -8px rgba(20,33,61,0.18);
+    --shadow-lg: 0 14px 34px -12px rgba(20,33,61,0.22);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'Vazirmatn', Tahoma, Arial, sans-serif;
+    background: var(--cream);
+    background-image:
+      radial-gradient(560px 320px at 50% -8%, rgba(232,163,61,0.18), transparent 70%),
+      radial-gradient(420px 280px at 100% 0%, rgba(20,33,61,0.05), transparent 60%);
+    background-repeat: no-repeat;
+    color: var(--ink);
+    direction: rtl;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Ambient sparkle backdrop ---------- */
+  .sparkle-field {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .sparkle-field .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+  }
+  .sparkle-field .glow-1 { width: 320px; height: 320px; top: -120px; right: -80px; background: radial-gradient(circle, rgba(232,163,61,0.28), transparent 70%); }
+  .sparkle-field .glow-2 { width: 260px; height: 260px; bottom: 10%; left: -100px; background: radial-gradient(circle, rgba(46,139,126,0.16), transparent 70%); }
+  .sparkle-field .glow-3 { width: 220px; height: 220px; top: 38%; right: -60px; background: radial-gradient(circle, rgba(20,33,61,0.08), transparent 70%); }
+
+  .spark {
+    position: absolute;
+    color: var(--amber);
+    opacity: 0.55;
+    animation: twinkle 3.4s ease-in-out infinite;
+  }
+  .spark svg { width: 100%; height: 100%; display: block; }
+  .spark.s-sm { width: 9px; height: 9px; }
+  .spark.s-md { width: 14px; height: 14px; }
+  .spark.s-lg { width: 20px; height: 20px; }
+  .spark.c-teal { color: var(--teal); }
+  .spark.c-ink { color: var(--ink); opacity: 0.18; }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.15; transform: scale(0.85) rotate(0deg); }
+    50% { opacity: 0.75; transform: scale(1.05) rotate(8deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .spark { animation: none; opacity: 0.4; }
+  }
+
+  .page {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 2.75rem 1.1rem 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---------- Header / Identity ---------- */
+  .identity { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 2.4rem; }
+
+  .logo-ring {
+    position: relative;
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.1rem;
+  }
+  .logo-ring::before {
+    content: "";
+    position: absolute; inset: -6px;
+    border-radius: 50%;
+    background: conic-gradient(from 200deg, var(--amber), #F4C77A, var(--amber) 80%);
+    opacity: 0.9;
+    filter: blur(0.3px);
+  }
+  .logo-ring::after {
+    content: "";
+    position: absolute; inset: -6px;
+    border-radius: 50%;
+    box-shadow: 0 10px 26px -6px rgba(232,163,61,0.55);
+  }
+  .logo-circle {
+    position: relative;
+    width: 84px; height: 84px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--cream);
+    background: var(--surface);
+    z-index: 1;
+  }
+  .logo-circle img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .brand-name {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    color: var(--ink);
+  }
+  .brand-tag {
+    margin-top: 4px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--slate);
+    letter-spacing: 0.2px;
+  }
+
+  /* ---------- Section labels ---------- */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--amber-deep);
+    letter-spacing: 0.8px;
+    margin: 2.1rem 0.2rem 0.7rem;
+  }
+  .section-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to left, var(--hairline), transparent);
+  }
+  .links-grid:first-of-type { margin-top: 0; }
+
+  /* ---------- Link cards ---------- */
+  .links-grid { display: flex; flex-direction: column; gap: 9px; }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 12px 14px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--ink);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+  }
+  .link-card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+    border-color: #E2DACB;
+  }
+  .link-card:active { transform: translateY(0); box-shadow: var(--shadow-sm); }
+  .link-card:focus-visible {
+    outline: 2px solid var(--amber-deep);
+    outline-offset: 2px;
+  }
+
+  .icon-wrap {
+    width: 42px; height: 42px;
+    border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  /* All icons fill the tile edge-to-edge, matching the Eitaa reference treatment */
+  .icon-wrap svg, .icon-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .tg   { background: #E6F1FB; }
+  .msg  { background: linear-gradient(135deg,#E6F1FB,#EDF6FF); }
+  .ig   { background: linear-gradient(135deg,#F6E4ED,#FBEAF0); }
+  .blog { background: #EEEDFE; }
+  .info { background: #E1F5EE; }
+  .gray { background: #F1EFE8; }
+  .web  { background: #FAEEDA; }
+  .srv  { background: #E0F5F5; }
+  .ph   { background: linear-gradient(135deg,#E3F4E9,#EAF3DE); }
+
+  .link-title { font-size: 14.5px; font-weight: 600; color: var(--ink); flex: 1; }
+  .link-sub { font-size: 12px; color: var(--slate); margin-top: 2px; }
+
+  .chevron { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .chevron svg { width: 16px; height: 16px; color: #C7C2B6; transition: transform 0.16s ease, color 0.16s ease; }
+  .link-card:hover .chevron svg { transform: translateX(-2px); color: var(--amber-deep); }
+
+  /* ---------- Footer ---------- */
+  .footer-note {
+    text-align: center;
+    margin-top: 2.6rem;
+    font-size: 11.5px;
+    color: #A7A29A;
+    letter-spacing: 0.2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .link-card, .chevron svg { transition: none; }
+  }
+</style>
 </head>
 <body>
-  <h1>سایت اصلی شما فعال شد!</h1>
+
+<div class="sparkle-field" aria-hidden="true">
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="glow glow-3"></div>
+
+  <div class="spark s-md" style="top:8%; right:12%; animation-delay:0s;">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 4.8 2.2 8 5 10.5C14.2 13 12.6 16.2 12 21c-.6-4.8-2.2-8-5-10.5C9.8 8 11.4 4.8 12 0z"/></svg>
+  </div>
+  <div class="spark s-sm" style="top:16%; right:30%; animation-delay:0.8s;">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 4.8 2.2 8 5 10.5C14.2 13 12.6 16.2 12 21c-.6-4.8-2.2-8-5-10.5C9.8 8 11.4 4.8 12 0z"/></svg>
+  </div>
+  <div class="spark s-lg c-teal" style="top:4%; left:8%; animation-delay:1.4s;">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 4.8 2.2 8 5 10.5C14.2 13 12.6 16.2 12 21c-.6-4.8-2.2-8-5-10.5C9.8 8 11.4 4.8 12 0z"/></svg>
+  </div>
+  <div class="spark s-sm c-ink" style="top:26%; left:18%; animation-delay:2s;">
+    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg>
+  </div>
+  <div class="spark s-md" style="top:46%; left:6%; animation-delay:0.5s;">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 4.8 2.2 8 5 10.5C14.2 13 12.6 16.2 12 21c-.6-4.8-2.2-8-5-10.5C9.8 8 11.4 4.8 12 0z"/></svg>
+  </div>
+  <div class="spark s-sm c-teal" style="top:58%; right:9%; animation-delay:1.9s;">
+    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg>
+  </div>
+  <div class="spark s-lg" style="top:68%; left:30%; animation-delay:0.3s;">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 4.8 2.2 8 5 10.5C14.2 13 12.6 16.2 12 21c-.6-4.8-2.2-8-5-10.5C9.8 8 11.4 4.8 12 0z"/></svg>
+  </div>
+  <div class="spark s-sm c-ink" style="top:80%; right:22%; animation-delay:1.1s;">
+    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg>
+  </div>
+  <div class="spark s-md c-teal" style="top:88%; left:12%; animation-delay:2.4s;">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 4.8 2.2 8 5 10.5C14.2 13 12.6 16.2 12 21c-.6-4.8-2.2-8-5-10.5C9.8 8 11.4 4.8 12 0z"/></svg>
+  </div>
+  <div class="spark s-sm" style="top:94%; right:38%; animation-delay:1.6s;">
+    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="identity">
+    <div class="logo-ring">
+      <div class="logo-circle">
+        <img src="https://i.imgur.com/G0zSI61.jpeg" alt="لوگو کافه‌نت ۵۵" />
+      </div>
+    </div>
+    <div class="brand-name">کافی نت طلوع سبزوار</div>
+    <div class="brand-tag">همه‌ی راه‌های ارتباطی، یک‌جا</div>
+  </div>
+
+  <div class="section-label">کانال‌های ما</div>
+  <div class="links-grid">
+
+    <a rel="nofollow" class="link-card" href="https://t.me/CafeNet55">
+      <div class="icon-wrap tg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 10l-4 4l6 6l4-16l-18 7l4 2l2 6l3-4"/>
+        </svg>
+      </div>
+      <div class="link-title">کانال تلگرام</div>
+      <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+    </a>
+
+    <a rel="nofollow" class="link-card" href="https://eitaa.com/CafeNet55">
+      <div class="icon-wrap"><img src="https://i.imgur.com/2t6c6D6.png" alt="ایتا" /></div>
+      <div class="link-title">کانال ایتا</div>
+      <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+    </a>
+
+    <a rel="nofollow" class="link-card" href="https://instagram.com/CafeNet55">
+      <div class="icon-wrap ig">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#993556" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="#993556"/>
+        </svg>
+      </div>
+      <div class="link-title">پیج اینستاگرام</div>
+      <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+    </a>
+
+  </div>
+
+  <div class="section-label">اطلاعات و خدمات</div>
+  <div class="links-grid">
+
+    <a class="link-card" href="https://cafenet55.blogspot.com/p/contact.html">
+      <div class="icon-wrap msg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          <circle cx="8.5" cy="11.5" r="1" fill="#185FA5" stroke="none"/>
+          <circle cx="12" cy="11.5" r="1" fill="#185FA5" stroke="none"/>
+          <circle cx="15.5" cy="11.5" r="1" fill="#185FA5" stroke="none"/>
+        </svg>
+      </div>
+      <div class="link-title">تماس با ما</div>
+      <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+    </a>
+
+    <a class="link-card" href="https://cafenet55.blogspot.com/p/ads.html">
+      <div class="icon-wrap blog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#534AB7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 8a3 3 0 0 1 0 6"/><path d="M10 8v11l-7-3v-5l7-3z"/><path d="M14 13.5v-3"/>
+        </svg>
+      </div>
+      <div class="link-title">تعرفه تبلیغات</div>
+      <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+    </a>
+
+    <a class="link-card" href="https://cafenet55.blogspot.com/p/filmarchive.html">
+      <div class="icon-wrap blog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#534AB7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="M2 8h20M7 4v4M12 4v4M17 4v4M7 16v4M12 16v4M17 16v4"/>
+        </svg>
+      </div>
+      <div class="link-title">آرشیو فیلم و سریال</div>
+      <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+    </a>
+
+    <a class="link-card" href="https://cafenet55.blogspot.com/p/address.html">
+      <div class="icon-wrap info">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+      </div>
+      <div class="link-title">آدرس ما</div>
+      <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+    </a>
+
+    <a class="link-card" href="https://cafenet55.blogspot.com/p/licenses.html">
+      <div class="icon-wrap info">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="3" width="16" height="18" rx="2"/>
+          <path d="M8 7h8M8 11h8M8 15h5"/>
+        </svg>
+      </div>
+      <div class="link-title">مجوزهای ما</div>
+      <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+    </a>
+
+    <a class="link-card" href="https://cafenet55.blogspot.com/p/support.html">
+      <div class="icon-wrap ph">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#3B6D11" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+      </div>
+      <div class="link-title">حمایت از ما</div>
+      <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+    </a>
+
+  </div>
+
+  <div class="footer-note">کافی نت طلوع سبزوار © 2026</div>
+
+</div>
 </body>
 </html>
