@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>تعرفه تبلیغات | کافی‌نت طلوع سبزوار</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f3f0;
+    --surface: #ffffff;
+    --surface2: #faf9f7;
+    --border: #e8e3dc;
+    --border2: #d4ccc0;
+    --text: #1a1614;
+    --text2: #3d3530;
+    --muted: #8a7f75;
+    --accent: #6b3fa0;
+    --accent2: #8b52c8;
+    --accent-light: #f0e8fc;
+    --accent-mid: #e2d2f7;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.05);
+    --shadow-hover: 0 2px 8px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.08);
+
+    /* رنگ‌های کمکی برای آیکون‌های پس‌زمینه */
+    --bgc1: #6b3fa0;
+    --bgc2: #e0590e;
+    --bgc3: #0077b6;
+    --bgc4: #0a8a6b;
+    --bgc5: #c2185b;
+    --bgc6: #d4a017;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 80px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* ─── پس‌زمینه دکوراتیو با نمادهای تبلیغات ─── */
+  .bg-decor {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  }
+  .bg-decor .blob {
+    position: absolute; border-radius: 50%; filter: blur(70px); opacity: .18;
+  }
+  .blob1 { width: 280px; height: 280px; background: var(--bgc1); top: -90px; right: -70px; }
+  .blob2 { width: 220px; height: 220px; background: var(--bgc2); bottom: 8%; left: -90px; }
+  .blob3 { width: 200px; height: 200px; background: var(--bgc3); top: 40%; right: -100px; }
+  .blob4 { width: 180px; height: 180px; background: var(--bgc4); bottom: -60px; right: 18%; }
+
+  .float-icon {
+    position: absolute;
+    animation: floaty 7s ease-in-out infinite;
+  }
+  @keyframes floaty {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-14px) rotate(8deg); }
+  }
+  .fi-1 { top: 5%;  left: 7%;  font-size: 36px; color: var(--bgc2); opacity: .14; animation-delay: 0s; }
+  .fi-2 { top: 14%; right: 6%; font-size: 26px; color: var(--bgc3); opacity: .14; animation-delay: 1.2s; }
+  .fi-3 { top: 45%; left: 4%;  font-size: 24px; color: var(--bgc5); opacity: .13; animation-delay: 2.1s; }
+  .fi-4 { top: 60%; right: 7%; font-size: 30px; color: var(--bgc4); opacity: .14; animation-delay: .6s; }
+  .fi-5 { top: 78%; left: 9%;  font-size: 26px; color: var(--bgc6); opacity: .14; animation-delay: 1.8s; }
+  .fi-6 { top: 27%; left: 48%; font-size: 20px; color: var(--bgc1); opacity: .12; animation-delay: 2.6s; }
+  .fi-7 { top: 88%; right: 30%; font-size: 24px; color: var(--bgc2); opacity: .12; animation-delay: 1.4s; }
+  .fi-8 { top: 8%;  left: 38%; font-size: 18px; color: var(--bgc5); opacity: .12; animation-delay: .9s; }
+
+  @media (max-width: 380px) {
+    .float-icon { display: none; }
+  }
+
+  .page { max-width: 680px; margin: 0 auto; padding: 1.5rem 1rem 3rem; position: relative; z-index: 1; }
+
+  /* ─── HERO ─── */
+  .hero {
+    text-align: center;
+    padding: 2.5rem 1rem 1.8rem;
+    margin-bottom: .5rem;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--accent-light);
+    border: 1px solid var(--accent-mid);
+    border-radius: 24px; padding: 5px 16px;
+    font-size: 12px; color: var(--accent2);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    letter-spacing: .03em;
+  }
+  .hero h1 {
+    font-size: 1.85rem; font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    margin-bottom: .45rem;
+  }
+  .hero p {
+    font-size: .83rem; color: var(--muted);
+    font-weight: 400;
+  }
+  .hero-divider {
+    width: 48px; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    margin: 1rem auto 0;
+    opacity: .5;
+  }
+
+  /* ─── SECTION LABEL ─── */
+  .section-label {
+    font-size: 10.5px; font-weight: 600; letter-spacing: .1em;
+    color: var(--muted); text-transform: uppercase;
+    margin: 2rem 0 .85rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  /* ─── CARDS GRID ─── */
+  .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .pkg-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1rem 1rem;
+    display: flex; flex-direction: column; gap: .25rem;
+    box-shadow: var(--shadow);
+    transition: box-shadow .2s, border-color .2s, transform .15s;
+    position: relative; overflow: hidden;
+  }
+  .pkg-card::before {
+    content: '';
+    position: absolute; top:0; right:0;
+    width: 60px; height: 60px;
+    background: radial-gradient(circle at top right, rgba(107,63,160,0.06), transparent 70%);
+    border-radius: 0 var(--radius) 0 0;
+  }
+  .pkg-card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--border2);
+    transform: translateY(-1px);
+  }
+  .pkg-card.featured {
+    border-color: var(--accent);
+    background: linear-gradient(135deg, #fcfaff 0%, #f5eeff 100%);
+  }
+  .pkg-card.featured::before {
+    width: 100px; height: 100px;
+    background: radial-gradient(circle at top right, rgba(107,63,160,0.1), transparent 70%);
+  }
+  .featured-label {
+    position: absolute; top: 0; left: 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff; font-size: 10px; font-weight: 600;
+    padding: 3px 12px 3px 14px;
+    border-radius: 0 0 var(--radius-sm) 0;
+    letter-spacing: .05em;
+  }
+  .pkg-icon { font-size: 1.5rem; margin-bottom: .1rem; }
+  .pkg-name { font-size: .88rem; font-weight: 600; color: var(--text2); }
+  .pkg-sub { font-size: .73rem; color: var(--muted); }
+  .pkg-price {
+    font-size: 1.05rem; font-weight: 700;
+    color: var(--accent); margin-top: .5rem;
+  }
+  .featured .pkg-name { font-size: .95rem; }
+  .featured .pkg-price { font-size: 1.2rem; }
+
+  /* ─── CHANNELS ─── */
+  .channels-list { display: flex; flex-direction: column; gap: 6px; }
+  .channel-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 12px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); text-decoration: none; color: var(--text);
+    box-shadow: var(--shadow);
+    transition: box-shadow .15s, border-color .15s;
+  }
+  .channel-item:hover { border-color: var(--border2); box-shadow: var(--shadow-hover); }
+  .ch-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.55rem; flex-shrink: 0;
+  }
+  .ch-tg  { background: #e8f5fe; color: #0088cc; }
+  .ch-ig  { background: #fce8f3; color: #c2185b; }
+  .ch-igc { background: var(--accent-light); color: var(--accent2); }
+  .ch-info { flex: 1; min-width: 0; }
+  .ch-name { font-size: .82rem; font-weight: 600; }
+  .ch-url  { font-size: .7rem; color: var(--muted); direction: ltr; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ch-arrow { color: var(--muted); font-size: 13px; flex-shrink: 0; }
+
+  /* ─── CONDITIONS ─── */
+  .conditions-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem 1.25rem;
+    box-shadow: var(--shadow);
+  }
+  .conditions-box li {
+    font-size: .84rem; color: var(--text2); line-height: 1.9;
+    list-style: none; display: flex; align-items: flex-start; gap: 9px;
+  }
+  .cond-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent2); flex-shrink: 0; margin-top: 7px; opacity: .7;
+  }
+  .warn-note {
+    margin-top: .85rem; padding: .65rem 1rem;
+    background: #fff8f0; border: 1px solid #f5d9b8;
+    border-radius: var(--radius-sm); font-size: .81rem; color: #a05a10;
+    display: flex; align-items: center; gap: 8px;
+    font-weight: 500;
+  }
+
+  /* ─── PAYMENT ─── */
+  .payment-section { display: flex; flex-direction: column; gap: 10px; }
+  .payment-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1.2rem 1.3rem;
+    box-shadow: var(--shadow);
+    transition: box-shadow .2s, border-color .2s;
+    cursor: pointer;
+  }
+  .payment-card:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); }
+  .pay-row {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: .3rem;
+  }
+  .pay-label {
+    font-size: .72rem; font-weight: 600; letter-spacing: .06em;
+    color: var(--muted); text-transform: uppercase;
+  }
+  .copy-btn {
+    display: flex; align-items: center; gap: 4px;
+    font-size: .7rem; color: var(--accent2); cursor: pointer;
+    background: var(--accent-light); border: 1px solid var(--accent-mid);
+    padding: 3px 9px; border-radius: 20px;
+    transition: background .15s;
+  }
+  .copy-btn:hover { background: var(--accent-mid); }
+  .card-num {
+    font-size: 1.3rem; font-weight: 700;
+    direction: ltr; color: var(--text);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 2px;
+    margin-bottom: .35rem;
+    font-family: 'Vazirmatn', monospace;
+  }
+  .card-num span { display: inline-block; margin-left: 8px; }
+  .card-owner {
+    font-size: .78rem; color: var(--muted);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .card-owner::before {
+    content: '';
+    width: 16px; height: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 2px; opacity: .5; flex-shrink: 0;
+  }
+  .sheba-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem 1.3rem;
+    box-shadow: var(--shadow); cursor: pointer;
+    transition: box-shadow .2s, border-color .2s;
+  }
+  .sheba-card:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); }
+  .sheba-num {
+    font-size: .82rem; font-weight: 600;
+    direction: ltr; color: var(--text2);
+    letter-spacing: 1px;
+    font-family: 'Vazirmatn', monospace;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ─── CONTACT BUTTONS ─── */
+  .btns-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; }
+  .contact-btn {
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+    padding: 8px 6px; border-radius: 10px;
+    text-decoration: none; color: #fff;
+    font-size: .66rem; font-weight: 600;
+    line-height: 1.3; text-align: center;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.12);
+    transition: opacity .15s, transform .1s;
+  }
+  .contact-btn:hover { opacity: .92; transform: translateY(-1px); }
+  .contact-btn img { width: 14px; height: 14px; flex-shrink: 0; object-fit: contain; border-radius: 3px; }
+  .contact-btn svg { flex-shrink: 0; width: 14px; height: 14px; }
+  .btn-eitaa  { background: linear-gradient(135deg, #d44010, #e8611e); }
+  .btn-tg     { background: linear-gradient(135deg, #006fa8, #0099cc); }
+  .btn-phone  { background: linear-gradient(135deg, #2d4a3e, #3d6b58); }
+
+  /* ─── BACK BUTTON ─── */
+  .back-btn {
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    margin: 1.5rem auto 0;
+    font-size: .82rem; color: var(--muted); text-decoration: none;
+    transition: color .15s;
+  }
+  .back-btn:hover { color: var(--accent); }
+
+  /* ─── TOAST ─── */
+  #toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    background: var(--text); color: #fff; padding: 9px 22px;
+    border-radius: 24px; font-size: .78rem; font-weight: 500;
+    opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 99;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    display: flex; align-items: center; gap: 7px;
+  }
+  #toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="bg-decor">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="blob blob4"></div>
+  <i class="ti ti-speakerphone float-icon fi-1"></i>
+  <i class="ti ti-chart-arrows-vertical float-icon fi-2"></i>
+  <i class="ti ti-stars float-icon fi-3"></i>
+  <i class="ti ti-target-arrow float-icon fi-4"></i>
+  <i class="ti ti-rocket float-icon fi-5"></i>
+  <i class="ti ti-bulb float-icon fi-6"></i>
+  <i class="ti ti-ad float-icon fi-7"></i>
+  <i class="ti ti-brand-telegram float-icon fi-8"></i>
+</div>
+
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-badge">
+      <i class="ti ti-speakerphone" style="font-size:13px"></i>
+      کافی‌نت طلوع سبزوار
+    </div>
+    <h1>تعرفه تبلیغات</h1>
+    <p>پیج اینستاگرام · کانال تلگرام · کانال اینستاگرام</p>
+    <div class="hero-divider"></div>
+  </div>
+
+  <div class="section-label">تعرفه‌ها</div>
+  <div class="cards-grid">
+    <div class="pkg-card">
+      <div class="pkg-icon">📸</div>
+      <div class="pkg-name">استوری اول</div>
+      <div class="pkg-price">۷۰۰ هزار تومان</div>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-icon">📸</div>
+      <div class="pkg-name">استوری سوم</div>
+      <div class="pkg-price">۵۰۰ هزار تومان</div>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-icon">🤝</div>
+      <div class="pkg-name">پست مشترک (Collab)</div>
+      <div class="pkg-sub">۱ تا ۵ روز</div>
+      <div class="pkg-price">۱.۵ میلیون تومان</div>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-icon">📢</div>
+      <div class="pkg-name">کانال تلگرام</div>
+      <div class="pkg-sub">۱۵ روز</div>
+      <div class="pkg-price">۳۰۰ هزار تومان</div>
+    </div>
+    <div class="pkg-card">
+      <div class="pkg-icon">🔉</div>
+      <div class="pkg-name">کانال اینستاگرام</div>
+      <div class="pkg-sub">۱۵ روز</div>
+      <div class="pkg-price">۴۰۰ هزار تومان</div>
+    </div>
+    <div class="pkg-card featured">
+      <div class="featured-label">ویژه</div>
+      <div class="pkg-icon" style="margin-top:.2rem">💎</div>
+      <div class="pkg-name">پکیج ویژه</div>
+      <div class="pkg-sub">همه امکانات + ۳۰ روز ماندگاری</div>
+      <div class="pkg-price">۲.۹ میلیون تومان</div>
+    </div>
+  </div>
+
+  <div class="section-label">کانال‌ها و پیج‌ها</div>
+  <div class="channels-list">
+    <a rel="nofollow" class="channel-item" href="https://t.me/CafeNet55" target="_blank">
+      <div class="ch-icon ch-tg"><i class="ti ti-brand-telegram" style="font-size:22px"></i></div>
+      <div class="ch-info">
+        <div class="ch-name">کانال تلگرام</div>
+        <span class="ch-url">t.me/CafeNet55</span>
+      </div>
+      <i class="ti ti-arrow-left ch-arrow"></i>
+    </a>
+    <a rel="nofollow" class="channel-item" href="https://www.instagram.com/cafenet55" target="_blank">
+      <div class="ch-icon ch-ig"><i class="ti ti-brand-instagram" style="font-size:22px"></i></div>
+      <div class="ch-info">
+        <div class="ch-name">پیج اینستاگرام</div>
+        <span class="ch-url">instagram.com/cafenet55</span>
+      </div>
+      <i class="ti ti-arrow-left ch-arrow"></i>
+    </a>
+    <a rel="nofollow" class="channel-item" href="https://www.instagram.com/channel/AbYXg4UGpeMWUfR1/" target="_blank">
+      <div class="ch-icon ch-igc"><i class="ti ti-broadcast" style="font-size:22px"></i></div>
+      <div class="ch-info">
+        <div class="ch-name">کانال اینستاگرام</div>
+        <span class="ch-url">instagram.com/channel/AbYXg4UGpeMWUfR1</span>
+      </div>
+      <i class="ti ti-arrow-left ch-arrow"></i>
+    </a>
+  </div>
+
+  <div class="section-label">شرایط تبلیغ</div>
+  <div class="conditions-box">
+    <ul>
+      <li><span class="cond-dot"></span>قبل از اقدام، بنر و پیج خود را ارسال کنید.</li>
+      <li><span class="cond-dot"></span>در صورت موافقت، واریز انجام دهید.</li>
+      <li><span class="cond-dot"></span>در تبلیغ، نام و لوگوی هیچ سازمان و نهادی نباشد.</li>
+    </ul>
+    <div class="warn-note">
+      <i class="ti ti-alert-triangle" style="font-size:14px;flex-shrink:0"></i>
+      تعرفه‌ها ثابت است و تخفیفی داده نمی‌شود.
+    </div>
+  </div>
+
+  <div class="section-label">اطلاعات پرداخت</div>
+  <div class="payment-section">
+    <div class="payment-card" onclick="copyText('5041721228069770', 'شماره کارت کپی شد!')">
+      <div class="pay-row">
+        <span class="pay-label">شماره کارت</span>
+        <span class="copy-btn"><i class="ti ti-copy" style="font-size:11px"></i> کپی</span>
+      </div>
+      <div class="card-num">
+        <span>5041</span><span>7212</span><span>2806</span><span>9770</span>
+      </div>
+      <div class="card-owner">سیدمحمدرضا طلوع مقدم سبزوار</div>
+    </div>
+    <div class="sheba-card" onclick="copyText('IR600700010001112302809001', 'شماره شبا کپی شد!')">
+      <div class="pay-row">
+        <span class="pay-label">شماره شبا</span>
+        <span class="copy-btn"><i class="ti ti-copy" style="font-size:11px"></i> کپی</span>
+      </div>
+      <div class="sheba-num">IR60 0700 0100 0111 2302 8090 01</div>
+      <div class="card-owner" style="margin-top:.35rem">سیدمحمدرضا طلوع مقدم سبزوار</div>
+    </div>
+  </div>
+
+  <div class="section-label">تماس جهت تبلیغات</div>
+  <div class="btns-grid">
+    <a rel="nofollow" href="https://eitaa.com/PayamGir55" class="contact-btn btn-eitaa" target="_blank">
+      <img src="https://i.imgur.com/2t6c6D6.png" width="14" height="14" loading="lazy" decoding="async" alt="ایتا">
+      پشتیبانی ایتا
+    </a>
+    <a rel="nofollow" href="https://t.me/PayamGir55" class="contact-btn btn-tg" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.686-1.67 7.862c-.123.557-.453.693-.918.432l-2.54-1.872-1.226 1.178c-.136.135-.25.248-.511.248l.181-2.594 4.705-4.25c.204-.181-.044-.282-.317-.1l-5.813 3.66-2.504-.782c-.544-.17-.555-.544.113-.806l9.78-3.77c.452-.164.847.11.72.794z"/></svg>
+      پشتیبانی تلگرام
+    </a>
+    <a href="tel:+989394451455" class="contact-btn btn-phone">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      شماره پیام‌رسان تلگرام و ایتا
+    </a>
+  </div>
+
+  <a href="/" class="back-btn">
+    <i class="ti ti-arrow-right" style="font-size:15px"></i>
+    بازگشت به صفحه اصلی
+  </a>
+
+</div>
+
+<div id="toast">
+  <i class="ti ti-check" style="font-size:13px"></i>
+  <span id="toast-msg">کپی شد!</span>
+</div>
+
+<script>
+function copyText(val, msg) {
+  navigator.clipboard.writeText(val).then(() => {
+    const t = document.getElementById('toast');
+    document.getElementById('toast-msg').textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  });
+}
+</script>
+</body>
+</html>
