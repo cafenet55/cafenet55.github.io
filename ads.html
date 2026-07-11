@@ -44,6 +44,23 @@
     overflow-x: hidden;
   }
 
+  /* ─── نشان کوچک آگهی تبلیغات ─── */
+  .ad-tag {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 50;
+    background: rgba(26,22,20,0.72);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .03em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    pointer-events: none;
+  }
+
   /* ─── پس‌زمینه دکوراتیو با نمادهای تبلیغات ─── */
   .bg-decor {
     position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
@@ -112,6 +129,55 @@
     margin: 1rem auto 0;
     opacity: .5;
   }
+
+  /* ─── اطلاعیه افزایش تعرفه ─── */
+  .notice-box {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: linear-gradient(135deg, #fff4ec 0%, #fff0e5 100%);
+    border: 1.5px solid #f0a35f;
+    border-radius: var(--radius);
+    padding: 1.1rem 1.2rem;
+    margin: .5rem 0 1.5rem;
+    box-shadow: 0 2px 10px rgba(224,89,14,0.1);
+    overflow: hidden;
+  }
+  .notice-box::before {
+    content: '';
+    position: absolute; top:0; right:0; bottom:0;
+    width: 5px;
+    background: linear-gradient(180deg, #e0590e, #f0821e);
+  }
+  .notice-icon {
+    flex-shrink: 0;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e0590e, #f0821e);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 18px;
+    box-shadow: 0 3px 10px rgba(224,89,14,0.35);
+    animation: pulse-warn 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse-warn {
+    0%,100% { box-shadow: 0 3px 10px rgba(224,89,14,0.35); }
+    50% { box-shadow: 0 3px 16px rgba(224,89,14,0.6); }
+  }
+  .notice-text { flex: 1; }
+  .notice-title {
+    font-size: .88rem; font-weight: 700;
+    color: #a04310;
+    margin-bottom: .3rem;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .notice-title .ti { font-size: 14px; }
+  .notice-body {
+    font-size: .82rem; color: #8a4a1e;
+    line-height: 1.85;
+    font-weight: 500;
+  }
+  .notice-body b { color: #a04310; font-weight: 700; }
 
   /* ─── SECTION LABEL ─── */
   .section-label {
@@ -210,6 +276,7 @@
     width: 6px; height: 6px; border-radius: 50%;
     background: var(--accent2); flex-shrink: 0; margin-top: 7px; opacity: .7;
   }
+  .cond-dot.dot-warn { background: #d1451e; }
   .warn-note {
     margin-top: .85rem; padding: .65rem 1rem;
     background: #fff8f0; border: 1px solid #f5d9b8;
@@ -217,6 +284,14 @@
     display: flex; align-items: center; gap: 8px;
     font-weight: 500;
   }
+  .ban-note {
+    margin-top: .6rem; padding: .7rem 1rem;
+    background: #fdf0ee; border: 1px solid #f2c2ba;
+    border-radius: var(--radius-sm); font-size: .8rem; color: #a3291a;
+    display: flex; align-items: flex-start; gap: 8px;
+    font-weight: 500; line-height: 1.8;
+  }
+  .ban-note .ti { flex-shrink: 0; margin-top: 2px; }
 
   /* ─── PAYMENT ─── */
   .payment-section { display: flex; flex-direction: column; gap: 10px; }
@@ -281,23 +356,57 @@
     text-overflow: ellipsis;
   }
 
-  /* ─── CONTACT BUTTONS ─── */
-  .btns-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; }
+  /* ─── CONTACT BUTTONS (بزرگ‌تر و شکیل‌تر) ─── */
+  .btns-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .contact-btn {
-    display: flex; align-items: center; justify-content: center; gap: 5px;
-    padding: 8px 6px; border-radius: 10px;
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px; border-radius: 14px;
     text-decoration: none; color: #fff;
-    font-size: .66rem; font-weight: 600;
-    line-height: 1.3; text-align: center;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.12);
-    transition: opacity .15s, transform .1s;
+    font-size: .82rem; font-weight: 600;
+    line-height: 1.3;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.14);
+    transition: opacity .15s, transform .15s, box-shadow .15s;
+    position: relative;
+    overflow: hidden;
   }
-  .contact-btn:hover { opacity: .92; transform: translateY(-1px); }
-  .contact-btn img { width: 14px; height: 14px; flex-shrink: 0; object-fit: contain; border-radius: 3px; }
-  .contact-btn svg { flex-shrink: 0; width: 14px; height: 14px; }
-  .btn-eitaa  { background: linear-gradient(135deg, #d44010, #e8611e); }
-  .btn-tg     { background: linear-gradient(135deg, #006fa8, #0099cc); }
-  .btn-phone  { background: linear-gradient(135deg, #2d4a3e, #3d6b58); }
+  .contact-btn::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.16), transparent 55%);
+    pointer-events: none;
+  }
+  .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.2); }
+  .contact-btn:active { transform: translateY(0); }
+  .cb-icon {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: rgba(255,255,255,0.18);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-btn img { width: 20px; height: 20px; object-fit: contain; border-radius: 4px; }
+  .contact-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .cb-text { display: flex; flex-direction: column; gap: 1px; }
+  .cb-title { font-size: .84rem; font-weight: 700; }
+  .cb-sub { font-size: .68rem; font-weight: 400; opacity: .85; }
+  .btn-eitaa  { background: linear-gradient(135deg, #d44010, #ee7a2e); }
+  .btn-tg     { background: linear-gradient(135deg, #006fa8, #22aee0); }
+  .btn-phone  { background: linear-gradient(135deg, #2d4a3e, #4a8168); }
+  .btn-ig-dm  { background: linear-gradient(135deg, #a3208e, #e0590e); }
+  @media (max-width: 380px) {
+    .btns-grid { grid-template-columns: 1fr; }
+  }
+  .contact-note {
+    display: flex; align-items: center; gap: 7px;
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #e8f5fe;
+    border: 1px solid #bfe3f7;
+    border-radius: 20px;
+    font-size: .76rem; font-weight: 500;
+    color: #0077a8;
+    width: fit-content;
+  }
+  .contact-note .ti { font-size: 14px; color: #0088cc; flex-shrink: 0; }
 
   /* ─── BACK BUTTON ─── */
   .back-btn {
@@ -321,6 +430,8 @@
 </style>
 </head>
 <body>
+
+<div class="ad-tag">آگهی تبلیغات</div>
 
 <div class="bg-decor">
   <div class="blob blob1"></div>
@@ -347,6 +458,17 @@
     <h1>تعرفه تبلیغات</h1>
     <p>پیج اینستاگرام · کانال تلگرام · کانال اینستاگرام</p>
     <div class="hero-divider"></div>
+  </div>
+
+  <div class="notice-box">
+    <div class="notice-icon"><i class="ti ti-alert-triangle"></i></div>
+    <div class="notice-text">
+      <div class="notice-title"><i class="ti ti-bell-ringing"></i> اطلاعیه مهم</div>
+      <div class="notice-body">
+        همراهان گرامی، از <b>پنج‌شنبه اول مردادماه</b> افزایش تعرفه تبلیغات را خواهیم داشت.
+        چنانچه قصد تبلیغ دارید، هرچه سریع‌تر روزهای پیش را رزرو بفرمایید.
+      </div>
+    </div>
   </div>
 
   <div class="section-label">تعرفه‌ها</div>
@@ -388,6 +510,66 @@
     </div>
   </div>
 
+  <div class="section-label">تماس جهت تبلیغات</div>
+  <div class="btns-grid">
+    <a rel="nofollow" href="https://eitaa.com/PayamGir55" class="contact-btn btn-eitaa" target="_blank">
+      <div class="cb-icon"><img src="https://i.imgur.com/2t6c6D6.png" alt="ایتا"></div>
+      <div class="cb-text">
+        <span class="cb-title">پشتیبانی ایتا</span>
+        <span class="cb-sub">PayamGir55</span>
+      </div>
+    </a>
+    <a rel="nofollow" href="https://t.me/PayamGir55" class="contact-btn btn-tg" target="_blank">
+      <div class="cb-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.686-1.67 7.862c-.123.557-.453.693-.918.432l-2.54-1.872-1.226 1.178c-.136.135-.25.248-.511.248l.181-2.594 4.705-4.25c.204-.181-.044-.282-.317-.1l-5.813 3.66-2.504-.782c-.544-.17-.555-.544.113-.806l9.78-3.77c.452-.164.847.11.72.794z"/></svg>
+      </div>
+      <div class="cb-text">
+        <span class="cb-title">پشتیبانی تلگرام</span>
+        <span class="cb-sub">PayamGir55</span>
+      </div>
+    </a>
+    <a href="tel:+989394451455" class="contact-btn btn-phone">
+      <div class="cb-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      </div>
+      <div class="cb-text">
+        <span class="cb-title">شماره موبایل</span>
+        <span class="cb-sub">پیام‌رسان تلگرام و ایتا</span>
+      </div>
+    </a>
+    <a rel="nofollow" href="https://www.instagram.com/groupnet55" class="contact-btn btn-ig-dm" target="_blank">
+      <div class="cb-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.25a3.25 3.25 0 1 1 0-6.5 3.25 3.25 0 0 1 0 6.5zm5.4-8.65a1.15 1.15 0 1 0 0-2.3 1.15 1.15 0 0 0 0 2.3z"/></svg>
+      </div>
+      <div class="cb-text">
+        <span class="cb-title">دایرکت اینستاگرام</span>
+        <span class="cb-sub">GroupNet55</span>
+      </div>
+    </a>
+  </div>
+  <div class="contact-note">
+    <i class="ti ti-brand-telegram"></i>
+    همواره در تلگرام سریع‌تر پاسخ می‌دهیم.
+  </div>
+
+  <div class="section-label">شرایط تبلیغ</div>
+  <div class="conditions-box">
+    <ul>
+      <li><span class="cond-dot"></span>قبل از اقدام، بنر و پیج خود را ارسال کنید.</li>
+      <li><span class="cond-dot"></span>در صورت موافقت، واریز انجام دهید.</li>
+      <li><span class="cond-dot"></span>در تبلیغ، نام و لوگوی هیچ سازمان و نهادی نباشد.</li>
+      <li><span class="cond-dot dot-warn"></span>تبلیغات به‌صورت باکس انجام نخواهد گرفت.</li>
+    </ul>
+    <div class="warn-note">
+      <i class="ti ti-alert-triangle" style="font-size:14px;flex-shrink:0"></i>
+      تعرفه‌ها ثابت است و تخفیفی داده نمی‌شود.
+    </div>
+    <div class="ban-note">
+      <i class="ti ti-ban" style="font-size:14px"></i>
+      <span>تبلیغ سایت، پیج، کانال شرط‌بندی، قمار، کازینو آنلاین، مسابقات و کاریابی به هیچ عنوان انجام نخواهد شد.</span>
+    </div>
+  </div>
+
   <div class="section-label">کانال‌ها و پیج‌ها</div>
   <div class="channels-list">
     <a rel="nofollow" class="channel-item" href="https://t.me/CafeNet55" target="_blank">
@@ -416,19 +598,6 @@
     </a>
   </div>
 
-  <div class="section-label">شرایط تبلیغ</div>
-  <div class="conditions-box">
-    <ul>
-      <li><span class="cond-dot"></span>قبل از اقدام، بنر و پیج خود را ارسال کنید.</li>
-      <li><span class="cond-dot"></span>در صورت موافقت، واریز انجام دهید.</li>
-      <li><span class="cond-dot"></span>در تبلیغ، نام و لوگوی هیچ سازمان و نهادی نباشد.</li>
-    </ul>
-    <div class="warn-note">
-      <i class="ti ti-alert-triangle" style="font-size:14px;flex-shrink:0"></i>
-      تعرفه‌ها ثابت است و تخفیفی داده نمی‌شود.
-    </div>
-  </div>
-
   <div class="section-label">اطلاعات پرداخت</div>
   <div class="payment-section">
     <div class="payment-card" onclick="copyText('5041721228069770', 'شماره کارت کپی شد!')">
@@ -449,22 +618,6 @@
       <div class="sheba-num">IR60 0700 0100 0111 2302 8090 01</div>
       <div class="card-owner" style="margin-top:.35rem">سیدمحمدرضا طلوع مقدم سبزوار</div>
     </div>
-  </div>
-
-  <div class="section-label">تماس جهت تبلیغات</div>
-  <div class="btns-grid">
-    <a rel="nofollow" href="https://eitaa.com/PayamGir55" class="contact-btn btn-eitaa" target="_blank">
-      <img src="https://i.imgur.com/2t6c6D6.png" width="14" height="14" loading="lazy" decoding="async" alt="ایتا">
-      پشتیبانی ایتا
-    </a>
-    <a rel="nofollow" href="https://t.me/PayamGir55" class="contact-btn btn-tg" target="_blank">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.686-1.67 7.862c-.123.557-.453.693-.918.432l-2.54-1.872-1.226 1.178c-.136.135-.25.248-.511.248l.181-2.594 4.705-4.25c.204-.181-.044-.282-.317-.1l-5.813 3.66-2.504-.782c-.544-.17-.555-.544.113-.806l9.78-3.77c.452-.164.847.11.72.794z"/></svg>
-      پشتیبانی تلگرام
-    </a>
-    <a href="tel:+989394451455" class="contact-btn btn-phone">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-      شماره پیام‌رسان تلگرام و ایتا
-    </a>
   </div>
 
   <a href="/" class="back-btn">
