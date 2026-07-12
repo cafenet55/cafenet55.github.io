@@ -17,6 +17,8 @@
     --slate:#5C6470;
     --hairline:#ECE7DD;
     --teal:#2E8B7E;
+    --violet:#8B3DFF;
+    --turquoise:#17C3B2;
     --shadow-sm: 0 1px 2px rgba(20,33,61,0.04);
     --shadow-md: 0 6px 20px -8px rgba(20,33,61,0.18);
     --shadow-lg: 0 14px 34px -12px rgba(20,33,61,0.22);
@@ -101,15 +103,25 @@
     content: "";
     position: absolute; inset: -6px;
     border-radius: 50%;
-    background: conic-gradient(from 200deg, var(--amber), #F4C77A, var(--amber) 80%);
-    opacity: 0.9;
+    background: conic-gradient(from 200deg, var(--violet), var(--turquoise), var(--violet) 55%, var(--turquoise) 80%, var(--violet) 100%);
+    opacity: 0.95;
     filter: blur(0.3px);
+    animation: ring-rotate 6s linear infinite;
   }
   .logo-ring::after {
     content: "";
     position: absolute; inset: -6px;
     border-radius: 50%;
-    box-shadow: 0 10px 26px -6px rgba(232,163,61,0.55);
+    box-shadow: 0 10px 26px -6px rgba(139,61,255,0.4), 0 10px 26px -6px rgba(23,195,178,0.35);
+  }
+
+  @keyframes ring-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo-ring::before { animation: none; }
   }
   .logo-circle {
     position: relative;
@@ -235,34 +247,34 @@
   <div class="glow glow-3"></div>
 
   <div class="spark s-md" style="top:8%; right:12%; animation-delay:0s;">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 4.8 2.2 8 5 10.5C14.2 13 12.6 16.2 12 21c-.6-4.8-2.2-8-5-10.5C9.8 8 11.4 4.8 12 0z"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(18 12 12)"/><ellipse cx="12" cy="12" rx="6" ry="2.3" transform="rotate(18 12 12)" opacity="0.7"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>
   </div>
   <div class="spark s-sm" style="top:16%; right:30%; animation-delay:0.8s;">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 4.8 2.2 8 5 10.5C14.2 13 12.6 16.2 12 21c-.6-4.8-2.2-8-5-10.5C9.8 8 11.4 4.8 12 0z"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7h15M4.5 17h15"/></svg>
   </div>
   <div class="spark s-lg c-teal" style="top:4%; left:8%; animation-delay:1.4s;">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 4.8 2.2 8 5 10.5C14.2 13 12.6 16.2 12 21c-.6-4.8-2.2-8-5-10.5C9.8 8 11.4 4.8 12 0z"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-15 12 12)"/><ellipse cx="12" cy="12" rx="6" ry="2.3" transform="rotate(-15 12 12)" opacity="0.7"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>
   </div>
   <div class="spark s-sm c-ink" style="top:26%; left:18%; animation-delay:2s;">
-    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7h15M4.5 17h15"/></svg>
   </div>
   <div class="spark s-md" style="top:46%; left:6%; animation-delay:0.5s;">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 4.8 2.2 8 5 10.5C14.2 13 12.6 16.2 12 21c-.6-4.8-2.2-8-5-10.5C9.8 8 11.4 4.8 12 0z"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(18 12 12)"/><ellipse cx="12" cy="12" rx="6" ry="2.3" transform="rotate(18 12 12)" opacity="0.7"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>
   </div>
   <div class="spark s-sm c-teal" style="top:58%; right:9%; animation-delay:1.9s;">
-    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7h15M4.5 17h15"/></svg>
   </div>
   <div class="spark s-lg" style="top:68%; left:30%; animation-delay:0.3s;">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 4.8 2.2 8 5 10.5C14.2 13 12.6 16.2 12 21c-.6-4.8-2.2-8-5-10.5C9.8 8 11.4 4.8 12 0z"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-15 12 12)"/><ellipse cx="12" cy="12" rx="6" ry="2.3" transform="rotate(-15 12 12)" opacity="0.7"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>
   </div>
   <div class="spark s-sm c-ink" style="top:80%; right:22%; animation-delay:1.1s;">
-    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7h15M4.5 17h15"/></svg>
   </div>
   <div class="spark s-md c-teal" style="top:88%; left:12%; animation-delay:2.4s;">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c.6 4.8 2.2 8 5 10.5C14.2 13 12.6 16.2 12 21c-.6-4.8-2.2-8-5-10.5C9.8 8 11.4 4.8 12 0z"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(18 12 12)"/><ellipse cx="12" cy="12" rx="6" ry="2.3" transform="rotate(18 12 12)" opacity="0.7"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>
   </div>
   <div class="spark s-sm" style="top:94%; right:38%; animation-delay:1.6s;">
-    <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="12"/></svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M4.5 7h15M4.5 17h15"/></svg>
   </div>
 </div>
 
@@ -367,6 +379,16 @@
         </svg>
       </div>
       <div class="link-title">مجوزهای ما</div>
+      <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+    </a>
+
+    <a class="link-card" href="https://cafenet55.github.io/download.html">
+      <div class="icon-wrap srv">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0F8F86" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v11"/><path d="M8 10l4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>
+        </svg>
+      </div>
+      <div class="link-title">دانلود و نصب</div>
       <span class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
     </a>
 
