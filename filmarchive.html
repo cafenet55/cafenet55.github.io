@@ -11,18 +11,70 @@
 
   body {
     font-family: 'Vazirmatn', Tahoma, sans-serif;
-    background: #f4f5f7;
     color: #1a1a1a;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: 2rem 1.25rem 9rem;
+    position: relative;
+    overflow-x: hidden;
+
+    /* layered mesh-gradient background */
+    background-color: #f4f5f7;
+    background-image:
+      radial-gradient(circle at 12% 8%,  rgba(109, 40, 217, 0.16) 0%, rgba(109, 40, 217, 0) 42%),
+      radial-gradient(circle at 90% 12%, rgba(224, 123, 26, 0.14) 0%, rgba(224, 123, 26, 0) 40%),
+      radial-gradient(circle at 85% 78%, rgba(14, 160, 98, 0.14) 0%, rgba(14, 160, 98, 0) 45%),
+      radial-gradient(circle at 8% 88%,  rgba(109, 40, 217, 0.12) 0%, rgba(109, 40, 217, 0) 40%),
+      linear-gradient(160deg, #f7f6fb 0%, #f4f5f7 40%, #f8f4f0 100%);
+    background-attachment: fixed;
+  }
+
+  /* soft floating blobs for depth */
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  body::before {
+    width: 380px;
+    height: 380px;
+    top: -120px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.28), rgba(139, 92, 246, 0) 70%);
+  }
+
+  body::after {
+    width: 420px;
+    height: 420px;
+    bottom: -140px;
+    left: -120px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.22), rgba(245, 158, 11, 0) 70%);
+  }
+
+  /* faint dotted texture overlay */
+  .bg-texture {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(109, 40, 217, 0.12) 1px, transparent 1px);
+    background-size: 22px 22px;
+    -webkit-mask-image: radial-gradient(circle at 50% 30%, rgba(0,0,0,0.5), transparent 75%);
+    mask-image: radial-gradient(circle at 50% 30%, rgba(0,0,0,0.5), transparent 75%);
   }
 
   .page {
     width: 100%;
     max-width: 520px;
+    position: relative;
+    z-index: 1;
   }
 
   .brand-bar {
@@ -48,11 +100,14 @@
   }
 
   .card {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 0.5px solid #e5e7eb;
     border-radius: 20px;
     padding: 1.5rem;
     margin-bottom: 10px;
+    box-shadow: 0 10px 30px -12px rgba(76, 29, 149, 0.12);
   }
 
   .section-title {
@@ -80,10 +135,10 @@
     font-size: 13px;
     font-weight: 600;
     color: #fff;
-    transition: opacity 0.15s;
+    transition: opacity 0.15s, transform 0.15s;
   }
 
-  .m-btn:hover { opacity: 0.88; }
+  .m-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 
   .btn-ble   { background: #0EA062; }
   .btn-eitaa { background: #E07B1A; }
@@ -132,11 +187,11 @@
     border-radius: 14px;
     overflow: hidden;
     border: 0.5px solid #e5e7eb;
-    transition: border-color 0.15s;
+    transition: border-color 0.15s, transform 0.15s;
     background: #f9fafb;
   }
 
-  .gallery-item:hover { border-color: #c4b5fd; }
+  .gallery-item:hover { border-color: #c4b5fd; transform: translateY(-1px); }
 
   .gallery-item img {
     width: 100%;
@@ -189,25 +244,12 @@
 </style>
 </head>
 <body>
+<div class="bg-texture"></div>
 <div class="page">
 
   <div class="brand-bar">
     <div class="brand-logo">🎬</div>
     <span class="brand-name">آرشیو فیلم و سریال — کافی‌نت طلوع</span>
-  </div>
-
-  <div class="card" style="margin-bottom: 10px;">
-    <p class="section-title">کانال‌های ما در پیام‌رسان‌های داخلی</p>
-    <div class="messenger-btns">
-      <a rel="nofollow" href="https://ble.ir/CafeFilm55" class="m-btn btn-ble" target="_blank">
-        <img src="https://i.imgur.com/uECHXOx.png" alt="بله">
-        کافه فیلم بله
-      </a>
-      <a rel="nofollow" href="https://eitaa.com/CafeFilm55" class="m-btn btn-eitaa" target="_blank">
-        <img src="https://i.imgur.com/2t6c6D6.png" alt="ایتا">
-        کافه فیلم ایتا
-      </a>
-    </div>
   </div>
 
   <div class="alert-box" style="margin-bottom: 10px;">
@@ -244,6 +286,20 @@
       </a>
       <a rel="nofollow" class="gallery-item" href="https://t.me/addlist/dbQ-uQML4hQwZWE0" target="_blank">
         <img alt="شبکات طلوع" src="https://i.imgur.com/ZlmUP2V.png" loading="lazy">
+      </a>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom: 10px;">
+    <p class="section-title">کانال‌های ما در پیام‌رسان‌های داخلی</p>
+    <div class="messenger-btns">
+      <a rel="nofollow" href="https://ble.ir/CafeFilm55" class="m-btn btn-ble" target="_blank">
+        <img src="https://i.imgur.com/uECHXOx.png" alt="بله">
+        کافه فیلم بله
+      </a>
+      <a rel="nofollow" href="https://eitaa.com/CafeFilm55" class="m-btn btn-eitaa" target="_blank">
+        <img src="https://i.imgur.com/2t6c6D6.png" alt="ایتا">
+        کافه فیلم ایتا
       </a>
     </div>
   </div>
