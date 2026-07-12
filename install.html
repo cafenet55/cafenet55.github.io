@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کافی‌نت طلوع | دانلود تلگرام، اینستاگرام و ایتا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #fff8ef;
+    --surface: #ffffff;
+    --surface-alt: #fff2de;
+    --line: #efe2cd;
+    --text: #2b2620;
+    --muted: #8c8170;
+    --muted-2: #b3a891;
+
+    --gold: #f2a93b;
+    --coral: #ef7452;
+    --sky: #3f8fc0;
+
+    --telegram: #2ea6e8;
+    --telegram-ink: #0d3c56;
+
+    --ig-1: #f9ce34;
+    --ig-2: #ee2a7b;
+    --ig-3: #6228d7;
+
+    --eitaa: #14ad8f;
+    --eitaa-ink: #0b3a30;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family:'Vazirmatn', sans-serif;
+    line-height:1.75;
+  }
+
+  .wrap{ max-width:960px; margin:0 auto; padding:0 24px; }
+
+  /* ---------- NAV ---------- */
+  nav{ padding:30px 0 0; display:flex; align-items:center; justify-content:space-between; }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:800; font-size:18px; }
+  .brand-mark{
+    width:34px; height:34px; border-radius:10px;
+    background: linear-gradient(135deg, var(--gold), var(--coral));
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .brand-mark svg{ width:18px; height:18px; }
+
+  /* ---------- HERO ---------- */
+  .hero{ padding: 64px 0 40px; text-align:center; position:relative; }
+
+  .sunrise{
+    width:220px; height:120px; margin: 0 auto 34px;
+  }
+
+  h1{
+    font-size: clamp(32px, 5.6vw, 52px);
+    font-weight:800; letter-spacing:-0.02em; line-height:1.3;
+    margin-bottom:18px;
+  }
+  h1 em{
+    font-style:normal;
+    background: linear-gradient(90deg, var(--coral), var(--gold));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero > p{
+    max-width:540px; margin:0 auto; color:var(--muted); font-size:16.5px;
+  }
+
+  .support-note{
+    display:flex; align-items:center; gap:12px;
+    max-width: 620px; margin: 34px auto 0;
+    background: var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px 20px;
+    text-align:right;
+    box-shadow: 0 10px 30px -18px rgba(43,38,32,0.25);
+  }
+  .support-note svg{ flex-shrink:0; width:26px; height:26px; }
+  .support-note p{ font-size:14.5px; color:var(--text); }
+  .support-note strong{ color: var(--telegram-ink); }
+
+  /* horizon divider */
+  .horizon{
+    height:2px; border:none;
+    margin: 56px 0;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--coral), var(--gold), transparent);
+    opacity:0.5;
+  }
+
+  /* ---------- APP CARDS ---------- */
+  .apps{ display:flex; flex-direction:column; gap:22px; }
+
+  .app-card{
+    background: var(--surface);
+    border:1px solid var(--line);
+    border-radius:26px;
+    padding: 34px;
+    display:grid;
+    grid-template-columns: 96px 1fr;
+    gap:28px;
+    box-shadow: 0 16px 40px -28px rgba(43,38,32,0.35);
+  }
+
+  .icon-box{
+    width:96px; height:96px; border-radius:24px;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .icon-box.tg{ background: linear-gradient(145deg,#4dc0f5,#1f83bc); }
+  .icon-box.ig{ background: linear-gradient(145deg, var(--ig-1), var(--ig-2) 55%, var(--ig-3)); }
+  .icon-box.et{ background: var(--surface-alt); border:1px solid var(--line); }
+  .icon-box svg{ width:50px; height:50px; }
+  .icon-box img{ width:64px; height:64px; object-fit:contain; }
+
+  .card-top{ display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:8px; }
+  .card-top h2{ font-size:23px; font-weight:800; }
+  .tag{
+    font-size:12px; font-weight:700; padding:4px 12px; border-radius:999px;
+  }
+  .tag.tg{ background: rgba(46,166,232,0.12); color: var(--telegram-ink); }
+  .tag.ig{ background: rgba(238,42,123,0.12); color:#9c1a5c; }
+  .tag.et{ background: rgba(20,173,143,0.12); color: var(--eitaa-ink); }
+
+  .desc{ color:var(--muted); font-size:15px; margin-bottom:20px; max-width:560px; }
+
+  .btn-row{ display:flex; flex-wrap:wrap; gap:10px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 16px; border-radius:12px;
+    font-size:13.5px; font-weight:600;
+    text-decoration:none; color:var(--text);
+    background: var(--surface-alt);
+    border:1px solid var(--line);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn svg{ width:18px; height:18px; flex-shrink:0; }
+  .btn:hover{ transform: translateY(-2px); box-shadow: 0 8px 20px -12px rgba(43,38,32,0.4); }
+
+  .btn.tg-b{ background: rgba(46,166,232,0.1); border-color: rgba(46,166,232,0.25); }
+  .btn.ig-b{ background: rgba(238,42,123,0.08); border-color: rgba(238,42,123,0.2); }
+  .btn.et-b{ background: rgba(20,173,143,0.1); border-color: rgba(20,173,143,0.25); }
+
+  /* ---------- FINAL CTA ---------- */
+  .final{ padding: 20px 0 90px; text-align:center; }
+  .final h3{ font-size: clamp(22px,3.6vw,30px); font-weight:800; margin-bottom:12px; }
+  .final p{ color:var(--muted); margin-bottom:32px; }
+
+  .final-actions{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px; }
+
+  .btn-contact{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:15px 30px; border-radius:14px;
+    background: linear-gradient(90deg, var(--coral), var(--gold));
+    color:#2a1400; font-weight:800; font-size:15px;
+    text-decoration:none;
+    box-shadow: 0 16px 34px -14px rgba(239,116,82,0.55);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-contact:hover{ transform: translateY(-2px); }
+  .btn-contact svg{ width:20px; height:20px; }
+
+  .btn-home{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:15px 30px; border-radius:14px;
+    background: var(--surface); color:var(--text);
+    font-weight:700; font-size:15px;
+    text-decoration:none; border:1px solid var(--line);
+    transition: transform .15s ease, background .15s ease;
+  }
+  .btn-home:hover{ transform: translateY(-2px); background: var(--surface-alt); }
+  .btn-home svg{ width:19px; height:19px; }
+
+  footer{ text-align:center; padding:0 0 44px; color:var(--muted-2); font-size:13px; }
+
+  @media (max-width:640px){
+    .app-card{ grid-template-columns:1fr; text-align:center; }
+    .icon-box{ margin:0 auto; }
+    .card-top, .btn-row{ justify-content:center; }
+    .support-note{ flex-direction:column; text-align:center; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .btn, .btn-contact, .btn-home{ transition:none; }
+  }
+
+  :focus-visible{ outline: 2px solid var(--coral); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <div class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+      </span>
+      دانلود کن نصب کن
+    </div>
+  </nav>
+
+  <section class="hero">
+    <p>تلگرام رو نصب کن، اینستاگرام رو کنارش داشته باش، و برای اطمینان خاطر بیشتر، ایتا رو هم همراهت نگه دار.</p>
+
+    <div class="support-note">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16a1 1 0 011 1v10a1 1 0 01-1 1H8l-5 4V6a1 1 0 011-1z" stroke="var(--coral)" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <p><strong>کافی‌نت طلوع</strong> در تلگرام و ایتا پاسخگوی شماست؛ اما پاسخ‌گویی در تلگرام همیشه سریع‌تر انجام می‌شود.</p>
+    </div>
+  </section>
+
+  <hr class="horizon">
+
+  <section class="apps">
+
+    <!-- TELEGRAM -->
+    <article class="app-card">
+      <div class="icon-box tg">
+        <svg viewBox="0 0 240 240" fill="none">
+          <path d="M56 108l128-49c6-2 11 1 9 10l-22 105c-2 8-7 10-14 6l-38-28-18 17c-2 2-4 3-7 3l3-38 68-62c3-3-1-4-4-2l-84 53-36-11c-8-3-8-8 2-11z" fill="#fff"/>
+        </svg>
+      </div>
+      <div>
+        <div class="card-top">
+          <h2>تلگرام</h2>
+          <span class="tag tg">پیام‌رسان اصلی</span>
+        </div>
+        <p class="desc">سریع، امن و بدون محدودیت؛ گروه، کانال و تماس صوتی/تصویری در یک اپلیکیشن سبک.</p>
+        <div class="btn-row">
+          <a class="btn tg-b" href="https://telegram.org/dl/android" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 20.5V3.5a1 1 0 011.5-.87l15 8.5a1 1 0 010 1.74l-15 8.5A1 1 0 013 20.5z" fill="currentColor"/></svg>
+            گوگل‌پلی (اندروید)
+          </a>
+          <a class="btn tg-b" href="https://telegram.org/dl/ios" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M16.5 12.3c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.5.8-3.1.8-.6 0-1.6-.7-2.7-.7-1.4 0-2.7.8-3.4 2-1.4 2.5-.4 6.2 1 8.3.7 1 1.5 2.1 2.6 2 1-.1 1.4-.7 2.7-.7 1.3 0 1.6.7 2.7.6 1.1 0 1.8-1 2.5-2 .8-1.1 1.1-2.2 1.1-2.3-.1 0-2.2-.8-2.2-3.2zM14.4 5.6c.6-.7 1-1.7.9-2.6-.8 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.5.9.1 1.9-.5 2.5-1.2z" fill="currentColor"/></svg>
+            اپ‌استور (آیفون)
+          </a>
+          <a class="btn tg-b" href="https://desktop.telegram.org" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 5h8v6H3zM13 5h8v6h-8zM3 13h8v6H3zM13 13h8v6h-8z" fill="currentColor"/></svg>
+            ویندوز / مک
+          </a>
+          <a class="btn tg-b" href="https://web.telegram.org" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18" stroke="currentColor" stroke-width="1.6"/></svg>
+            نسخه وب
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- INSTAGRAM -->
+    <article class="app-card">
+      <div class="icon-box ig">
+        <svg viewBox="0 0 240 240" fill="none">
+          <rect x="46" y="46" width="148" height="148" rx="40" stroke="#fff" stroke-width="12"/>
+          <circle cx="120" cy="120" r="34" stroke="#fff" stroke-width="12"/>
+          <circle cx="162" cy="78" r="9" fill="#fff"/>
+        </svg>
+      </div>
+      <div>
+        <div class="card-top">
+          <h2>اینستاگرام</h2>
+          <span class="tag ig">شبکه اجتماعی</span>
+        </div>
+        <p class="desc">عکس، ریلز و استوری؛ جایی برای دنبال‌کردن علاقه‌مندی‌ها و در ارتباط بودن با دوستانت.</p>
+        <div class="btn-row">
+          <a class="btn ig-b" href="https://play.google.com/store/apps/details?id=com.instagram.android" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 20.5V3.5a1 1 0 011.5-.87l15 8.5a1 1 0 010 1.74l-15 8.5A1 1 0 013 20.5z" fill="currentColor"/></svg>
+            گوگل‌پلی (اندروید)
+          </a>
+          <a class="btn ig-b" href="https://apps.apple.com/app/instagram/id389801252" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M16.5 12.3c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.5.8-3.1.8-.6 0-1.6-.7-2.7-.7-1.4 0-2.7.8-3.4 2-1.4 2.5-.4 6.2 1 8.3.7 1 1.5 2.1 2.6 2 1-.1 1.4-.7 2.7-.7 1.3 0 1.6.7 2.7.6 1.1 0 1.8-1 2.5-2 .8-1.1 1.1-2.2 1.1-2.3-.1 0-2.2-.8-2.2-3.2zM14.4 5.6c.6-.7 1-1.7.9-2.6-.8 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.5.9.1 1.9-.5 2.5-1.2z" fill="currentColor"/></svg>
+            اپ‌استور (آیفون)
+          </a>
+          <a class="btn ig-b" href="https://www.instagram.com" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18" stroke="currentColor" stroke-width="1.6"/></svg>
+            نسخه وب
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- EITAA -->
+    <article class="app-card">
+      <div class="icon-box et">
+        <img src="https://i.imgur.com/2t6c6D6.png" alt="ایتا">
+      </div>
+      <div>
+        <div class="card-top">
+          <h2>ایتا</h2>
+          <span class="tag et">پیام‌رسان داخلی</span>
+        </div>
+        <p class="desc">به‌عنوان یک گزینه‌ی مکمل و پایدار، ایتا را هم نصب کن تا در هر شرایطی ارتباطت قطع نشود.</p>
+        <div class="btn-row">
+          <a class="btn et-b" href="https://cafebazaar.ir/app/ir.eitaa.messenger/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M4 10h16l-2 9a1.5 1.5 0 01-1.5 1.2H7.5A1.5 1.5 0 016 19l-2-9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M4 10c2-1.2 4-1.8 8-1.8s6 .6 8 1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="9" cy="6" r="1.6" stroke="currentColor" stroke-width="1.4"/>
+              <circle cx="13.2" cy="5" r="1.6" stroke="currentColor" stroke-width="1.4"/>
+              <circle cx="16.8" cy="6.4" r="1.6" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M6.5 13.5h11M6 16.5h12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+            کافه‌بازار
+          </a>
+          <a class="btn et-b" href="https://myket.ir/app/ir.eitaa.messenger" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" style="width:26px;height:26px;"><path d="M5 9c1.5 4.5 12.5 4.5 14 0" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            مایکت
+          </a>
+          <a class="btn et-b" href="https://eitaa.com/app/apk" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0l-4-4m4 4l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            دریافت مستقیم APK
+          </a>
+          <a class="btn et-b" href="https://eitaa.com/app/win" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 5h8v6H3zM13 5h8v6h-8zM3 13h8v6H3zM13 13h8v6h-8z" fill="currentColor"/></svg>
+            ویندوز
+          </a>
+          <a class="btn et-b" href="https://web.eitaa.com" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18" stroke="currentColor" stroke-width="1.6"/></svg>
+            نسخه وب
+          </a>
+          <a class="btn et-b" href="https://eitaa.com/desktop" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="1.5" stroke="currentColor" stroke-width="1.8"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            مک، لینوکس و سایر نسخه‌ها
+          </a>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <hr class="horizon">
+
+  <section class="final">
+    <h3>سؤالی داری یا به کمک نیاز داری؟</h3>
+    <p>تیم کافی‌نت طلوع آماده‌ی پاسخ‌گویی به توست.</p>
+    <div class="final-actions">
+      <a class="btn-contact" href="https://cafenet55.github.io/contact.html" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16a1 1 0 011 1v10a1 1 0 01-1 1H8l-5 4V6a1 1 0 011-1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        تماس با ما
+      </a>
+      <a class="btn-home" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 6l-6 6 6 6M4 12h16" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        بازگشت به صفحه اصلی
+      </a>
+    </div>
+  </section>
+
+  <footer>تمام لینک‌های دانلود مستقیم و رسمی هستند.</footer>
+</div>
+
+</body>
+</html>
