@@ -5,168 +5,154 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>آدرس | کافی‌نت طلوع سبزوار</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
   :root{
-    --g1:#0a1628; --g2:#0d1f14; --g3:#06110a;
-    --acc:#00e5a0; --acc2:#00b87a; --acc3:#00ffc3;
-    --border:rgba(0,229,160,.15); --border2:rgba(0,229,160,.3);
-    --text:rgba(220,255,240,.9); --muted:rgba(160,220,190,.5);
+    --bg:#f6f8f9; --surface:#ffffff;
+    --ink:#111827; --muted:#6b7280;
+    --acc:#059669; --acc2:#047857; --acc3:#10b981;
+    --border:rgba(5,150,105,.14); --border2:rgba(5,150,105,.28);
+    --line:#e5e9eb;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     font-family:'Vazirmatn',Tahoma,sans-serif;
-    background:var(--g1);
-    color:var(--text);
+    background:var(--bg);
+    color:var(--ink);
     min-height:100vh;
-    overflow-x:hidden;
-    padding-bottom:80px;
+    padding-bottom:70px;
   }
   .bg{position:fixed;inset:0;z-index:0;pointer-events:none;}
   .bg-mesh{
     position:absolute;inset:0;
     background:
-      radial-gradient(ellipse 80% 60% at 10% 10%,rgba(0,180,100,.12),transparent),
-      radial-gradient(ellipse 70% 50% at 90% 80%,rgba(0,100,60,.1),transparent),
-      radial-gradient(ellipse 50% 40% at 50% 50%,rgba(0,229,160,.04),transparent),
-      linear-gradient(160deg,var(--g3) 0%,var(--g1) 50%,var(--g2) 100%);
+      radial-gradient(ellipse 70% 55% at 12% 8%, rgba(5,150,105,.06), transparent 60%),
+      radial-gradient(ellipse 60% 45% at 92% 85%, rgba(5,150,105,.05), transparent 60%),
+      linear-gradient(160deg,#ffffff 0%,#f6f8f9 55%,#f1f4f5 100%);
   }
-  .bg-grid{
-    position:absolute;inset:0;
-    background-image:
-      linear-gradient(rgba(0,229,160,.04) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(0,229,160,.04) 1px,transparent 1px);
-    background-size:52px 52px;
-  }
-  .bg-orb1{position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(rgba(0,229,160,.07),transparent 70%);animation:pulse 8s ease-in-out infinite;}
-  .bg-orb2{position:absolute;bottom:-200px;left:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(rgba(0,150,80,.07),transparent 70%);animation:pulse 10s ease-in-out infinite reverse;}
-  @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
   .wrap{position:relative;z-index:1;max-width:740px;margin:0 auto;padding:0 20px 40px;}
-  .hero{text-align:center;padding:80px 20px 60px;}
+
+  .hero{text-align:center;padding:72px 20px 52px;}
   .hero-badge{
     display:inline-flex;align-items:center;gap:8px;
-    font-size:.78rem;font-weight:600;letter-spacing:2px;color:var(--acc);
-    background:rgba(0,229,160,.08);border:1px solid var(--border2);
-    border-radius:100px;padding:6px 18px;margin-bottom:28px;
+    font-size:.78rem;font-weight:600;letter-spacing:1.5px;color:var(--acc2);
+    background:rgba(5,150,105,.08);border:1px solid var(--border2);
+    border-radius:100px;padding:6px 18px;margin-bottom:26px;
   }
-  .hero-badge::before{content:'';width:6px;height:6px;background:var(--acc);border-radius:50%;animation:blink 2s infinite;}
-  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+  .hero-badge::before{content:'';width:6px;height:6px;background:var(--acc);border-radius:50%;}
   .hero h1{
-    font-size:clamp(2rem,7vw,3.6rem);font-weight:900;line-height:1.15;
-    background:linear-gradient(135deg,#fff 0%,#b8ffd8 40%,var(--acc) 80%,var(--acc2) 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    margin-bottom:14px;
+    font-size:clamp(2rem,6.5vw,3.2rem);font-weight:800;line-height:1.25;
+    color:var(--ink);letter-spacing:-.5px;margin-bottom:14px;
   }
-  .hero-sub{font-size:1rem;color:var(--muted);font-weight:300;letter-spacing:.5px;}
+  .hero h1 span{
+    background:linear-gradient(135deg,var(--acc2),var(--acc));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{font-size:1rem;color:var(--muted);font-weight:400;}
+
   .divider{display:flex;align-items:center;gap:16px;margin:44px 0 24px;}
-  .divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);}
+  .divider-line{flex:1;height:1px;background:var(--line);}
   .divider-label{
-    font-size:.82rem;font-weight:700;letter-spacing:2px;color:var(--acc);white-space:nowrap;
-    background:rgba(0,229,160,.07);border:1px solid var(--border);
+    font-size:.8rem;font-weight:700;letter-spacing:.5px;color:var(--acc2);white-space:nowrap;
+    background:rgba(5,150,105,.06);border:1px solid var(--border);
     border-radius:100px;padding:5px 16px;
   }
+
   .addr-card{
     position:relative;overflow:hidden;
-    background:linear-gradient(135deg,rgba(0,229,160,.09),rgba(0,229,160,.03));
-    border:1px solid var(--border2);
-    border-radius:28px;padding:32px 36px;
-    box-shadow:0 20px 60px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.05);
-  }
-  .addr-card::before{
-    content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);
-    width:300px;height:160px;
-    background:radial-gradient(rgba(0,229,160,.15),transparent 70%);
-    pointer-events:none;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:22px;padding:30px 32px;
+    box-shadow:0 16px 40px -20px rgba(17,24,39,.15);
   }
   .addr-pin-row{display:flex;align-items:center;gap:16px;}
   .pin-icon-wrap{
-    flex-shrink:0;width:52px;height:52px;border-radius:16px;
-    background:linear-gradient(135deg,var(--acc2),#006640);
+    flex-shrink:0;width:52px;height:52px;border-radius:15px;
+    background:linear-gradient(135deg,var(--acc),var(--acc2));
     display:flex;align-items:center;justify-content:center;
-    box-shadow:0 8px 24px rgba(0,229,160,.25);
+    box-shadow:0 10px 24px -8px rgba(5,150,105,.45);
   }
   .pin-icon-wrap svg{width:26px;height:26px;fill:white;}
   .addr-text{flex:1;}
-  .addr-label{font-size:.75rem;font-weight:600;letter-spacing:2px;color:var(--acc);margin-bottom:6px;opacity:.7;}
-  .addr-value{font-size:clamp(1rem,3.5vw,1.35rem);font-weight:700;color:#fff;line-height:1.6;}
+  .addr-label{font-size:.75rem;font-weight:600;letter-spacing:1.5px;color:var(--acc2);margin-bottom:6px;}
+  .addr-value{font-size:clamp(1rem,3.5vw,1.3rem);font-weight:700;color:var(--ink);line-height:1.7;}
+
   .map-btn{
     display:flex;align-items:center;gap:16px;
-    text-decoration:none;color:rgba(220,255,240,.92);font-weight:600;font-size:1rem;
-    padding:20px 28px;border-radius:22px;
-    background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-    border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 8px 32px rgba(0,0,0,.35);
+    text-decoration:none;color:var(--ink);font-weight:600;font-size:1rem;
+    padding:19px 26px;border-radius:20px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    box-shadow:0 12px 30px -18px rgba(17,24,39,.18);
     transition:all .25s ease;
-    position:relative;overflow:hidden;
   }
-  .map-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,229,160,.05),transparent);opacity:0;transition:opacity .25s;}
-  .map-btn:hover{transform:translateY(-4px);border-color:rgba(0,229,160,.3);box-shadow:0 16px 48px rgba(0,0,0,.45),0 0 0 1px rgba(0,229,160,.15);}
-  .map-btn:hover::after{opacity:1;}
+  .map-btn:hover{transform:translateY(-3px);border-color:var(--border2);box-shadow:0 20px 40px -18px rgba(5,150,105,.25);}
   .map-icon{
-    width:52px;height:52px;flex-shrink:0;border-radius:16px;
+    width:50px;height:50px;flex-shrink:0;border-radius:15px;
     background:linear-gradient(135deg,#4285f4,#1a4fba);
     display:flex;align-items:center;justify-content:center;
-    box-shadow:0 6px 20px rgba(66,133,244,.35);
+    box-shadow:0 8px 20px -6px rgba(66,133,244,.4);
   }
-  .map-icon svg{width:28px;height:28px;fill:white;}
+  .map-icon svg{width:26px;height:26px;fill:white;}
   .btn-text{flex:1;text-align:right;}
-  .btn-title{font-size:1rem;font-weight:700;color:#fff;margin-bottom:2px;}
+  .btn-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:2px;}
   .btn-hint{font-size:.75rem;color:var(--muted);}
   .btn-arrow{
     width:36px;height:36px;border-radius:50%;
-    background:rgba(0,229,160,.1);border:1px solid rgba(0,229,160,.2);
+    background:rgba(5,150,105,.08);border:1px solid var(--border2);
     display:flex;align-items:center;justify-content:center;
     transition:all .25s;
   }
   .map-btn:hover .btn-arrow{background:var(--acc);border-color:var(--acc);}
-  .btn-arrow svg{width:18px;height:18px;stroke:var(--acc);transition:stroke .25s;}
-  .map-btn:hover .btn-arrow svg{stroke:#000;}
+  .btn-arrow svg{width:18px;height:18px;stroke:var(--acc2);transition:stroke .25s;}
+  .map-btn:hover .btn-arrow svg{stroke:#fff;}
+
   .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   @media(max-width:500px){.img-grid{grid-template-columns:1fr;}}
   .img-card{
-    border-radius:20px;overflow:hidden;
-    border:1px solid var(--border);
-    box-shadow:0 12px 40px rgba(0,0,0,.5);
-    background:#0a1a10;position:relative;
+    border-radius:18px;overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 14px 34px -20px rgba(17,24,39,.2);
+    background:var(--surface);position:relative;
   }
   .img-card img{width:100%;display:block;transition:transform .5s ease;}
   .img-card:hover img{transform:scale(1.04);}
   .img-overlay{
     position:absolute;bottom:0;left:0;right:0;
-    background:linear-gradient(transparent,rgba(0,0,0,.7));
+    background:linear-gradient(transparent,rgba(0,0,0,.55));
     padding:20px 16px 14px;
-    font-size:.75rem;font-weight:600;letter-spacing:1.5px;color:var(--acc);
+    font-size:.75rem;font-weight:600;letter-spacing:.5px;color:#fff;
   }
-  .video-card{border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:0 16px 56px rgba(0,0,0,.5);}
+
+  .video-card{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 16px 40px -20px rgba(17,24,39,.2);background:var(--surface);}
   .video-inner{position:relative;padding-bottom:56.25%;height:0;}
   .video-inner>div,.video-inner iframe{position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;border:none;}
+
   .back-btn{
     display:inline-flex;align-items:center;gap:10px;
     margin-top:56px;padding:14px 34px;
-    font-size:.95rem;font-weight:600;color:var(--acc3);
-    background:rgba(0,229,160,.07);
-    border:1px solid var(--border2);
+    font-size:.95rem;font-weight:600;color:var(--acc2);
+    background:var(--surface);
+    border:1px solid var(--line);
     border-radius:100px;text-decoration:none;
+    box-shadow:0 10px 26px -18px rgba(17,24,39,.18);
     transition:all .25s ease;
   }
-  .back-btn:hover{background:rgba(0,229,160,.14);border-color:var(--acc);color:#fff;transform:translateY(-3px);}
-  .back-btn svg{width:18px;height:18px;fill:var(--acc3);transition:fill .25s ease;}
-  .back-btn:hover svg{fill:#fff;}
-  .bottom-bar{position:fixed;bottom:0;left:0;right:0;height:3px;z-index:100;background:linear-gradient(90deg,transparent 0%,var(--acc2) 20%,var(--acc3) 50%,var(--acc2) 80%,transparent 100%);opacity:.6;}
+  .back-btn:hover{border-color:var(--border2);color:var(--acc);transform:translateY(-3px);}
+  .back-btn svg{width:18px;height:18px;fill:var(--acc2);transition:fill .25s ease;}
+
+  .bottom-bar{position:fixed;bottom:0;left:0;right:0;height:3px;z-index:100;background:linear-gradient(90deg,transparent 0%,var(--acc2) 20%,var(--acc3) 50%,var(--acc2) 80%,transparent 100%);opacity:.35;}
   .center{text-align:center;}
 </style>
 </head>
 <body>
 <div class="bg">
   <div class="bg-mesh"></div>
-  <div class="bg-grid"></div>
-  <div class="bg-orb1"></div>
-  <div class="bg-orb2"></div>
 </div>
 <div class="wrap">
   <div class="hero">
     <div class="hero-badge"><span>📍 موقعیت مکانی</span></div>
-    <h1>آدرس و لوکیشن ما</h1>
+    <h1>آدرس و <span>لوکیشن ما</span></h1>
     <p class="hero-sub">کافی‌نت طلوع سبزوار — پیدا کردن ما آسان است</p>
   </div>
   <div class="addr-card">
