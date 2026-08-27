@@ -106,31 +106,27 @@
 
   .logo-ring {
     position: relative;
-    width: 84px; height: 84px;
+    width: 96px; height: 96px;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 1.1rem;
   }
-  .ring-dots {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    animation: ring-rotate 16s linear infinite;
-    filter: drop-shadow(0 4px 10px rgba(139,61,255,0.18)) drop-shadow(0 4px 10px rgba(23,195,178,0.14));
+  .logo-ring::before {
+    content: "";
+    position: absolute; inset: 3px;
+    border-radius: 50%;
+    background: conic-gradient(from 200deg, var(--violet), var(--turquoise), var(--violet) 55%, var(--turquoise) 80%, var(--violet) 100%);
+    opacity: 0.95;
   }
-
-  @keyframes ring-rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .ring-dots { animation: none; }
+  .logo-ring::after {
+    content: "";
+    position: absolute; inset: 3px;
+    border-radius: 50%;
+    box-shadow: 0 10px 26px -6px rgba(139,61,255,0.4), 0 10px 26px -6px rgba(23,195,178,0.35);
   }
   .logo-circle {
     position: relative;
-    width: 72px; height: 72px;
+    width: 84px; height: 84px;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid var(--cream);
@@ -291,17 +287,6 @@
 
   <div class="identity">
     <div class="logo-ring">
-      <svg class="ring-dots" viewBox="0 0 100 100" aria-hidden="true">
-        <defs>
-          <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#8B3DFF"/>
-            <stop offset="35%" stop-color="#C147C9"/>
-            <stop offset="60%" stop-color="#E8A33D"/>
-            <stop offset="100%" stop-color="#17C3B2"/>
-          </linearGradient>
-        </defs>
-        <circle cx="50" cy="50" r="47" fill="none" stroke="url(#ringGrad)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="1 7.5"/>
-      </svg>
       <div class="logo-circle">
         <img src="https://i.imgur.com/G0zSI61.jpeg" alt="لوگو" />
       </div>
