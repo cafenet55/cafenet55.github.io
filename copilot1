@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نرخ نامه کافی نت</title>
+
+<style>
+body{
+    font-family:tahoma;
+    background:#f5f5f5;
+    margin:0;
+    padding:20px;
+}
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+h1{
+    text-align:center;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    margin-bottom:30px;
+}
+th,td{
+    border:1px solid #ccc;
+    padding:10px;
+}
+th{
+    background:#222;
+    color:#fff;
+}
+.price{
+    color:#d60000;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>نرخ نامه کافی نت ۱۴۰۵</h1>
+
+<table>
+<thead>
+<tr>
+<th>ردیف</th>
+<th>شرح خدمات</th>
+<th>قیمت (هزار تومان)</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>1</td>
+<td>ارسال و دریافت ایمیل تا حجم 5 مگ</td>
+<td class="price">40</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>ساخت ایمیل و رمز کاربری</td>
+<td class="price">15</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>دانلود فایل</td>
+<td class="price">35</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>هر گیگ دانلود اضافه</td>
+<td class="price">20</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>ارسال یا دریافت فکس داخل کشور</td>
+<td class="price">50</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>دریافت فکس خارجی</td>
+<td class="price">60</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>اینترنت ساعتی</td>
+<td class="price">100</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>تایپ فارسی هر صفحه</td>
+<td class="price">50</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>تایپ انگلیسی هر صفحه</td>
+<td class="price">70</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>ثبت نام کنکور</td>
+<td class="price">150</td>
+</tr>
+
+<tr>
+<td>11</td>
+<td>انتخاب رشته</td>
+<td class="price">500</td>
+</tr>
+
+<tr>
+<td>12</td>
+<td>ثبت نام آزمون استخدامی</td>
+<td class="price">150</td>
+</tr>
+
+<tr>
+<td>13</td>
+<td>ثبت نام یارانه</td>
+<td class="price">100</td>
+</tr>
+
+<tr>
+<td>14</td>
+<td>ثبت نام سهام عدالت</td>
+<td class="price">200</td>
+</tr>
+
+<tr>
+<td>15</td>
+<td>پرینت رنگی A4</td>
+<td class="price">40</td>
+</tr>
+
+<tr>
+<td>16</td>
+<td>پرینت سیاه و سفید A4</td>
+<td class="price">20</td>
+</tr>
+
+<tr>
+<td>17</td>
+<td>اسکن رنگی</td>
+<td class="price">25</td>
+</tr>
+
+<tr>
+<td>18</td>
+<td>رایت CD</td>
+<td class="price">75</td>
+</tr>
+
+<tr>
+<td>19</td>
+<td>رایت DVD</td>
+<td class="price">100</td>
+</tr>
+
+<tr>
+<td>20</td>
+<td>ثبت نام سامانه سجاد</td>
+<td class="price">200</td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+
+</body>
+</html>
