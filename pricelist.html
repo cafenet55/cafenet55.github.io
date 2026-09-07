@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>نرخ‌نامه کافی‌نت | سال ۱۴۰۵</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b2a;
+    --paper:#eef1ec;
+    --paper-2:#e2e7df;
+    --line:#c9d1c4;
+    --brass:#a8632b;
+    --brass-deep:#7c481d;
+    --teal:#2f5d56;
+    --teal-deep:#1c3a35;
+    --card:#f7f8f4;
+    --red:#a4402f;
+    --shadow: 0 1px 0 rgba(28,43,42,.06);
+    --radius: 10px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Vazirmatn', Tahoma, sans-serif;
+    line-height:1.7;
+    background-image:
+      linear-gradient(var(--paper) 0%, var(--paper) 100%),
+      repeating-linear-gradient(0deg, rgba(28,58,53,0.035) 0px, rgba(28,58,53,0.035) 1px, transparent 1px, transparent 34px);
+  }
+
+  /* ===== Header ===== */
+  header{
+    position: sticky;
+    top:0;
+    z-index:50;
+    background: linear-gradient(180deg, var(--teal-deep), var(--teal));
+    color:#eef1ec;
+    padding: 22px 20px 18px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.18);
+  }
+  .header-inner{
+    max-width:980px;
+    margin:0 auto;
+  }
+  .eyebrow-row{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    font-size:26px;
+    font-weight:800;
+    letter-spacing:.2px;
+  }
+  .brand span{
+    color:#e7c08a;
+  }
+  .subtitle{
+    font-size:13.5px;
+    opacity:.82;
+    margin-top:4px;
+  }
+  .year-badge{
+    background:#e7c08a;
+    color:#3a2411;
+    font-weight:700;
+    font-size:13px;
+    padding:6px 14px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .search-wrap{
+    margin-top:16px;
+    position:relative;
+  }
+  #search{
+    width:100%;
+    padding:13px 46px 13px 16px;
+    border-radius:10px;
+    border:none;
+    font-family:inherit;
+    font-size:15px;
+    background:#f7f8f4;
+    color:var(--ink);
+    outline: 2px solid transparent;
+    transition: outline-color .15s ease;
+  }
+  #search:focus{
+    outline-color:#e7c08a;
+  }
+  .search-icon{
+    position:absolute;
+    right:16px;
+    top:50%;
+    transform:translateY(-50%);
+    opacity:.55;
+    pointer-events:none;
+    font-size:16px;
+  }
+  .result-count{
+    font-size:12.5px;
+    opacity:.75;
+    margin-top:8px;
+  }
+
+  /* ===== Category nav ===== */
+  nav.cats{
+    max-width:980px;
+    margin:18px auto 0;
+    padding:0 20px;
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .cat-btn{
+    border:1px solid var(--line);
+    background:var(--card);
+    color:var(--ink);
+    padding:7px 14px;
+    border-radius:999px;
+    font-family:inherit;
+    font-size:13px;
+    cursor:pointer;
+    transition: all .15s ease;
+  }
+  .cat-btn:hover{ border-color:var(--brass); }
+  .cat-btn.active{
+    background:var(--teal);
+    border-color:var(--teal);
+    color:#f2efe6;
+  }
+
+  /* ===== Main ===== */
+  main{
+    max-width:980px;
+    margin:0 auto;
+    padding:26px 20px 60px;
+  }
+  section.group{
+    margin-bottom:34px;
+  }
+  section.group.hidden{ display:none; }
+  .group-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--teal);
+  }
+  .group-title{
+    font-size:17px;
+    font-weight:700;
+    color:var(--teal-deep);
+  }
+  .group-count{
+    font-size:12px;
+    color:#6b7770;
+    background:var(--paper-2);
+    padding:2px 9px;
+    border-radius:999px;
+  }
+
+  .items{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .item{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:14px 16px;
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .item.hidden{ display:none; }
+  .row-badge{
+    flex:0 0 auto;
+    width:30px;
+    height:30px;
+    border-radius:8px;
+    background:var(--teal-deep);
+    color:#eef1ec;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12.5px;
+    font-weight:700;
+    margin-top:2px;
+  }
+  .item-body{
+    flex:1 1 auto;
+    min-width:0;
+  }
+  .lines{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .line{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .line-label{
+    font-size:14.5px;
+    color:var(--ink);
+  }
+  .line-label mark{
+    background: #f3d9ab;
+    color:#3a2411;
+    padding:0 3px;
+    border-radius:3px;
+  }
+  .line-price{
+    font-weight:700;
+    color:var(--brass-deep);
+    font-size:14.5px;
+    white-space:nowrap;
+  }
+  .line-price.negotiable{
+    color:var(--red);
+  }
+  .note{
+    font-size:12px;
+    color:#6b7770;
+    margin-top:6px;
+  }
+
+  footer{
+    max-width:980px;
+    margin:0 auto;
+    padding:0 20px 50px;
+    text-align:center;
+  }
+  .disclaimer{
+    background:var(--card);
+    border:1px dashed var(--line);
+    border-radius:10px;
+    padding:16px;
+    font-size:13px;
+    color:#4c5751;
+  }
+  .disclaimer b{ color:var(--red); }
+
+  .no-result{
+    text-align:center;
+    padding:40px 10px;
+    color:#6b7770;
+    font-size:14px;
+    display:none;
+  }
+  .no-result.show{ display:block; }
+
+  @media (max-width:520px){
+    .brand{font-size:22px;}
+    .line{ flex-direction:row; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="eyebrow-row">
+      <div>
+        <div class="brand">نرخ‌نامه <span>کافی‌نت</span></div>
+        <div class="subtitle">فهرست کامل تعرفه خدمات دفاتر کافی‌نت و خدمات الکترونیک — سبزوار</div>
+      </div>
+      <div class="year-badge">سال ۱۴۰۵</div>
+    </div>
+    <div class="search-wrap">
+      <input id="search" type="text" placeholder="نام خدمت را جستجو کنید… مثلاً «بیمه»، «چک صیاد»، «پرینت»" autocomplete="off" />
+      <span class="search-icon">🔍</span>
+    </div>
+    <div class="result-count" id="resultCount"></div>
+  </div>
+</header>
+
+<nav class="cats" id="cats"></nav>
+
+<main id="main"></main>
+
+<div class="no-result" id="noResult">موردی با این عبارت پیدا نشد.</div>
+
+<footer>
+  <div class="disclaimer">
+    <b>توجه:</b> کلیهٔ مبالغ فوق به <b>ریال</b> و <b>بدون احتساب مالیات بر ارزش افزوده</b> می‌باشد.
+  </div>
+</footer>
+
+<script>
+const DATA = [
+{
+  key:"net", title:"اینترنت، ایمیل و ارتباطات",
+  items:[
+    {row:1, lines:[
+      {label:"ارسال و دریافت ایمیل تا حجم ۲۵ مگ", price:400000},
+      {label:"هر مگابایت اضافه", price:150000}
+    ]},
+    {row:2, lines:[{label:"ساخت ایمیل و حساب کاربری (اکانت)", price:1500000}]},
+    {row:3, lines:[
+      {label:"دانلود فایل (بدون احتساب سرچ) تا ۱ گیگابایت", price:350000},
+      {label:"هر یک گیگابایت اضافه", price:200000}
+    ]},
+    {row:4, lines:[
+      {label:"آپلود فایل تا ۱ گیگابایت", price:500000},
+      {label:"هر یک گیگابایت اضافه", price:400000},
+      {label:"هر یک گیگابایت اضافه (نرخ دوم)", price:250000}
+    ]},
+    {row:5, lines:[{label:"ارسال یا دریافت فاکس داخل کشور (هر برگ)", price:500000}]},
+    {row:6, lines:[{label:"دریافت فاکس داخلی و خارجی، هر صفحه", price:600000}]},
+    {row:7, lines:[
+      {label:"اینترنت ساعتی", price:1000000},
+      {label:"حداقل استفاده از سیستم", price:700000}
+    ]},
+    {row:8, lines:[
+      {label:"ارسال و دریافت فایل از پیام‌رسان‌ها و بلوتوث (تا ۱۰۰ مگ)", price:500000},
+      {label:"۱۰۰ مگ به بالا", price:"توافقی"}
+    ]},
+    {row:9, lines:[
+      {label:"پرداخت یا خرید اینترنتی کارت اعتباری با کارت مشتری", price:500000},
+      {label:"خرید کارت کافی‌نت تا ۳٬۰۰۰٬۰۰۰ ریال", price:750000},
+      {label:"خرید کارت کافی‌نت از ۳٬۰۰۰٬۰۰۰ تا ۱۲٬۰۰۰٬۰۰۰ ریال", price:1500000}
+    ], note:"مبالغ بالاتر حتماً باید با کارت مشتری پرداخت شود."},
+    {row:10, lines:[{label:"ورود و جستجو در وب‌سایت، بدون پرینت و حصول نتیجه (به خواست مشتری)", price:400000}]}
+  ]
+},
+{
+  key:"gov", title:"سامانه‌های دولتی، مجوز و اصناف",
+  items:[
+    {row:"۱۱-۱", lines:[{label:"ثبت نام در سامانه مجوز", price:500000}]},
+    {row:"۱۱-۲", lines:[{label:"احراز کد پستی", price:700000}]},
+    {row:"۱۱-۳", lines:[{label:"جستجوی کدپستی", price:500000}]},
+    {row:"۱۱-۴", lines:[{label:"ثبت نام کد اقتصادی", price:4000000}]},
+    {row:"۱۱-۵", lines:[{label:"استعلام بهداشت", price:800000}]},
+    {row:"۱۱-۶", lines:[{label:"استعلام اماکن", price:800000}]},
+    {row:"۱۱-۷", lines:[{label:"درخواست گواهی فنی و حرفه‌ای", price:500000}]},
+    {row:"۱۱-۸", lines:[{label:"ثبت نام آموزش اصناف (با اسکن مدارک)", price:700000}]},
+    {row:"۱۱-۹", lines:[{label:"بارگذاری مدارک نوین اصناف", price:2500000}]},
+    {row:"۱۱-۱۰", lines:[{label:"پرداخت هزینه صدور / تمدید", price:800000}]},
+    {row:"۱۱-۱۱", lines:[{label:"هزینه چاپ پروانه کسب رنگی ۸۰ گرمی", price:500000}]},
+    {row:"۱۱-۱۲", lines:[{label:"سامانه یکتا", price:1000000}]},
+    {row:"۱۱-۱۳", lines:[{label:"سامانه سیتام (هر مرحله)", price:1000000}]},
+    {row:"۱۱-۱۴", lines:[{label:"پرداخت سامانه مطالبات اصناف", price:700000}]},
+    {row:12, lines:[{label:"ثبت نام کارت مباشرت، کامل با چاپ رنگی ۸۰ گرمی", price:3000000}]},
+    {row:13, lines:[{label:"تمدید / جابجایی مکان / تغییر رسته پروانه کسب", price:3000000}]},
+    {row:14, lines:[{label:"تاییدیه کد پستی", price:500000}]}
+  ]
+},
+{
+  key:"ziyarat", title:"ثنا، اربعین و امور زیارتی",
+  items:[
+    {row:15, lines:[{label:"ثبت ثنا", price:1000000}]},
+    {row:16, lines:[{label:"ثبت نام سامانه سماح — بیمه اربعین (برای نفر اصلی و زیر مجموعه‌ها)", price:1500000}]},
+    {row:17, lines:[{label:"ثبت نام گذرنامه زیارتی", price:1500000}]},
+    {row:18, lines:[{label:"ثبت نام ارز اربعین", price:1000000}]},
+    {row:19, lines:[{label:"نرخ پیش ثبت نام مدارس", price:1500000}]},
+    {row:20, lines:[{label:"ثبت نام و اعتراض در سامانه هدفمند سازی یارانه", price:1000000}]}
+  ]
+},
+{
+  key:"hajj", title:"حج",
+  items:[
+    {row:21, lines:[{label:"ثبت نام رزرو حج به ازای هر کد ملی", price:2500000}]},
+    {row:22, lines:[{label:"پرداخت عوارض حج", price:700000}]},
+    {row:23, lines:[{label:"پرداخت فیش حج", price:700000}]},
+    {row:24, lines:[{label:"بروزرسانی پروفایل سامانه حج", price:1000000}]}
+  ]
+},
+{
+  key:"vehicle", title:"خودرو، پلاک و سوخت",
+  items:[
+    {row:25, lines:[
+      {label:"دریافت خلافی خودرو با ۱ صفحه پرینت", price:750000},
+      {label:"ثبت نام سامانه سخا", price:850000},
+      {label:"مجوز خروج کشور", price:1500000},
+      {label:"احراز محل سکونت", price:850000}
+    ]},
+    {row:26, lines:[
+      {label:"ثبت سامانه نوبت‌گیری تعویض پلاک", price:1000000},
+      {label:"ثبت نام و استعلام پرداخت مالیات و اجرائیات راهنمایی و رانندگی", price:1000000}
+    ]},
+    {row:27, lines:[
+      {label:"ثبت نام اولیه خودرو (انتخاب خودرو)", price:1500000},
+      {label:"واریز پول خرید خودرو با کارت مشتری", price:2000000}
+    ]},
+    {row:28, lines:[
+      {label:"ثبت نام اولیه سامانه سوخت", price:2000000},
+      {label:"درخواست سهمیه سوخت", price:650000},
+      {label:"ایجاد یا ویرایش کاربرد مصرف", price:850000}
+    ]},
+    {row:29, lines:[{label:"ثبت نام پروفایل لاستیک خودرو", price:3000000}]},
+    {row:30, lines:[{label:"ایجاد نام کاربری سامانه سوخت (حقوقی)", price:2500000}]},
+    {row:31, lines:[{label:"ثبت نام سامانه عوارض آنی رو", price:750000}]}
+  ]
+},
+{
+  key:"bank", title:"بانکی، بورس و تسهیلات",
+  items:[
+    {row:32, lines:[
+      {label:"دریافت شماره شبا بانکی", price:500000},
+      {label:"اعتبار سنجی بانک رسالت (مرآت)", price:1500000}
+    ]},
+    {row:33, lines:[
+      {label:"درخواست هر خدمت در سامانه‌های بانک رسالت", price:600000},
+      {label:"افتتاح حساب بانک رسالت", price:1500000},
+      {label:"درخواست وام (کامل)", price:3000000}
+    ]},
+    {row:34, lines:[{label:"ثبت نام بانک لوتوس پارسیان با ۳ اسکن", price:1000000}]},
+    {row:35, lines:[{label:"خدمات بانک مهر ایران (افتتاح حساب)", price:2000000}]},
+    {row:36, lines:[
+      {label:"ثبت چک صیاد، یک عدد", price:750000},
+      {label:"تایید چک صیاد", price:500000},
+      {label:"انتقال چک صیاد", price:700000},
+      {label:"هر عدد اضافه", price:650000}
+    ]},
+    {row:37, lines:[
+      {label:"ثبت نام کارگزاری‌های بورس و سجام (ورود اطلاعات کامل)", price:1500000},
+      {label:"ثبت نام سجام حقوقی (بدون اسکن و مبلغ واریزی)", price:2000000},
+      {label:"ثبت کد بورسی و اطلاعات بازنشستگان آموزش و پرورش در صندوق ذخیره فرهنگیان", price:1000000}
+    ]},
+    {row:38, lines:[
+      {label:"ثبت نام وام مشاغل خانگی (بدون اسکن) — سرپرست", price:1700000},
+      {label:"تحت پوشش (هر نفر)", price:600000}
+    ]},
+    {row:39, lines:[
+      {label:"ثبت نام اینترنتی وام ازدواج و فرزندآوری و ... بدون جواب / عتبات، برای یک نفر", price:4000000},
+      {label:"سایر موارد مشابه هر نفر (کمترین میزان دریافتی برای یک ثبت نام کوتاه و بدون اسکن — ثبت نام نوع سوم)", price:500000}
+    ]},
+    {row:40, lines:[{label:"ثبت نام وام ضروری بازنشستگان", price:800000}]},
+    {row:41, lines:[{label:"وام سربازی (سخا)", price:1500000}]},
+    {row:42, lines:[
+      {label:"ثبت نام حساب وکالتی", price:800000},
+      {label:"دریافت کد بورس کالا", price:1500000}
+    ]}
+  ]
+},
+{
+  key:"edu", title:"کنکور، دانشگاه و آموزش",
+  items:[
+    {row:43, lines:[
+      {label:"ثبت نام کنکور دانشگاه‌ها و موسسات، بدون عکس، با یک اسکن (ثبت نام یک مرحله‌ای)", price:1500000},
+      {label:"ویرایش جزئی ثبت نام", price:500000},
+      {label:"انتخاب رشته تا ۵۰ مورد", price:200000},
+      {label:"هر مورد اضافه", price:50000}
+    ]},
+    {row:44, lines:[
+      {label:"انتخاب واحد دانشگاه", price:2000000},
+      {label:"حذف و اضافه جزئی (تا ۲ مورد)", price:700000},
+      {label:"استخراج نتایج دانشگاه‌ها و پیگیری‌های اینترنتی، کارت ورود به جلسه", price:500000}
+    ]},
+    {row:45, lines:[{label:"ثبت کامل پایان‌نامه ایران‌داک (بعد از دفاع)", price:3000000}]},
+    {row:46, lines:[{label:"ثبت نام کتاب مدارس", price:800000}]},
+    {row:47, lines:[{label:"ثبت نام انتقالی سامانه سجفا", price:2000000}], note:"هزینه هر اسکن جداگانه محاسبه می‌گردد."},
+    {row:48, lines:[{label:"ثبت نام انتقالی سامانه MY MEDU.ir (آموزش و پرورش)", price:2000000}], note:"هزینه هر اسکن جداگانه محاسبه می‌گردد."},
+    {row:49, lines:[{label:"ثبت درخواست بازنشستگی سجفا", price:1500000}]},
+    {row:50, lines:[{label:"ثبت درخواست ارزشیابی فرهنگیان", price:1500000}]},
+    {row:51, lines:[{label:"ثبت نام رتبه‌بندی فرهنگیان", price:8000000}]}
+  ]
+},
+{
+  key:"sajad", title:"سجاد، پژوهش و امور دانشجویی",
+  items:[
+    {row:52, lines:[
+      {label:"ثبت نام اولیه در سامانه سجاد", price:3000000},
+      {label:"هر خدمت اضافه", price:1500000}
+    ]},
+    {row:53, lines:[{label:"درخواست پیشینه پژوهش در سامانه ایران‌داک (پایان‌نامه)", price:1500000}]},
+    {row:54, lines:[{label:"ثبت نام مدارس نمونه", price:2000000}]},
+    {row:55, lines:[{label:"ثبت نام نوبت‌دهی سنجش بدو ورود", price:1500000}]},
+    {row:56, lines:[{label:"تحقیق، هر صفحه (بدون پرینت)", price:200000}]},
+    {row:57, lines:[{label:"پر کردن نظرسنجی دروس اساتید، هر درس", price:800000}], note:"در مورد نظرسنجی."},
+    {row:58, lines:[{label:"تاییدیه تحصیلی", price:2000000}]},
+    {row:59, lines:[{label:"تهیه پاورپوینت، هر اسلاید", price:300000}]},
+    {row:60, lines:[{label:"سامانه سهاب (گزینه آموزش و پرورش)", price:4500000}]}
+  ]
+},
+{
+  key:"insurance", title:"بیمه و تامین اجتماعی",
+  items:[
+    {row:61, lines:[
+      {label:"ارسال لیست بیمه کارگاه، هر ماه به‌اضافه یک نفر", price:900000},
+      {label:"هر نفر اضافه", price:100000},
+      {label:"ثبت نفرات جدید اضافه در پرتال تامین اجتماعی (بدون اسکن و پرینت)", price:400000},
+      {label:"ثبت سایر خدمات، به‌اضافه هر خدمت", price:800000}
+    ]},
+    {row:62, lines:[{label:"ثبت نام پرتال تامین اجتماعی", price:850000}]},
+    {row:63, lines:[{label:"ثبت و دریافت برگ پرداخت بیمه", price:500000}]},
+    {row:64, lines:[{label:"دریافت سوابق بیمه، بدون پرینت", price:500000}]}
+  ]
+},
+{
+  key:"misc", title:"خدمات متفرقه (شرح آزاد)",
+  items:[
+    {row:65, lines:[{label:"بازیابی نام کاربری / کلمه عبور", price:500000}]},
+    {row:66, lines:[{label:"نوبت‌گیری قضایی و پزشکی", price:800000}]},
+    {row:67, lines:[{label:"دریافت فیش / حکم حقوق", price:800000}]},
+    {row:68, lines:[{label:"درخواست گواهی کسر حقوق", price:850000}]},
+    {row:69, lines:[{label:"صدور یا تمدید بیمه ورزشی", price:900000}]},
+    {row:70, lines:[
+      {label:"خرید اینترنتی بلیط قطار و اتوبوس، یک نفر", price:750000},
+      {label:"هر نفر اضافه (خرید بلیط هواپیما دو نفر محاسبه می‌شود)", price:250000}
+    ]},
+    {row:71, lines:[{label:"پرداخت قبوض", price:250000}]},
+    {row:72, lines:[{label:"ثبت نام واکسن اینترنتی خارجی", price:1000000}]},
+    {row:74, lines:[{label:"سامانه جذب کشوری (کارا)", price:9000000}]},
+    {row:75, lines:[{label:"سامانه بیمه روستایی", price:1500000}]},
+    {row:76, lines:[
+      {label:"ثبت نام اولیه وام و ودیعه مسکن", price:2000000},
+      {label:"به‌اضافه هر فرد اضافه", price:500000}
+    ]},
+    {row:77, lines:[{label:"ثبت سند", price:7000000}]},
+    {row:78, lines:[{label:"ثبت نام سامانه کاتب", price:8000000}]},
+    {row:79, lines:[{label:"سامانه خودنویس (املاک)", price:7000000}]},
+    {row:80, lines:[{label:"ثبت نام سامانه املاک و اسکان", price:2000000}]},
+    {row:81, lines:[{label:"ثبت نام سهام فرزندآوری", price:750000}]},
+    {row:82, lines:[{label:"جداسازی رایانه‌ای افراد خانواده", price:1000000}]},
+    {row:83, lines:[{label:"ثبت کارت سوخت", price:1000000}]}
+  ]
+},
+{
+  key:"print", title:"پرینت، اسکن و رایت",
+  items:[
+    {row:84, lines:[
+      {label:"پرینت رنگی عکس و متن — صفحه A3", price:530000},
+      {label:"پرینت رنگی عکس و متن — صفحه A4", price:400000},
+      {label:"پرینت رنگی عکس و متن — صفحه A5", price:350000},
+      {label:"کاغذ گلاسه تا ۱۵۰ گرم", price:700000},
+      {label:"کاغذ گلاسه ۱۵۰ گرم به بالا", price:700000}
+    ]},
+    {row:85, lines:[{label:"رایت بدون CD", price:750000}]},
+    {row:86, lines:[{label:"رایت بدون DVD", price:1000000}]},
+    {row:87, lines:[
+      {label:"اسکن تا سایز A4، هر مورد", price:350000},
+      {label:"اسکن تا سایز A3، هر مورد", price:500000}
+    ]},
+    {row:88, lines:[
+      {label:"پرینت سیاه و سفید — سایز A3، هر برگ", price:200000},
+      {label:"پرینت سیاه و سفید — سایز A4، هر برگ", price:130000},
+      {label:"پرینت سیاه و سفید — سایز A5، هر برگ", price:100000}
+    ]}
+  ]
+}
+];
+
+function formatPrice(p){
+  if (typeof p === "string") return p;
+  return p.toLocaleString('fa-IR') + " ریال";
+}
+function toFaDigits(n){
+  const map = {'0':'۰','1':'۱','2':'۲','3':'۳','4':'۴','5':'۵','6':'۶','7':'۷','8':'۸','9':'۹'};
+  return String(n).replace(/[0-9]/g, d => map[d]);
+}
+
+const main = document.getElementById('main');
+const catsNav = document.getElementById('cats');
+const searchInput = document.getElementById('search');
+const resultCount = document.getElementById('resultCount');
+const noResult = document.getElementById('noResult');
+
+let activeCat = "all";
+
+function countItems(){
+  return DATA.reduce((sum,g)=>sum+g.items.length,0);
+}
+
+function renderCats(){
+  const allBtn = document.createElement('button');
+  allBtn.className = 'cat-btn active';
+  allBtn.textContent = 'همه (' + toFaDigits(countItems()) + ')';
+  allBtn.dataset.key = 'all';
+  catsNav.appendChild(allBtn);
+
+  DATA.forEach(g=>{
+    const btn = document.createElement('button');
+    btn.className = 'cat-btn';
+    btn.textContent = g.title;
+    btn.dataset.key = g.key;
+    catsNav.appendChild(btn);
+  });
+
+  catsNav.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.cat-btn');
+    if(!btn) return;
+    activeCat = btn.dataset.key;
+    [...catsNav.children].forEach(b=>b.classList.toggle('active', b===btn));
+    applyFilter();
+  });
+}
+
+function renderItems(){
+  DATA.forEach(g=>{
+    const section = document.createElement('section');
+    section.className = 'group';
+    section.dataset.key = g.key;
+
+    const head = document.createElement('div');
+    head.className = 'group-head';
+    head.innerHTML = `<span class="group-title">${g.title}</span><span class="group-count">${toFaDigits(g.items.length)} مورد</span>`;
+    section.appendChild(head);
+
+    const itemsWrap = document.createElement('div');
+    itemsWrap.className = 'items';
+
+    g.items.forEach(it=>{
+      const div = document.createElement('div');
+      div.className = 'item';
+      div.dataset.search = it.lines.map(l=>l.label).join(' ').toLowerCase();
+
+      const badge = document.createElement('div');
+      badge.className = 'row-badge';
+      badge.textContent = typeof it.row === 'number' ? toFaDigits(it.row) : toFaDigits(it.row);
+      div.appendChild(badge);
+
+      const body = document.createElement('div');
+      body.className = 'item-body';
+
+      const lines = document.createElement('div');
+      lines.className = 'lines';
+      it.lines.forEach(l=>{
+        const lineEl = document.createElement('div');
+        lineEl.className = 'line';
+        const priceClass = (typeof l.price === 'string') ? 'line-price negotiable' : 'line-price';
+        lineEl.innerHTML = `<span class="line-label">${l.label}</span><span class="${priceClass}">${formatPrice(l.price)}</span>`;
+        lines.appendChild(lineEl);
+      });
+      body.appendChild(lines);
+
+      if(it.note){
+        const noteEl = document.createElement('div');
+        noteEl.className = 'note';
+        noteEl.textContent = it.note;
+        body.appendChild(noteEl);
+      }
+
+      div.appendChild(body);
+      itemsWrap.appendChild(div);
+    });
+
+    section.appendChild(itemsWrap);
+    main.appendChild(section);
+  });
+}
+
+function applyFilter(){
+  const q = searchInput.value.trim().toLowerCase();
+  let visibleCount = 0;
+
+  document.querySelectorAll('section.group').forEach(section=>{
+    const key = section.dataset.key;
+    const catMatch = (activeCat === 'all' || activeCat === key);
+    let groupVisible = 0;
+
+    section.querySelectorAll('.item').forEach(item=>{
+      const text = item.dataset.search;
+      const searchMatch = !q || text.includes(q);
+      const show = catMatch && searchMatch;
+      item.classList.toggle('hidden', !show);
+      if(show){ groupVisible++; visibleCount++; }
+
+      // highlight
+      const labels = item.querySelectorAll('.line-label');
+      labels.forEach(lbl=>{
+        const original = lbl.dataset.original || lbl.textContent;
+        lbl.dataset.original = original;
+        if(q && show){
+          const idx = original.toLowerCase().indexOf(q);
+          if(idx !== -1){
+            lbl.innerHTML = original.slice(0,idx) + '<mark>' + original.slice(idx, idx+q.length) + '</mark>' + original.slice(idx+q.length);
+          } else {
+            lbl.textContent = original;
+          }
+        } else {
+          lbl.textContent = original;
+        }
+      });
+    });
+
+    section.classList.toggle('hidden', groupVisible === 0);
+  });
+
+  resultCount.textContent = q ? `${toFaDigits(visibleCount)} نتیجه یافت شد` : '';
+  noResult.classList.toggle('show', visibleCount === 0);
+}
+
+renderCats();
+renderItems();
+applyFilter();
+searchInput.addEventListener('input', applyFilter);
+</script>
+</body>
+</html>
