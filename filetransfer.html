@@ -29,21 +29,16 @@ body{
 /* header */
 header{text-align:center;padding:18px 0 8px}
 .logo{
-  width:128px;height:128px;border-radius:50%;margin:0 auto 18px;display:block;
+  width:96px;height:96px;border-radius:50%;margin:0 auto 14px;display:block;
   object-fit:cover;background:#fff;
-  border:5px solid #fff;
-  box-shadow:0 0 0 3px var(--brand2),0 14px 34px rgba(47,125,246,.25);
+  border:4px solid #fff;
+  box-shadow:0 0 0 3px var(--brand2),0 10px 26px rgba(47,125,246,.25);
 }
 h1{font-size:clamp(1.7rem,5.5vw,2.3rem);font-weight:800;letter-spacing:-.3px}
 .sub{color:var(--muted);margin-top:4px;font-size:1.02rem}
 
 /* notice */
-.notice{
-  margin:22px 0 26px;padding:14px 18px;border-radius:16px;
-  background:#fff8e8;border:1px solid #fde2a8;color:#7a5200;
-  font-size:.97rem;text-align:center
-}
-.notice b{color:#b25f00}
+.notice{margin:22px 4px 0;text-align:center;color:var(--muted);font-size:.9rem}
 
 h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 
@@ -76,7 +71,7 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 .so{background:linear-gradient(135deg,#ffffff 0,#f0f5ff 38%,#1f3f8f 100%);color:#12306f;border:1px solid #d3def5}
 .so .tx{color:#12306f}
 .so .go{background:rgba(255,255,255,.7)}
-.ru{background:linear-gradient(135deg,#ef3b4f 0,#ff8d5c 35%,#2fb8a0 68%,#8a4dd6 100%)}
+.ru{background:linear-gradient(135deg,#7a3de0 0,#c943b4 50%,#ff8a6b 100%)}
 .sh{background:linear-gradient(135deg,#43c75f 0,#a7e36d 45%,#ffe14a 100%);color:#16491f}
 .sh .go{background:rgba(255,255,255,.55)}
 .bl{background:linear-gradient(135deg,#3fd477,#27bf62)}
@@ -84,14 +79,15 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 /* phone card */
 .phone{
   margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:20px;
-  padding:16px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
-  box-shadow:0 8px 22px rgba(30,50,90,.07)
+  padding:6px 18px;box-shadow:0 8px 22px rgba(30,50,90,.07)
 }
+.phone .row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:12px 0}
+.phone .row+.row{border-top:1px solid var(--line)}
 .phone .pi{width:48px;height:48px;border-radius:50%;background:#e9f2ff;display:grid;place-items:center;flex:none}
 .phone .pi svg{width:24px;height:24px}
 .phone .pt{flex:1;min-width:160px}
 .phone small{color:var(--muted);display:block}
-.phone a.num{font-size:1.35rem;font-weight:800;color:var(--brand);text-decoration:none;direction:ltr;display:inline-block;font-family:system-ui,sans-serif;letter-spacing:.5px}
+.phone .num{font-size:1.35rem;font-weight:800;color:var(--brand);text-decoration:none;direction:ltr;display:inline-block;font-family:system-ui,sans-serif;letter-spacing:.5px}
 .copy{
   border:0;cursor:pointer;font:inherit;font-weight:700;color:#fff;background:var(--brand);
   padding:9px 18px;border-radius:999px;transition:background .15s
@@ -101,16 +97,14 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 
 /* all channels */
 .all{
-  display:block;margin-top:18px;text-align:center;text-decoration:none;
-  background:linear-gradient(135deg,#fff,#eef5ff);color:var(--ink);
-  border:1px solid #cfe0fb;border-radius:20px;padding:16px;font-weight:700;
-  box-shadow:0 8px 22px rgba(47,125,246,.1);transition:transform .18s
+  display:block;margin:16px auto 0;width:max-content;max-width:100%;text-align:center;text-decoration:none;
+  background:#fff;color:var(--ink);border:1px solid #cfe0fb;border-radius:999px;
+  padding:9px 20px;font-weight:700;font-size:.93rem;
+  box-shadow:0 5px 14px rgba(47,125,246,.1);transition:transform .18s
 }
 .all:hover{transform:translateY(-2px)}
 .all:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-.all small{display:block;font-weight:400;color:var(--muted);direction:ltr;font-family:system-ui,sans-serif}
 
-footer{text-align:center;color:var(--muted);font-size:.88rem;margin-top:28px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -118,12 +112,10 @@ footer{text-align:center;color:var(--muted);font-size:.88rem;margin-top:28px}
 <main class="wrap">
 
 <header>
-  <img class="logo" src="https://i.imgur.com/E2tKj4U.jpeg" alt="لوگوی پیام‌گیر طلوع" width="128" height="128" fetchpriority="high" decoding="async">
+  <img class="logo" src="https://i.imgur.com/E2tKj4U.jpeg" alt="لوگوی پیام‌گیر طلوع" width="96" height="96" fetchpriority="high" decoding="async">
   <h1>پیام‌گیر طلوع</h1>
   <p class="sub">فایل‌های خود را در هر پیام‌رسانی که راحت‌ترید برای ما بفرستید</p>
 </header>
-
-<p class="notice">ثبت‌نام‌های اینترنتی و غیرحضوری فقط از طریق <b>تلگرام</b> و <b>ایتا</b> پاسخگوی شما هستیم.</p>
 
 <h2>ارسال فایل در پیام‌رسان‌ها</h2>
 <nav class="grid" aria-label="پیام‌رسان‌ها">
@@ -132,7 +124,7 @@ footer{text-align:center;color:var(--muted);font-size:.88rem;margin-top:28px}
     <span class="ic" style="background:#fff">
       <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#2aabee"/><path d="M7.2 15.6l15.9-6.1c.7-.3 1.4.2 1.1 1.3l-2.7 12.7c-.2.9-.7 1.1-1.5.7l-4.1-3-2 1.9c-.2.2-.4.4-.8.4l.3-4.2 7.6-6.9c.3-.3-.1-.5-.5-.2l-9.4 5.9-4-1.3c-.9-.3-.9-.9.1-1.2z" fill="#fff"/></svg>
     </span>
-    <span class="tx"><strong>تلگرام</strong><span>@PayamGir55</span></span>
+    <span class="tx"><strong>تلگرام</strong></span>
     <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
   </a>
 
@@ -140,7 +132,7 @@ footer{text-align:center;color:var(--muted);font-size:.88rem;margin-top:28px}
     <span class="ic" style="background:#fff">
       <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#ff9a2e"/><path d="M9 22c0-6 4-11 10-11 2 0 3.200.6 4 1.600-1 .2-1.800.7-2.200 1.300 1.400 0 2.400.2 3.200.6-1.200.4-2 1-2.500 1.800.2 3.800-2.800 7.100-7.300 7.100-2 0-3.700-.6-5.200-1.800.8.100 1.600 0 2.300-.2-1-.4-1.700-1-2.300-1.900z" fill="#fff"/><circle cx="20.500" cy="15.300" r="1" fill="#ff9a2e"/></svg>
     </span>
-    <span class="tx"><strong>ایتا</strong><span>@PayamGir55</span></span>
+    <span class="tx"><strong>ایتا</strong></span>
     <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
   </a>
 
@@ -148,15 +140,15 @@ footer{text-align:center;color:var(--muted);font-size:.88rem;margin-top:28px}
     <span class="ic" style="background:#fff">
       <svg viewBox="0 0 32 32"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".45" stop-color="#e6eeff"/><stop offset="1" stop-color="#1c3b8c"/></linearGradient></defs><circle cx="16" cy="16" r="15" fill="url(#sg)" stroke="#1c3b8c" stroke-width="1.500"/><path d="M20.500 10.500c-1.200-1.300-3-1.800-4.800-1.500-2.400.4-3.600 2.200-2.800 3.900.9 1.700 3.500 1.900 5 2.800 1.600.9 1.400 3.100-.4 3.800-1.700.6-3.500.2-4.700-1" fill="none" stroke="#1c3b8c" stroke-width="2.300" stroke-linecap="round"/><path d="M23 18v6M20 21h6" stroke="#1c3b8c" stroke-width="2" stroke-linecap="round" opacity=".0"/><circle cx="23.500" cy="9" r="2.600" fill="#1c3b8c"/><path d="M23.500 7.700v2.600M22.200 9h2.600" stroke="#fff" stroke-width="1.200" stroke-linecap="round"/></svg>
     </span>
-    <span class="tx"><strong>سروش پلاس</strong><span>@PayamGir55</span></span>
+    <span class="tx"><strong>سروش پلاس</strong></span>
     <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="#12306f" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
   </a>
 
   <a class="btn ru" href="https://rubika.ir/PayamGir55" target="_blank" rel="noopener">
     <span class="ic" style="background:#fff">
-      <svg viewBox="0 0 32 32"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ef3b4f"/><stop offset=".35" stop-color="#ff9a6a"/><stop offset=".65" stop-color="#2fb8a0"/><stop offset="1" stop-color="#8a4dd6"/></linearGradient></defs><circle cx="16" cy="16" r="16" fill="url(#rg)"/><path d="M11 24V9h6.200c3 0 4.800 1.500 4.800 4s-1.800 4-4.800 4H11m6 0l5 7" fill="none" stroke="#fff" stroke-width="2.800" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg viewBox="0 0 32 32"><defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a3de0"/><stop offset=".5" stop-color="#c943b4"/><stop offset="1" stop-color="#ff8a6b"/></linearGradient></defs><circle cx="16" cy="16" r="16" fill="url(#rg)"/><path d="M11 24V9h6.200c3 0 4.800 1.500 4.800 4s-1.800 4-4.800 4H11m6 0l5 7" fill="none" stroke="#fff" stroke-width="2.800" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </span>
-    <span class="tx"><strong>روبیکا</strong><span>@PayamGir55</span></span>
+    <span class="tx"><strong>روبیکا</strong></span>
     <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
   </a>
 
@@ -164,7 +156,7 @@ footer{text-align:center;color:var(--muted);font-size:.88rem;margin-top:28px}
     <span class="ic" style="background:#fff">
       <svg viewBox="0 0 32 32"><defs><linearGradient id="shg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ec75a"/><stop offset=".6" stop-color="#9be26a"/><stop offset="1" stop-color="#ffd92e"/></linearGradient></defs><circle cx="16" cy="16" r="16" fill="url(#shg)"/><circle cx="11.500" cy="13" r="2" fill="#fff"/><circle cx="20.500" cy="13" r="2" fill="#fff"/><path d="M9.500 18.500c1.200 3.600 3.600 5 6.500 5s5.300-1.400 6.500-5" fill="none" stroke="#fff" stroke-width="2.600" stroke-linecap="round"/></svg>
     </span>
-    <span class="tx"><strong>شاد</strong><span>@PayamGir55</span></span>
+    <span class="tx"><strong>شاد</strong></span>
     <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="#16491f" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
   </a>
 
@@ -172,34 +164,46 @@ footer{text-align:center;color:var(--muted);font-size:.88rem;margin-top:28px}
     <span class="ic" style="background:#fff">
       <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#2fc96a"/><path d="M9 11.500c0-1.400 1.100-2.500 2.500-2.500h9c1.400 0 2.500 1.100 2.500 2.500v6c0 1.400-1.100 2.500-2.500 2.500H15l-4.200 3.400c-.4.300-.8.100-.8-.4V20c-.6-.5-1-1.300-1-2.500z" fill="#fff"/><circle cx="12.500" cy="14.500" r="1.200" fill="#2fc96a"/><circle cx="16" cy="14.500" r="1.200" fill="#2fc96a"/><circle cx="19.500" cy="14.500" r="1.200" fill="#2fc96a"/></svg>
     </span>
-    <span class="tx"><strong>بله</strong><span>@PayamGir55</span></span>
+    <span class="tx"><strong>بله</strong></span>
     <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
   </a>
 
 </nav>
 
-<section class="phone" aria-label="شماره تماس">
-  <span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="#2f7df6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></span>
-  <div class="pt">
-    <small>شماره پیام‌گیر طلوع</small>
-    <a class="num" href="tel:+989394451455">+98 939 445 1455</a>
+<section class="phone" aria-label="راه‌های تماس">
+  <div class="row">
+    <span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="#2f7df6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></span>
+    <div class="pt">
+      <small>شماره پیام‌گیر طلوع</small>
+      <a class="num" href="tel:+989394451455">+98 939 445 1455</a>
+    </div>
+    <button class="copy" type="button" data-copy="+989394451455">کپی شماره</button>
   </div>
-  <button class="copy" type="button" id="copy">کپی شماره</button>
+  <div class="row">
+    <span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="#2f7df6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 006 0v-1a10 10 0 10-4 8"/></svg></span>
+    <div class="pt">
+      <small>آیدی پیام‌گیر طلوع</small>
+      <span class="num">@PayamGir55</span>
+    </div>
+    <button class="copy" type="button" data-copy="@PayamGir55">کپی آیدی</button>
+  </div>
 </section>
 
 <a class="all" href="https://cafenet55.github.io" target="_blank" rel="noopener">
   🌞 تمام کانال‌ها و راه‌های دسترسی به ما
-  <small>cafenet55.github.io</small>
 </a>
 
-<footer>پیام‌گیر طلوع</footer>
+<p class="notice">ثبت‌نام‌های اینترنتی و غیرحضوری فقط از طریق تلگرام و ایتا پاسخگوی شما هستیم.</p>
+
 </main>
 
 <script>
-document.getElementById('copy').addEventListener('click',function(){
-  var b=this,n='+989394451455';
-  function ok(){b.textContent='کپی شد ✓';setTimeout(function(){b.textContent='کپی شماره'},1800)}
-  if(navigator.clipboard){navigator.clipboard.writeText(n).then(ok,ok)}else{ok()}
+document.querySelectorAll('.copy').forEach(function(b){
+  var label=b.textContent;
+  b.addEventListener('click',function(){
+    function ok(){b.textContent='کپی شد ✓';setTimeout(function(){b.textContent=label},1800)}
+    if(navigator.clipboard){navigator.clipboard.writeText(b.dataset.copy).then(ok,ok)}else{ok()}
+  });
 });
 </script>
 </body>
