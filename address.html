@@ -5,147 +5,153 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>آدرس | کافی‌نت طلوع سبزوار</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
   :root{
-    --petrol:#0e2b30; --petrol2:#173f42; --brass:#c9a35c; --stone:#f3f4f1;
-    --ink:#14201f; --muted:#5c6a68; --line:#dce1dd; --white:#fff;
+    --bg:#f2f6f4; --card:#fff; --ink:#0f1f1a; --muted:#64736d; --line:#e1e8e4;
+    --acc:#059669; --acc-d:#047857; --mint:#d9f4e8;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--stone);color:var(--ink);line-height:1.8;}
-  a{color:inherit;}
-  a:focus-visible{outline:3px solid var(--brass);outline-offset:4px;}
-  .container{max-width:1040px;margin:0 auto;padding:0 24px;}
-
-  /* Hero */
-  .hero{
-    position:relative;overflow:hidden;color:var(--white);
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Vazirmatn',Tahoma,sans-serif;color:var(--ink);line-height:1.8;min-height:100vh;
     background:
-      linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/48px 48px,
-      linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/48px 48px,
-      linear-gradient(165deg,var(--petrol2),var(--petrol) 70%);
-    padding-bottom:96px;
+      radial-gradient(520px 320px at 85% -40px,rgba(5,150,105,.16),transparent 70%),
+      radial-gradient(460px 300px at 8% 120px,rgba(16,185,129,.1),transparent 70%),
+      var(--bg);
+    background-repeat:no-repeat;
   }
-  .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 60%,transparent 0,var(--petrol) 85%);opacity:.55;pointer-events:none;}
-  .hero .container{position:relative;z-index:1;}
-  .topbar{display:flex;align-items:center;justify-content:space-between;padding:26px 0;}
-  .brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:1.05rem;text-decoration:none;}
-  .brand i{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--brass);position:relative;overflow:hidden;}
-  .brand i::after{content:'';position:absolute;left:50%;bottom:-9px;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:var(--brass);}
-  .top-link{font-size:.9rem;font-weight:500;text-decoration:none;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.28);border-radius:100px;padding:7px 18px;transition:background .2s,color .2s;}
-  .top-link:hover{background:var(--white);color:var(--petrol);}
-  .hero-body{display:flex;align-items:center;justify-content:space-between;gap:30px;padding-top:70px;}
-  .hero h1{font-size:clamp(2.2rem,6vw,3.9rem);font-weight:300;line-height:1.35;letter-spacing:-.5px;}
-  .hero h1 b{font-weight:800;display:block;}
-  .hero p{margin-top:14px;font-size:1.05rem;color:rgba(255,255,255,.7);font-weight:400;max-width:34ch;}
-  .marker{position:relative;flex-shrink:0;width:150px;height:150px;display:grid;place-items:center;}
-  .marker::before,.marker::after{content:'';position:absolute;inset:0;border-radius:50%;border:1px solid var(--brass);animation:ping 3.2s ease-out infinite;}
-  .marker::after{animation-delay:1.6s;}
-  .marker span{width:46px;height:46px;border-radius:50%;background:var(--brass);display:grid;place-items:center;}
-  .marker svg{width:22px;height:22px;fill:var(--petrol);}
-  @keyframes ping{from{transform:scale(.35);opacity:.9}to{transform:scale(1);opacity:0}}
-  @media(max-width:640px){.marker{display:none;}.hero-body{padding-top:44px;}}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--acc);outline-offset:3px;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px 64px;}
 
-  /* Address panel */
-  .panel{
-    position:relative;z-index:2;margin-top:-56px;background:var(--white);border-radius:24px;
-    box-shadow:0 30px 60px -34px rgba(14,43,48,.5);
-    display:grid;grid-template-columns:1.4fr 1fr;
+  .hero{text-align:center;padding:68px 0 40px;}
+  .badge{
+    display:inline-flex;align-items:center;gap:10px;font-size:.85rem;font-weight:600;color:var(--acc-d);
+    background:var(--card);border:1px solid var(--line);border-radius:100px;padding:7px 18px 7px 16px;
+    box-shadow:0 6px 16px -10px rgba(15,31,26,.25);
   }
-  @media(max-width:760px){.panel{grid-template-columns:1fr;}}
-  .addr{padding:38px 40px;}
-  .label{font-size:.85rem;font-weight:500;color:var(--muted);margin-bottom:6px;}
-  .addr strong{display:block;font-size:clamp(1.2rem,3.6vw,1.65rem);font-weight:600;line-height:1.8;}
-  .nav{padding:38px 40px;display:flex;flex-direction:column;justify-content:center;gap:12px;border-inline-start:1px solid var(--line);}
-  @media(max-width:760px){.nav{border-inline-start:0;border-top:1px solid var(--line);padding-top:28px;}.addr{padding-bottom:28px;}}
+  .dot{position:relative;width:9px;height:9px;border-radius:50%;background:var(--acc);}
+  .dot::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--acc);animation:pulse 2s ease-out infinite;}
+  @keyframes pulse{to{transform:scale(3.2);opacity:0}}
+  .hero h1{margin-top:24px;font-size:clamp(2.3rem,8vw,3.9rem);font-weight:900;line-height:1.25;letter-spacing:-1px;}
+  .hero p{margin-top:12px;font-size:1.05rem;color:var(--muted);}
+
+  /* Main card */
+  .main-card{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:12px;box-shadow:0 30px 60px -38px rgba(15,31,26,.45);}
+  .addr{display:flex;align-items:center;gap:18px;padding:22px 20px;}
+  .pin{flex-shrink:0;width:56px;height:56px;border-radius:18px;background:var(--mint);display:grid;place-items:center;}
+  .pin svg{width:28px;height:28px;fill:var(--acc-d);}
+  .addr small{display:block;font-size:.82rem;font-weight:500;color:var(--muted);}
+  .addr strong{display:block;font-size:clamp(1.05rem,3.8vw,1.35rem);font-weight:700;line-height:1.8;}
   .map-btn{
-    display:flex;align-items:center;justify-content:space-between;gap:14px;text-decoration:none;
-    background:var(--petrol);color:var(--white);border-radius:100px;padding:10px 12px 10px 24px;
-    font-weight:600;transition:background .2s;
+    display:flex;align-items:center;gap:16px;text-decoration:none;color:#fff;
+    background:var(--acc);border-radius:22px;padding:16px 20px;transition:background .2s;
   }
-  .map-btn:hover{background:var(--petrol2);}
-  .map-btn em{width:44px;height:44px;border-radius:50%;background:var(--brass);display:grid;place-items:center;transition:transform .25s;}
-  .map-btn:hover em{transform:translateX(-4px);}
-  .map-btn svg{width:20px;height:20px;stroke:var(--petrol);}
-  .hint{font-size:.82rem;color:var(--muted);text-align:center;}
+  .map-btn:hover{background:var(--acc-d);}
+  .btn-text{flex:1;}
+  .btn-title{font-weight:700;font-size:1.05rem;}
+  .btn-hint{font-size:.8rem;opacity:.85;}
+  .arrow{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;transition:background .2s,transform .2s;}
+  .arrow svg{width:19px;height:19px;stroke:#fff;}
+  .map-btn:hover .arrow{background:#fff;transform:translateX(-4px);}
+  .map-btn:hover .arrow svg{stroke:var(--acc-d);}
 
-  /* Sections */
-  section.block{margin-top:72px;}
-  .block h2{display:flex;align-items:baseline;justify-content:space-between;border-top:1px solid var(--ink);padding-top:14px;margin-bottom:26px;font-size:1.2rem;font-weight:600;}
-  .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  h2{display:flex;align-items:center;gap:14px;margin:52px 4px 18px;font-size:1.1rem;font-weight:700;}
+  h2::after{content:'';flex:1;height:1px;background:var(--line);}
+
+  /* Images: full, uncropped */
+  .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;}
   @media(max-width:560px){.img-grid{grid-template-columns:1fr;}}
-  figure img{width:100%;display:block;border-radius:18px;background:var(--line);aspect-ratio:4/3;object-fit:cover;}
-  figcaption{margin-top:10px;font-size:.92rem;color:var(--muted);font-weight:500;}
-  .video-card{border-radius:22px;overflow:hidden;background:var(--petrol);box-shadow:0 30px 60px -36px rgba(14,43,48,.6);}
+  .shot{position:relative;display:block;width:100%;padding:0;border:0;cursor:zoom-in;background:var(--card);
+    border-radius:22px;overflow:hidden;box-shadow:0 0 0 1px var(--line),0 20px 40px -28px rgba(15,31,26,.5);}
+  .shot img{display:block;width:100%;height:auto;}
+  .cap{position:absolute;bottom:12px;right:12px;background:rgba(255,255,255,.94);border-radius:100px;padding:5px 14px;font-size:.8rem;font-weight:600;}
+
+  .video-card{border-radius:26px;overflow:hidden;background:#0b1512;box-shadow:0 24px 48px -30px rgba(15,31,26,.55);}
   .video-inner{position:relative;padding-bottom:56.25%;height:0;}
   .video-inner>div,.video-inner iframe{position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;border:none;}
 
-  footer{margin-top:80px;padding:34px 0 44px;border-top:1px solid var(--line);}
-  footer .container{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
-  footer small{color:var(--muted);font-size:.88rem;}
-  .back-btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:.95rem;border:1.5px solid var(--ink);border-radius:100px;padding:10px 24px;transition:background .2s,color .2s;}
-  .back-btn:hover{background:var(--ink);color:var(--white);}
+  .center{text-align:center;}
+  .back-btn{
+    display:inline-flex;align-items:center;gap:10px;margin-top:52px;padding:13px 30px;
+    font-weight:600;font-size:.96rem;text-decoration:none;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:100px;
+    transition:background .2s,color .2s,border-color .2s;
+  }
+  .back-btn:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
   .back-btn svg{width:18px;height:18px;fill:currentColor;}
 
-  @media(prefers-reduced-motion:reduce){.marker::before,.marker::after{animation:none;opacity:.4;transform:none;}.map-btn em{transition:none;}}
+  /* Lightbox */
+  dialog{border:0;background:transparent;max-width:100vw;max-height:100vh;width:100%;height:100%;margin:0;padding:24px;}
+  dialog::backdrop{background:rgba(6,16,12,.88);}
+  dialog[open]{display:grid;place-items:center;}
+  dialog img{max-width:min(1200px,100%);max-height:100%;border-radius:14px;display:block;}
+  .close{position:fixed;top:18px;left:18px;width:46px;height:46px;border-radius:50%;border:0;background:#fff;cursor:pointer;display:grid;place-items:center;}
+  .close svg{width:20px;height:20px;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round;}
+
+  @media(prefers-reduced-motion:reduce){.dot::after{animation:none;}*{transition:none!important;}}
 </style>
 </head>
 <body>
-<header class="hero">
-  <div class="container">
-    <nav class="topbar">
-      <a class="brand" href="/"><i aria-hidden="true"></i>کافی‌نت طلوع</a>
-      <a class="top-link" href="/">صفحه اصلی</a>
-    </nav>
-    <div class="hero-body">
-      <div>
-        <h1>آدرس و<b>لوکیشن ما</b></h1>
-        <p>کافی‌نت طلوع سبزوار؛ پیدا کردن ما آسان است.</p>
-      </div>
-      <div class="marker" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg></span></div>
-    </div>
-  </div>
-</header>
+<div class="wrap">
+  <header class="hero">
+    <span class="badge"><i class="dot" aria-hidden="true"></i>موقعیت مکانی</span>
+    <h1>آدرس و لوکیشن ما</h1>
+    <p>کافی‌نت طلوع سبزوار؛ پیدا کردن ما آسان است</p>
+  </header>
 
-<main class="container">
-  <div class="panel">
+  <section class="main-card">
     <div class="addr">
-      <div class="label">نشانی دقیق</div>
-      <strong>سبزوار؛ چهارراه استثنایی، نبش طالقانی ۱۹٫۱</strong>
+      <div class="pin"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg></div>
+      <div>
+        <small>نشانی دقیق</small>
+        <strong>سبزوار؛ چهارراه استثنایی، نبش طالقانی ۱۹٫۱</strong>
+      </div>
     </div>
-    <div class="nav">
-      <a rel="nofollow" href="https://www.google.com/maps/place/Tolue+Sabzevar+Internet+Cafe/@36.2196939,57.6766982,17z" target="_blank" class="map-btn">
-        باز کردن در گوگل مپ
-        <em><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></em>
-      </a>
-      <div class="hint">مسیریابی آنلاین مستقیم از موبایل شما</div>
+    <a rel="nofollow" href="https://www.google.com/maps/place/Tolue+Sabzevar+Internet+Cafe/@36.2196939,57.6766982,17z" target="_blank" class="map-btn">
+      <div class="btn-text">
+        <div class="btn-title">باز کردن در گوگل مپ</div>
+        <div class="btn-hint">مسیریابی آنلاین مستقیم از موبایل شما</div>
+      </div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></div>
+    </a>
+  </section>
+
+  <h2>تصاویر موقعیت</h2>
+  <div class="img-grid">
+    <button class="shot" type="button" data-full="https://i.imgur.com/1f6D9J5.jpeg" aria-label="بزرگ‌نمایی نقشه محله">
+      <img src="https://i.imgur.com/1f6D9J5.jpeg" loading="lazy" alt="نقشه موقعیت"/><span class="cap">نقشه محله</span>
+    </button>
+    <button class="shot" type="button" data-full="https://i.imgur.com/1B0ohQu.png" aria-label="بزرگ‌نمایی درب ورودی">
+      <img src="https://i.imgur.com/1B0ohQu.png" loading="lazy" alt="درب ورودی"/><span class="cap">درب ورودی</span>
+    </button>
+  </div>
+
+  <h2>ویدیوی مسیر</h2>
+  <div class="video-card">
+    <div class="video-inner">
+      <div id="50427964749">
+        <script type="text/JavaScript" src="https://www.aparat.com/embed/yjna084?data[rnddiv]=50427964749&data[responsive]=yes"></script>
+      </div>
     </div>
   </div>
 
-  <section class="block">
-    <h2>تصاویر موقعیت</h2>
-    <div class="img-grid">
-      <figure><img src="https://i.imgur.com/1f6D9J5.jpeg" loading="lazy" alt="نقشه موقعیت"/><figcaption>نقشه محله</figcaption></figure>
-      <figure><img src="https://i.imgur.com/1B0ohQu.png" loading="lazy" alt="درب ورودی"/><figcaption>درب ورودی</figcaption></figure>
-    </div>
-  </section>
-
-  <section class="block">
-    <h2>ویدیوی مسیر</h2>
-    <div class="video-card">
-      <div class="video-inner">
-        <div id="50427964749">
-          <script type="text/JavaScript" src="https://www.aparat.com/embed/yjna084?data[rnddiv]=50427964749&data[responsive]=yes"></script>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container">
-    <small>کافی‌نت طلوع سبزوار</small>
+  <div class="center">
     <a class="back-btn" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>بازگشت به صفحه اصلی</a>
   </div>
-</footer>
+</div>
+
+<dialog id="lb" aria-label="نمایش تصویر">
+  <button class="close" type="button" aria-label="بستن"><svg viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <img alt=""/>
+</dialog>
+<script>
+  (function(){
+    var lb=document.getElementById('lb'),img=lb.querySelector('img');
+    document.querySelectorAll('.shot').forEach(function(b){
+      b.addEventListener('click',function(){img.src=b.dataset.full;img.alt=b.querySelector('img').alt;lb.showModal();});
+    });
+    lb.addEventListener('click',function(){lb.close();});
+  })();
+</script>
 </body>
 </html>
