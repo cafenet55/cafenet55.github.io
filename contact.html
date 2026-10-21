@@ -2,671 +2,344 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0b1220" />
 <title>پیام‌گیر کافی‌نت طلوع</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --tg: #229ED9;
-  --tg-glow: rgba(34,158,217,0.25);
-  --tg-soft: rgba(34,158,217,0.10);
-  --ei: #E8630A;
-  --ei-soft: rgba(232,99,10,0.10);
-  --ink: #0d0f14;
-  --ink-2: #3a3d47;
-  --ink-3: #7e8394;
-  --surface: #ffffff;
-  --bg: #f4f5f8;
-  --line: rgba(0,0,0,0.07);
-  --radius: 18px;
-  --radius-sm: 11px;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --tg:#229ED9; --tg2:#5bc8ef; --ei:#F0702A; --ei2:#ffa062;
+  --ink:#0c1322; --ink2:#46506a; --ink3:#8a93a8;
+  --bg:#eef3f9; --surface:rgba(255,255,255,.72); --solid:#fff;
+  --line:rgba(12,19,34,.08); --shadow:0 20px 50px -20px rgba(12,19,34,.25);
+  --r:22px; --rs:14px;
+  --ease:cubic-bezier(.22,1,.36,1);
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ink: #f0f1f5;
-    --ink-2: #c0c3ce;
-    --ink-3: #676b7a;
-    --surface: #1a1c24;
-    --bg: #111318;
-    --line: rgba(255,255,255,0.07);
-    --tg-soft: rgba(34,158,217,0.13);
-    --ei-soft: rgba(232,99,10,0.13);
+@media (prefers-color-scheme:dark){
+  :root{
+    --ink:#f2f5fb; --ink2:#b9c1d6; --ink3:#7b849c;
+    --bg:#070b14; --surface:rgba(22,29,46,.68); --solid:#161d2e;
+    --line:rgba(255,255,255,.09); --shadow:0 24px 60px -24px rgba(0,0,0,.8);
   }
 }
+html{scroll-behavior:smooth}
+body{
+  font-family:'Vazirmatn',system-ui,sans-serif;background:var(--bg);color:var(--ink);
+  min-height:100svh;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+  padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--tg);outline-offset:3px;border-radius:10px}
 
-body {
-  font-family: 'Vazirmatn', sans-serif;
-  background: var(--bg);
-  color: var(--ink);
-  min-height: 100vh;
-  direction: rtl;
-  overflow-x: hidden;
-}
+/* ---------- Aurora background ---------- */
+.aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;will-change:transform}
+.aurora i:nth-child(1){width:55vmax;height:55vmax;background:var(--tg);top:-25vmax;right:-15vmax;animation:a1 22s ease-in-out infinite alternate}
+.aurora i:nth-child(2){width:42vmax;height:42vmax;background:var(--ei);bottom:-18vmax;left:-14vmax;opacity:.32;animation:a2 26s ease-in-out infinite alternate}
+.aurora i:nth-child(3){width:30vmax;height:30vmax;background:#7a5cff;top:40%;left:35%;opacity:.16;animation:a3 30s ease-in-out infinite alternate}
+@keyframes a1{to{transform:translate(-14vmax,10vmax) scale(1.15)}}
+@keyframes a2{to{transform:translate(16vmax,-10vmax) scale(.9)}}
+@keyframes a3{to{transform:translate(-10vmax,-12vmax) scale(1.25)}}
+.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(currentColor 1px,transparent 1px);background-size:26px 26px;color:rgba(12,19,34,.07);
+  mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 75%)}
+@media (prefers-color-scheme:dark){.grain{color:rgba(255,255,255,.07)}}
 
-/* ── AMBIENT BACKGROUND ── */
-.ambient {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-.ambient-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.55;
-}
-.blob-1 {
-  width: 500px; height: 500px;
-  background: var(--tg-glow);
-  top: -120px; right: -120px;
-  animation: drift1 14s ease-in-out infinite alternate;
-}
-.blob-2 {
-  width: 380px; height: 380px;
-  background: rgba(232,99,10,0.14);
-  bottom: 80px; left: -100px;
-  animation: drift2 18s ease-in-out infinite alternate;
-}
-@keyframes drift1 { to { transform: translate(-40px, 60px) scale(1.08); } }
-@keyframes drift2 { to { transform: translate(60px, -40px) scale(0.92); } }
+.page{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:2.2rem 1.1rem 5rem}
 
-/* Subtle dot grid */
-.ambient::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-@media (prefers-color-scheme: dark) {
-  .ambient::after {
-    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
-  }
-}
+/* ---------- Orchestrated load sequence ---------- */
+.rise{opacity:0;transform:translateY(26px) scale(.98);filter:blur(8px);
+  animation:rise .9s var(--ease) forwards;animation-delay:calc(var(--i,0)*110ms + 120ms)}
+@keyframes rise{to{opacity:1;transform:none;filter:none}}
 
-/* ── LAYOUT ── */
-.page {
-  position: relative;
-  z-index: 1;
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 3rem 1.1rem 6rem;
-}
+/* ---------- Header ---------- */
+.header{display:flex;align-items:center;gap:16px;margin-bottom:1.6rem}
+.logo{position:relative;width:72px;height:72px;flex-shrink:0}
+.logo img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;
+  border:3px solid var(--solid);box-shadow:0 10px 30px -8px var(--tg)}
+.logo::before{content:"";position:absolute;inset:-6px;border-radius:50%;
+  background:conic-gradient(from 0deg,var(--tg),var(--ei),var(--tg2),var(--tg));
+  animation:spin 6s linear infinite;z-index:-1;filter:blur(.3px)}
+.logo::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--tg);
+  animation:ring 2.8s ease-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.55);opacity:0}}
+.brand small{display:block;font-size:12px;font-weight:500;color:var(--ink3);margin-bottom:2px}
+.brand h1{font-size:24px;font-weight:900;line-height:1.2;letter-spacing:-.3px}
+.brand h1 span{background:linear-gradient(90deg,var(--tg),var(--ei));-webkit-background-clip:text;background-clip:text;color:transparent;
+  background-size:200% 100%;animation:flow 6s linear infinite}
+@keyframes flow{to{background-position:-200% 0}}
 
-/* ── HEADER ── */
-.header {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 2.8rem;
-}
+/* ---------- Glass card base ---------- */
+.glass{background:var(--surface);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);
+  border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);position:relative;overflow:hidden}
 
-.logo-ring {
-  position: relative;
-  flex-shrink: 0;
-}
-.logo-img {
-  width: 72px; height: 72px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  border: 2.5px solid var(--tg);
-  box-shadow: 0 0 0 5px var(--tg-soft), 0 4px 20px rgba(0,0,0,0.12);
-}
-.logo-ring::after {
-  content: '';
-  position: absolute;
-  inset: -5px;
-  border-radius: 50%;
-  border: 1.5px dashed var(--tg);
-  opacity: 0.35;
-  animation: spin 20s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
+/* ---------- Hero ---------- */
+.hero{padding:1.9rem 1.6rem 1.6rem;margin-bottom:1.1rem}
+.hero::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;
+  background:linear-gradient(90deg,var(--tg),var(--tg2),var(--ei),var(--tg));background-size:300% 100%;animation:flow 5s linear infinite}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--tg);
+  background:color-mix(in srgb,var(--tg) 12%,transparent);padding:6px 14px;border-radius:99px;margin-bottom:1rem}
+.status b{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}80%,100%{box-shadow:0 0 0 9px rgba(34,197,94,0)}}
+.hero h2{font-size:clamp(28px,7vw,40px);font-weight:900;line-height:1.35;margin-bottom:.7rem}
+.hero h2 .word{display:inline-block;opacity:0;transform:translateY(.6em) rotate(4deg);animation:word .7s var(--ease) forwards;animation-delay:calc(var(--w)*90ms + 500ms)}
+@keyframes word{to{opacity:1;transform:none}}
+.hero p{font-size:14.5px;line-height:1.95;color:var(--ink2);max-width:430px;margin-bottom:1.3rem}
 
-.header-text {}
-.header-label {
-  font-size: 11px; font-weight: 500;
-  color: var(--tg);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-  display: flex; align-items: center; gap: 5px;
-}
-.header-label::before {
-  content: '';
-  display: inline-block;
-  width: 18px; height: 1.5px;
-  background: var(--tg);
-  border-radius: 2px;
-}
-.header-name { font-size: 22px; font-weight: 800; line-height: 1.25; color: var(--ink); }
-.header-sub { font-size: 13px; color: var(--ink-3); margin-top: 3px; font-weight: 400; }
+/* Live chat preview */
+.chat{background:color-mix(in srgb,var(--solid) 70%,transparent);border:1px solid var(--line);border-radius:18px;
+  padding:14px;margin-bottom:1.3rem;display:flex;flex-direction:column;gap:8px;min-height:138px}
+.msg{max-width:82%;padding:9px 14px;border-radius:16px;font-size:13px;line-height:1.7;opacity:0;transform:translateY(10px) scale(.92);
+  transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.msg.show{opacity:1;transform:none}
+.msg.me{align-self:flex-start;background:linear-gradient(135deg,var(--tg),#1b86bd);color:#fff;border-bottom-right-radius:4px}
+.msg.you{align-self:flex-end;background:var(--bg);color:var(--ink);border-bottom-left-radius:4px;border:1px solid var(--line)}
+.typing{align-self:flex-end;display:none;gap:4px;padding:12px 14px;background:var(--bg);border-radius:16px;border:1px solid var(--line)}
+.typing.show{display:flex}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--ink3);animation:dot 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-5px);opacity:1}}
 
-/* ── HERO SECTION ── */
-.hero {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 2rem 1.75rem 1.6rem;
-  margin-bottom: 1.25rem;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--tg), #5bc8ef, var(--tg));
-  background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
-}
-@keyframes shimmer { to { background-position: -200% 0; } }
+/* CTA */
+.cta{--mx:0px;--my:0px;display:flex;align-items:center;gap:14px;padding:15px 18px;border-radius:var(--rs);color:#fff;font-weight:800;
+  background:linear-gradient(120deg,#1782b8,var(--tg) 55%,#2bc0f7);background-size:200% 100%;
+  box-shadow:0 16px 40px -10px rgba(34,158,217,.6);position:relative;overflow:hidden;
+  transform:translate(var(--mx),var(--my));transition:transform .25s var(--ease),box-shadow .25s,background-position .6s}
+.cta:hover{background-position:100% 0;box-shadow:0 22px 50px -10px rgba(34,158,217,.75)}
+.cta:active{transform:translate(var(--mx),var(--my)) scale(.97)}
+.cta::after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:sweep 3.6s ease-in-out infinite}
+@keyframes sweep{0%,55%{left:-70%}100%{left:140%}}
+.cta .ico{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.2);display:grid;place-items:center;flex-shrink:0}
+.cta .ico svg{animation:fly 3.2s ease-in-out infinite}
+@keyframes fly{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(-3px,-3px) rotate(-8deg)}}
+.cta small{display:block;font-size:12px;font-weight:400;opacity:.85}
+.cta strong{font-size:18px;letter-spacing:.2px;direction:ltr;display:inline-block}
+.cta .arr{margin-right:auto;transition:transform .25s var(--ease)}
+.cta:hover .arr{transform:translateX(-6px)}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:rip .65s ease-out forwards;pointer-events:none}
+@keyframes rip{to{transform:scale(4);opacity:0}}
 
-/* Floating icons decoration */
-.float-icons {
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.fi {
-  position: absolute;
-  font-size: 22px;
-  opacity: 0.045;
-  animation: floatUp 12s ease-in-out infinite;
-}
-@keyframes floatUp {
-  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.045; }
-  50% { transform: translateY(-14px) rotate(8deg); opacity: 0.07; }
-}
-.fi:nth-child(1) { left: 8%; top: 20%; animation-delay: 0s; font-size: 30px; }
-.fi:nth-child(2) { left: 20%; top: 60%; animation-delay: 2s; }
-.fi:nth-child(3) { left: 60%; top: 15%; animation-delay: 4s; font-size: 28px; }
-.fi:nth-child(4) { left: 75%; top: 55%; animation-delay: 1s; }
-.fi:nth-child(5) { left: 40%; top: 70%; animation-delay: 3s; font-size: 18px; }
+/* ---------- Channel cards ---------- */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.1rem}
+@media(max-width:520px){.cards{grid-template-columns:1fr}}
+.card{padding:1.3rem 1.2rem 1.2rem;transform-style:preserve-3d;transition:transform .3s var(--ease),box-shadow .3s;will-change:transform}
+.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(260px circle at var(--px,50%) var(--py,0%),var(--glow),transparent 65%)}
+.card:hover::after{opacity:1}
+.card.tg{--c:var(--tg);--glow:rgba(34,158,217,.22)}
+.card.ei{--c:var(--ei);--glow:rgba(240,112,42,.22)}
+.card .top{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+.card .badge{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 14%,transparent);transition:transform .4s var(--ease)}
+.card:hover .badge{transform:rotate(-8deg) scale(1.1)}
+.card .tag{font-size:11px;font-weight:700;color:var(--c)}
+.card h3{font-size:18px;font-weight:800}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 11px;margin-bottom:7px;border-radius:12px;
+  background:color-mix(in srgb,var(--solid) 60%,transparent);border:1px solid var(--line);font-size:13px}
+.row span{color:var(--ink3);font-size:12px}
+.row b{font-weight:600;direction:ltr;color:var(--ink)}
+.copy{border:0;background:transparent;color:var(--c);cursor:pointer;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;transition:background .2s,transform .2s}
+.copy:hover{background:color-mix(in srgb,var(--c) 14%,transparent)}
+.copy:active{transform:scale(.88)}
+.copy.ok{background:#22c55e;color:#fff}
+.btn{margin-top:.7rem;display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;border-radius:12px;font-weight:700;font-size:13.5px;color:#fff;
+  background:var(--c);position:relative;overflow:hidden;transition:transform .2s var(--ease),filter .2s;font-family:inherit}
+.btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.btn:active{transform:scale(.97)}
 
-.hero-inner { position: relative; z-index: 1; }
+/* ---------- Guide ---------- */
+.guide{padding:1.3rem 1.3rem 1.2rem;margin-bottom:1.1rem}
+.guide h3{font-size:14px;font-weight:800;margin-bottom:.4rem;display:flex;align-items:center;gap:8px}
+.guide li{list-style:none;display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:13px;color:var(--ink2);line-height:1.8;align-items:flex-start}
+.guide li:last-child{border:0}
+.guide li i{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex-shrink:0;
+  background:color-mix(in srgb,var(--tg) 13%,transparent);color:var(--tg)}
+.guide li:nth-child(n+3) i{background:color-mix(in srgb,var(--ei) 13%,transparent);color:var(--ei)}
+.guide strong{color:var(--ink);font-weight:700}
+.guide a{color:var(--tg);font-weight:700}
+.install{margin-top:.8rem;padding:13px 14px;border-radius:var(--rs);display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  border:1.5px dashed color-mix(in srgb,var(--tg) 45%,transparent);background:linear-gradient(135deg,color-mix(in srgb,var(--tg) 9%,transparent),color-mix(in srgb,var(--ei) 9%,transparent))}
+.install .t{flex:1 1 180px;font-size:12.5px;color:var(--ink2);line-height:1.7}
+.install .t strong{color:var(--ink)}
+.install a{padding:10px 18px;border-radius:12px;color:#fff;font-weight:700;font-size:12.5px;white-space:nowrap;
+  background:linear-gradient(90deg,var(--tg),var(--ei),var(--tg));background-size:200% 100%;transition:background-position .5s,transform .2s}
+.install a:hover{background-position:100% 0;transform:translateY(-2px)}
 
-.live-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  background: var(--tg-soft);
-  color: var(--tg);
-  border: 1px solid rgba(34,158,217,0.2);
-  border-radius: 20px;
-  padding: 5px 14px;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 1.1rem;
-}
-.live-dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--tg);
-  box-shadow: 0 0 0 0 var(--tg-glow);
-  animation: livePulse 1.6s infinite;
-}
-@keyframes livePulse {
-  0%  { box-shadow: 0 0 0 0 var(--tg-glow); }
-  70% { box-shadow: 0 0 0 7px rgba(34,158,217,0); }
-  100%{ box-shadow: 0 0 0 0 rgba(34,158,217,0); }
-}
+.footer{text-align:center;padding-top:.6rem}
+.footer p{font-size:12px;color:var(--ink3);margin-bottom:.9rem}
+.back{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:99px;font-size:13px;font-weight:600;color:var(--ink2);
+  background:var(--surface);border:1px solid var(--line);backdrop-filter:blur(14px);transition:transform .25s var(--ease),color .2s}
+.back:hover{color:var(--ink);transform:translateX(4px)}
 
-.hero-tagline {
-  font-size: 26px; font-weight: 800;
-  line-height: 1.4; color: var(--ink);
-  margin-bottom: 0.7rem;
-}
-.hero-tagline .accent { color: var(--tg); }
+/* ---------- Toast ---------- */
+.toast{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,30px);opacity:0;z-index:9;
+  background:var(--ink);color:var(--bg);padding:11px 20px;border-radius:99px;font-size:13px;font-weight:600;
+  transition:all .4s var(--ease);pointer-events:none;display:flex;align-items:center;gap:8px}
+.toast.show{opacity:1;transform:translate(-50%,0)}
 
-.hero-desc {
-  font-size: 14px; color: var(--ink-2); line-height: 1.8;
-  max-width: 420px;
-  margin-bottom: 1.5rem;
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .rise,.hero h2 .word{opacity:1;transform:none;filter:none}
+  .msg{opacity:1;transform:none}
 }
-
-.pills-row {
-  display: flex; flex-wrap: wrap; gap: 8px;
-  margin-bottom: 1.6rem;
-}
-.pill {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 14px; border-radius: 20px;
-  font-size: 12px; font-weight: 500;
-  background: var(--bg); color: var(--ink-2);
-  border: 1px solid var(--line);
-}
-.pill svg { width: 14px; height: 14px; }
-
-/* ── MAIN TELEGRAM CTA ── */
-.tg-cta {
-  display: flex; align-items: center; gap: 14px;
-  background: linear-gradient(135deg, #1a8fc2, #229ED9 60%, #1fb8f5);
-  color: #fff;
-  border-radius: var(--radius-sm);
-  padding: 16px 20px;
-  text-decoration: none;
-  font-weight: 700; font-size: 16px;
-  box-shadow: 0 8px 32px var(--tg-glow), 0 2px 8px rgba(0,0,0,0.10);
-  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
-  position: relative;
-  overflow: hidden;
-}
-.tg-cta::after {
-  content: '';
-  position: absolute;
-  top: 0; left: -60%; width: 40%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-  animation: sweep 3s ease-in-out infinite;
-}
-@keyframes sweep { 0%,100% { left: -60%; } 50% { left: 130%; } }
-
-.tg-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 40px var(--tg-glow); }
-.tg-cta:active { transform: scale(0.98); }
-
-.tg-cta-icon {
-  width: 44px; height: 44px; border-radius: 12px;
-  background: rgba(255,255,255,0.18);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-
-.tg-cta-text {}
-.tg-cta-label { font-size: 12px; font-weight: 400; opacity: 0.82; margin-bottom: 2px; }
-.tg-cta-main { font-size: 17px; font-weight: 700; }
-
-.tg-cta-arrow {
-  margin-right: auto;
-  margin-left: 0;
-  font-size: 22px;
-  opacity: 0.7;
-  transition: transform 0.15s;
-}
-.tg-cta:hover .tg-cta-arrow { transform: translateX(-4px); }
-
-/* ── CONTACT CARDS ── */
-.cards-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-@media (max-width: 500px) { .cards-row { grid-template-columns: 1fr; } }
-
-.contact-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.4rem 1.25rem 1.25rem;
-  transition: border-color 0.2s, transform 0.18s, box-shadow 0.18s;
-  position: relative;
-  overflow: hidden;
-}
-.contact-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-}
-
-.cc-stripe {
-  position: absolute;
-  top: 0; left: 0; right: 0; height: 3px;
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-.stripe-tg { background: linear-gradient(90deg, #1a8fc2, #5bc8ef); }
-.stripe-ei { background: linear-gradient(90deg, #c0440a, #f07030); }
-
-.cc-icon {
-  width: 48px; height: 48px;
-  border-radius: 13px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 1rem;
-}
-.tg-icon { background: var(--tg-soft); }
-.ei-icon { background: var(--ei-soft); }
-
-.cc-platform {
-  font-size: 11px; font-weight: 600; letter-spacing: 0.07em;
-  margin-bottom: 3px;
-}
-.cc-tg-label { color: var(--tg); }
-.cc-ei-label { color: var(--ei); }
-
-.cc-name { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 1rem; }
-
-.cc-info {
-  display: flex; flex-direction: column; gap: 8px;
-  margin-bottom: 1.1rem;
-}
-.cc-row {
-  display: flex; align-items: center; gap: 9px;
-  font-size: 12.5px;
-}
-.cc-dot {
-  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
-}
-.tg-dot { background: var(--tg); }
-.ei-dot { background: var(--ei); }
-.cc-key { color: var(--ink-3); min-width: 60px; }
-.cc-val { color: var(--ink-2); font-weight: 500; }
-.cc-val a { text-decoration: none; color: inherit; }
-
-.cc-btn {
-  display: flex; align-items: center; justify-content: center; gap: 7px;
-  width: 100%; padding: 10px;
-  border-radius: var(--radius-sm);
-  font-size: 13px; font-weight: 600;
-  text-decoration: none;
-  transition: opacity 0.15s, transform 0.12s;
-  font-family: 'Vazirmatn', sans-serif;
-  border: none; cursor: pointer;
-}
-.cc-btn:active { transform: scale(0.97); }
-.btn-tg { background: var(--tg); color: #fff; }
-.btn-tg:hover { opacity: 0.87; }
-.btn-ei { background: var(--ei); color: #fff; }
-.btn-ei:hover { opacity: 0.87; }
-
-/* ── INFO BOX ── */
-.info-box {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.4rem 1.5rem;
-  margin-bottom: 1.25rem;
-}
-.info-box-title {
-  font-size: 13px; font-weight: 700; color: var(--ink);
-  margin-bottom: 1rem;
-  display: flex; align-items: center; gap: 8px;
-}
-.info-box-title svg { width: 18px; height: 18px; }
-
-.info-items { display: flex; flex-direction: column; gap: 0; }
-.info-item {
-  display: flex; align-items: flex-start; gap: 13px;
-  padding: 11px 0;
-  border-bottom: 1px solid var(--line);
-}
-.info-item:last-child { border-bottom: none; padding-bottom: 0; }
-
-.ii-icon {
-  width: 32px; height: 32px;
-  border-radius: 9px;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-.ii-tg { background: var(--tg-soft); color: var(--tg); }
-.ii-ei { background: var(--ei-soft); color: var(--ei); }
-
-.ii-text { font-size: 13px; color: var(--ink-2); line-height: 1.75; }
-.ii-text strong { color: var(--ink); font-weight: 600; }
-.ii-text a { color: var(--tg); font-weight: 600; text-decoration: none; }
-
-/* ── INSTALL PROMPT (inside info box) ── */
-.install-prompt {
-  margin-top: 0.9rem;
-  padding: 1rem 1.1rem;
-  border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, var(--tg-soft), var(--ei-soft));
-  border: 1px dashed rgba(34,158,217,0.35);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.install-prompt-icon {
-  width: 36px; height: 36px;
-  border-radius: 10px;
-  background: var(--surface);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  color: var(--tg);
-}
-.install-prompt-text {
-  flex: 1 1 180px;
-  font-size: 12.5px;
-  color: var(--ink-2);
-  line-height: 1.7;
-}
-.install-prompt-text strong { color: var(--ink); font-weight: 700; }
-.install-btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 9px 16px;
-  border-radius: var(--radius-sm);
-  font-size: 12.5px; font-weight: 700;
-  text-decoration: none;
-  color: #fff;
-  background: linear-gradient(90deg, var(--tg), var(--ei));
-  white-space: nowrap;
-  transition: opacity 0.15s, transform 0.12s;
-  flex-shrink: 0;
-}
-.install-btn:hover { opacity: 0.9; }
-.install-btn:active { transform: scale(0.97); }
-
-/* ── FOOTER ── */
-.footer {
-  text-align: center;
-  padding-top: 1rem;
-}
-.footer-note { font-size: 12px; color: var(--ink-3); margin-bottom: 1rem; }
-.back-link {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-size: 13px; font-weight: 500;
-  color: var(--ink-2);
-  padding: 9px 22px;
-  border-radius: var(--radius-sm);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  text-decoration: none;
-  transition: background 0.15s, color 0.15s;
-}
-.back-link:hover { background: var(--bg); color: var(--ink); }
 </style>
 </head>
 <body>
 
-<div class="ambient">
-  <div class="ambient-blob blob-1"></div>
-  <div class="ambient-blob blob-2"></div>
-</div>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="grain" aria-hidden="true"></div>
 
-<div class="page">
+<main class="page">
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="logo-ring">
-      <img class="logo-img" src="https://i.imgur.com/E2tKj4U.jpeg" alt="لوگو کافی‌نت طلوع" />
+  <header class="header rise" style="--i:0">
+    <div class="logo"><img src="https://i.imgur.com/E2tKj4U.jpeg" alt="لوگو کافی‌نت طلوع" /></div>
+    <div class="brand">
+      <small>کافی‌نت طلوع</small>
+      <h1><span>پیام‌گیر</span> طلوع</h1>
     </div>
-    <div class="header-text">
-      <div class="header-label">کافی‌نت طلوع</div>
-      <div class="header-name">پیام‌گیر طلوع</div>
-      <div class="header-sub">ثبت‌نام · پشتیبانی · ارتباط</div>
-    </div>
-  </div>
+  </header>
 
-  <!-- HERO -->
-  <div class="hero" style="margin-bottom:1.25rem">
-    <div class="float-icons">
-      <span class="fi">✉️</span>
-      <span class="fi">💬</span>
-      <span class="fi">📲</span>
-      <span class="fi">📡</span>
-      <span class="fi">🔔</span>
-    </div>
-    <div class="hero-inner">
-      <div class="live-badge">
-        <span class="live-dot"></span>
-        آنلاین — آماده پاسخ‌دهی
-      </div>
-      <div class="hero-tagline">
-        سریع‌ترین راه<br/>
-        <span class="accent">از تلگرام</span> پیام بده
-      </div>
-      <div class="hero-desc">
-        برای ثبت‌نام، دریافت خدمات یا هرگونه سوال — تنها یک پیام تلگرامی کافی است. معمولاً در کمتر از چند دقیقه پاسخ می‌دهیم.
-      </div>
+  <section class="hero glass rise" style="--i:1">
+    <div class="status"><b></b>آنلاین و آماده پاسخ‌دهی</div>
+    <h2 aria-label="سریع‌ترین راه، یک پیام در تلگرام">
+      <span class="word" style="--w:0">سریع‌ترین</span>
+      <span class="word" style="--w:1">راه،</span>
+      <span class="word" style="--w:2">یک</span>
+      <span class="word" style="--w:3">پیام</span>
+      <span class="word" style="--w:4">در</span>
+      <span class="word" style="--w:5">تلگرام</span>
+    </h2>
+    <p>برای ثبت‌نام، دریافت خدمات یا هر سؤالی، یک پیام کافی است. معمولاً ظرف چند دقیقه پاسخ می‌دهیم.</p>
 
-      <div class="pills-row">
-        <span class="pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          پاسخ فوری
-        </span>
-        <span class="pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          ارتباط امن
-        </span>
-        <span class="pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          ثبت‌نام آسان
-        </span>
-        <span class="pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.87 2 2 0 0 1 3.59 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
-          پشتیبانی کامل
-        </span>
-      </div>
-
-      <a rel="nofollow" href="https://t.me/PayamGir55" target="_blank" class="tg-cta">
-        <div class="tg-cta-icon">
-          <!-- Telegram SVG -->
-          <svg width="26" height="26" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M180 65L156 175c-1.7 7.6-6.3 9.5-12.7 5.9l-35-25.8-16.9 16.3c-1.9 1.9-3.4 3.4-7 3.4l2.5-35.5 64.5-58.3c2.8-2.5-.6-3.9-4.3-1.4L71.5 128l-34-10.6c-7.4-2.3-7.5-7.4 1.5-11l132.6-51.1c6.2-2.3 11.6 1.5 8.4 9.7z" fill="white"/>
-          </svg>
-        </div>
-        <div class="tg-cta-text">
-          <div class="tg-cta-label">پیام در تلگرام</div>
-          <div class="tg-cta-main">@PayamGir55</div>
-        </div>
-        <svg class="tg-cta-arrow" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l-7 7 7 7"/></svg>
-      </a>
-    </div>
-  </div>
-
-  <!-- TWO CARDS -->
-  <div class="cards-row">
-
-    <!-- Telegram -->
-    <div class="contact-card">
-      <div class="cc-stripe stripe-tg"></div>
-      <div class="cc-icon tg-icon">
-        <svg width="28" height="28" viewBox="0 0 240 240" fill="none">
-          <circle cx="120" cy="120" r="120" fill="#229ED9"/>
-          <path d="M180 65L156 175c-1.7 7.6-6.3 9.5-12.7 5.9l-35-25.8-16.9 16.3c-1.9 1.9-3.4 3.4-7 3.4l2.5-35.5 64.5-58.3c2.8-2.5-.6-3.9-4.3-1.4L71.5 128l-34-10.6c-7.4-2.3-7.5-7.4 1.5-11l132.6-51.1c6.2-2.3 11.6 1.5 8.4 9.7z" fill="white"/>
-        </svg>
-      </div>
-      <div class="cc-platform cc-tg-label">⭐ پیشنهادی</div>
-      <div class="cc-name">تلگرام</div>
-      <div class="cc-info">
-        <div class="cc-row">
-          <span class="cc-dot tg-dot"></span>
-          <span class="cc-key">آیدی</span>
-          <span class="cc-val"><a rel="nofollow" href="https://t.me/PayamGir55" target="_blank">@PayamGir55</a></span>
-        </div>
-        <div class="cc-row">
-          <span class="cc-dot tg-dot"></span>
-          <span class="cc-key">شماره</span>
-          <span class="cc-val"><a href="tel:+989394451455">09394451455</a></span>
-        </div>
-      </div>
-      <a rel="nofollow" href="https://t.me/PayamGir55" target="_blank" class="cc-btn btn-tg">
-        <svg width="15" height="15" viewBox="0 0 240 240" fill="none"><path d="M180 65L156 175c-1.7 7.6-6.3 9.5-12.7 5.9l-35-25.8-16.9 16.3c-1.9 1.9-3.4 3.4-7 3.4l2.5-35.5 64.5-58.3c2.8-2.5-.6-3.9-4.3-1.4L71.5 128l-34-10.6c-7.4-2.3-7.5-7.4 1.5-11l132.6-51.1c6.2-2.3 11.6 1.5 8.4 9.7z" fill="white"/></svg>
-        ورود به تلگرام
-      </a>
+    <div class="chat" id="chat" aria-hidden="true">
+      <div class="msg me">سلام، می‌خوام ثبت‌نام کنم</div>
+      <div class="typing" id="typing"><i></i><i></i><i></i></div>
+      <div class="msg you">سلام! خوش اومدید، اطلاعاتتون رو بفرستید</div>
     </div>
 
-    <!-- Eitaa -->
-    <div class="contact-card">
-      <div class="cc-stripe stripe-ei"></div>
-      <div class="cc-icon ei-icon">
-        <img src="https://i.imgur.com/2t6c6D6.png" alt="ایتا" width="28" height="28" style="border-radius:6px;object-fit:contain" />
-      </div>
-      <div class="cc-platform cc-ei-label">🇮🇷 پیام‌رسان ایرانی</div>
-      <div class="cc-name">ایتا</div>
-      <div class="cc-info">
-        <div class="cc-row">
-          <span class="cc-dot ei-dot"></span>
-          <span class="cc-key">آیدی</span>
-          <span class="cc-val"><a rel="nofollow" href="https://eitaa.com/PayamGir55" target="_blank">@PayamGir55</a></span>
-        </div>
-        <div class="cc-row">
-          <span class="cc-dot ei-dot"></span>
-          <span class="cc-key">شماره</span>
-          <span class="cc-val"><a href="tel:+989394451455">09394451455</a></span>
-        </div>
-      </div>
-      <a rel="nofollow" href="https://eitaa.com/PayamGir55" target="_blank" class="cc-btn btn-ei">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        ورود به ایتا
-      </a>
-    </div>
-  </div>
-
-  <!-- INFO BOX -->
-  <div class="info-box">
-    <div class="info-box-title">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#229ED9" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      راهنمای تماس
-    </div>
-    <div class="info-items">
-      <div class="info-item">
-        <div class="ii-icon ii-tg">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        </div>
-        <div class="ii-text">برای <strong>پاسخ سریع‌تر</strong>، از تلگرام استفاده کنید — معمولاً ظرف چند دقیقه پاسخ می‌دهیم.</div>
-      </div>
-      <div class="info-item">
-        <div class="ii-icon ii-tg">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div class="ii-text">ثبت‌نام و تماس <strong>تنها</strong> از طریق تلگرام یا ایتا انجام می‌شود.</div>
-      </div>
-      <div class="info-item">
-        <div class="ii-icon ii-ei">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <div class="ii-text">آیدی مشترک در هر دو پیام‌رسان: <strong>PayamGir55@</strong></div>
-      </div>
-      <div class="info-item">
-        <div class="ii-icon ii-ei">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.87 2 2 0 0 1 3.59 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
-        </div>
-        <div class="ii-text">شماره پیام‌رسان: <a href="tel:+989394451455">09394451455</a></div>
-      </div>
-    </div>
-
-    <!-- INSTALL PROMPT -->
-    <div class="install-prompt">
-      <div class="install-prompt-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      </div>
-      <div class="install-prompt-text">
-        <strong>تلگرام یا ایتا نصب نیست؟</strong> از لینک زیر دانلود و نصب کنید.
-      </div>
-      <a rel="nofollow" href="https://cafenet55.github.io/install.html" target="_blank" class="install-btn">
-        دانلود و نصب
-      </a>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="footer-note">پیام‌گیر کافی‌نت طلوع — خدمات ارتباطی سریع و مطمئن</div>
-    <a href="/" class="back-link">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 19l7-7-7-7"/></svg>
-      بازگشت به صفحه اصلی
+    <a class="cta" rel="nofollow" href="https://t.me/PayamGir55" target="_blank" id="cta">
+      <span class="ico">
+        <svg width="26" height="26" viewBox="0 0 240 240"><path d="M180 65L156 175c-1.7 7.6-6.3 9.5-12.7 5.9l-35-25.8-16.9 16.3c-1.9 1.9-3.4 3.4-7 3.4l2.5-35.5 64.5-58.3c2.8-2.5-.6-3.9-4.3-1.4L71.5 128l-34-10.6c-7.4-2.3-7.5-7.4 1.5-11l132.6-51.1c6.2-2.3 11.6 1.5 8.4 9.7z" fill="#fff"/></svg>
+      </span>
+      <span><small>پیام در تلگرام</small><strong>@PayamGir55</strong></span>
+      <svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
     </a>
-  </div>
+  </section>
 
-</div>
+  <section class="cards">
+    <article class="card glass tg rise" style="--i:2" data-tilt>
+      <div class="top">
+        <div class="badge">
+          <svg width="30" height="30" viewBox="0 0 240 240"><circle cx="120" cy="120" r="120" fill="#229ED9"/><path d="M180 65L156 175c-1.7 7.6-6.3 9.5-12.7 5.9l-35-25.8-16.9 16.3c-1.9 1.9-3.4 3.4-7 3.4l2.5-35.5 64.5-58.3c2.8-2.5-.6-3.9-4.3-1.4L71.5 128l-34-10.6c-7.4-2.3-7.5-7.4 1.5-11l132.6-51.1c6.2-2.3 11.6 1.5 8.4 9.7z" fill="#fff"/></svg>
+        </div>
+        <div><div class="tag">⭐ پیشنهادی</div><h3>تلگرام</h3></div>
+      </div>
+      <div class="row"><span>آیدی</span><b>@PayamGir55</b><button class="copy" data-copy="@PayamGir55" aria-label="کپی آیدی تلگرام"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+      <div class="row"><span>شماره</span><b><a href="tel:+989394451455">09394451455</a></b><button class="copy" data-copy="09394451455" aria-label="کپی شماره"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+      <a class="btn" rel="nofollow" href="https://t.me/PayamGir55" target="_blank">ورود به تلگرام</a>
+    </article>
+
+    <article class="card glass ei rise" style="--i:3" data-tilt>
+      <div class="top">
+        <div class="badge"><img src="https://i.imgur.com/2t6c6D6.png" alt="ایتا" width="30" height="30" style="border-radius:7px;object-fit:contain" /></div>
+        <div><div class="tag">🇮🇷 پیام‌رسان ایرانی</div><h3>ایتا</h3></div>
+      </div>
+      <div class="row"><span>آیدی</span><b>@PayamGir55</b><button class="copy" data-copy="@PayamGir55" aria-label="کپی آیدی ایتا"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+      <div class="row"><span>شماره</span><b><a href="tel:+989394451455">09394451455</a></b><button class="copy" data-copy="09394451455" aria-label="کپی شماره"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+      <a class="btn" rel="nofollow" href="https://eitaa.com/PayamGir55" target="_blank">ورود به ایتا</a>
+    </article>
+  </section>
+
+  <section class="guide glass rise" style="--i:4">
+    <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#229ED9" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>راهنمای تماس</h3>
+    <ul>
+      <li><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></i><div>برای <strong>پاسخ سریع‌تر</strong> از تلگرام استفاده کنید؛ معمولاً ظرف چند دقیقه پاسخ می‌دهیم.</div></li>
+      <li><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></i><div>ثبت‌نام و تماس <strong>فقط</strong> از طریق تلگرام یا ایتا انجام می‌شود.</div></li>
+      <li><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></i><div>آیدی هر دو پیام‌رسان یکی است: <strong>@PayamGir55</strong></div></li>
+      <li><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 1.61 4.87 2 2 0 0 1 3.59 2.69h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></i><div>شماره پیام‌رسان: <a href="tel:+989394451455">09394451455</a></div></li>
+    </ul>
+    <div class="install">
+      <div class="t"><strong>تلگرام یا ایتا نصب نیست؟</strong> از لینک روبه‌رو دانلود و نصب کنید.</div>
+      <a rel="nofollow" href="https://cafenet55.github.io/install.html" target="_blank">دانلود و نصب</a>
+    </div>
+  </section>
+
+  <footer class="footer rise" style="--i:5">
+    <p>پیام‌گیر کافی‌نت طلوع — خدمات ارتباطی سریع و مطمئن</p>
+    <a href="/" class="back">بازگشت به صفحه اصلی
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 19l7-7-7-7" transform="rotate(180 12 12)"/></svg>
+    </a>
+  </footer>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite">کپی شد</div>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Looping chat demo */
+  var msgs = document.querySelectorAll('#chat .msg'), typing = document.getElementById('typing');
+  function wait(ms){return new Promise(function(r){setTimeout(r,ms)})}
+  async function loop(){
+    if(reduce){msgs.forEach(function(m){m.classList.add('show')});return}
+    await wait(1800);
+    while(true){
+      msgs[0].classList.add('show'); await wait(900);
+      typing.classList.add('show'); await wait(1500);
+      typing.classList.remove('show'); msgs[1].classList.add('show'); await wait(4200);
+      msgs.forEach(function(m){m.classList.remove('show')}); await wait(700);
+    }
+  }
+  loop();
+
+  /* 3D tilt + spotlight on cards */
+  if(!reduce && matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('[data-tilt]').forEach(function(el){
+      el.addEventListener('pointermove',function(e){
+        var b=el.getBoundingClientRect(), x=(e.clientX-b.left)/b.width, y=(e.clientY-b.top)/b.height;
+        el.style.transform='perspective(900px) rotateY('+((x-.5)*-9)+'deg) rotateX('+((y-.5)*9)+'deg) translateY(-4px)';
+        el.style.setProperty('--px',x*100+'%'); el.style.setProperty('--py',y*100+'%');
+      });
+      el.addEventListener('pointerleave',function(){el.style.transform=''});
+    });
+    /* Magnetic CTA */
+    var cta=document.getElementById('cta');
+    cta.addEventListener('pointermove',function(e){
+      var b=cta.getBoundingClientRect();
+      cta.style.setProperty('--mx',((e.clientX-b.left-b.width/2)*.05)+'px');
+      cta.style.setProperty('--my',((e.clientY-b.top-b.height/2)*.15)+'px');
+    });
+    cta.addEventListener('pointerleave',function(){cta.style.setProperty('--mx','0px');cta.style.setProperty('--my','0px')});
+  }
+
+  /* Ripple on buttons */
+  document.querySelectorAll('.cta,.btn').forEach(function(el){
+    el.addEventListener('pointerdown',function(e){
+      var b=el.getBoundingClientRect(), s=Math.max(b.width,b.height)/4, r=document.createElement('span');
+      r.className='ripple'; r.style.cssText='width:'+s+'px;height:'+s+'px;left:'+(e.clientX-b.left-s/2)+'px;top:'+(e.clientY-b.top-s/2)+'px';
+      el.appendChild(r); setTimeout(function(){r.remove()},700);
+    });
+  });
+
+  /* Copy to clipboard with toast */
+  var toast=document.getElementById('toast'), tt;
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var v=btn.dataset.copy;
+      function done(){
+        btn.classList.add('ok'); toast.textContent=v+' کپی شد'; toast.classList.add('show');
+        clearTimeout(tt); tt=setTimeout(function(){toast.classList.remove('show');btn.classList.remove('ok')},1800);
+      }
+      if(navigator.clipboard){navigator.clipboard.writeText(v).then(done,done)}
+      else{var t=document.createElement('textarea');t.value=v;document.body.appendChild(t);t.select();try{document.execCommand('copy')}catch(e){}t.remove();done()}
+    });
+  });
+})();
+</script>
 </body>
 </html>
