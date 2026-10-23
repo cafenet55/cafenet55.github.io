@@ -121,15 +121,17 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 @media(min-width:520px){.up{grid-template-columns:1fr 1fr}}
 .up a{
   display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);
-  background:#f6faff;border:1px solid var(--line);border-radius:14px;padding:9px 14px;
-  transition:background .15s,border-color .15s
+  background:var(--t);border:1px solid var(--line);border-inline-start:5px solid var(--c);
+  border-radius:14px;padding:9px 14px;transition:transform .15s,box-shadow .15s
 }
-.up a:hover{background:#e9f2ff;border-color:#b9d3fb}
+.up a:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(30,50,90,.12)}
 .up a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .up .nm{flex:1;min-width:0}
-.up .nm strong{display:block;font-weight:800;font-size:.98rem;line-height:1.5}
+.up .nm strong{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800;font-size:.98rem;line-height:1.5;color:var(--c)}
 .up .nm span{display:block;direction:ltr;text-align:right;font-family:system-ui,sans-serif;font-size:.8rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.up svg{flex:none;width:14px;height:14px;color:var(--brand)}
+.up .go2{flex:none;width:28px;height:28px;border-radius:50%;background:var(--c);display:grid;place-items:center}
+.up .go2 svg{width:13px;height:13px;color:#fff}
+.rec{font-size:.72rem;font-weight:800;color:#14663a;background:#d9f5e3;border:1px solid #a9e4bf;border-radius:999px;padding:0 9px;line-height:1.7}
 
 /* save contact */
 .save{
@@ -252,23 +254,23 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 
     <h3 class="sub">🇮🇷 سایت‌های آپلود فایل ایرانی</h3>
     <div class="up">
-      <a href="https://www.picofile.com" target="_blank" rel="noopener"><span class="nm"><strong>پیکوفایل</strong><span>picofile.com</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
-      <a href="https://uplod.ir" target="_blank" rel="noopener"><span class="nm"><strong>آپلُد</strong><span>uplod.ir</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
-      <a href="https://uploadkon.ir" target="_blank" rel="noopener"><span class="nm"><strong>آپلودکن</strong><span>uploadkon.ir</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
-      <a href="https://my.files.ir" target="_blank" rel="noopener"><span class="nm"><strong>مای فایلز</strong><span>my.files.ir</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
-      <a href="https://uupload.ir" target="_blank" rel="noopener"><span class="nm"><strong>یوآپلود</strong><span>uupload.ir</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
-      <a href="https://nixfile.com" target="_blank" rel="noopener"><span class="nm"><strong>نیکس‌فایل</strong><span>nixfile.com</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
-      <a href="https://up.20script.ir" target="_blank" rel="noopener"><span class="nm"><strong>آپلود بیست‌اسکریپت</strong><span>up.20script.ir</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
-      <a href="https://rozup.ir/Login" target="_blank" rel="noopener"><span class="nm"><strong>روزآپ</strong><span>rozup.ir</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
+      <a href="https://www.picofile.com" target="_blank" rel="noopener" style="--c:#1c7ed6;--t:#e9f3fd"><span class="nm"><strong>پیکوفایل<em class="rec" style="font-style:normal">پیشنهادی</em></strong><span>picofile.com</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
+      <a href="https://uplod.ir" target="_blank" rel="noopener" style="--c:#0ca678;--t:#e6f8f2"><span class="nm"><strong>آپلود دات آی آر<em class="rec" style="font-style:normal">پیشنهادی</em></strong><span>uplod.ir</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
+      <a href="https://uploadkon.ir" target="_blank" rel="noopener" style="--c:#d6336c;--t:#ffecf3"><span class="nm"><strong>آپلود کن<em class="rec" style="font-style:normal">پیشنهادی</em></strong><span>uploadkon.ir</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
+      <a href="https://my.files.ir" target="_blank" rel="noopener" style="--c:#e08700;--t:#fff6e0"><span class="nm"><strong>مای فایلز<em class="rec" style="font-style:normal">پیشنهادی</em></strong><span>my.files.ir</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
+      <a href="https://rozup.ir/Login" target="_blank" rel="noopener" style="--c:#e8590c;--t:#fff3ea"><span class="nm"><strong>روزآپ<em class="rec" style="font-style:normal">پیشنهادی</em></strong><span>rozup.ir</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
+      <a href="https://nixfile.com" target="_blank" rel="noopener" style="--c:#0c8599;--t:#e5f7fa"><span class="nm"><strong>نیکس‌فایل</strong><span>nixfile.com</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
+      <a href="https://up.20script.ir" target="_blank" rel="noopener" style="--c:#495057;--t:#eff1f3"><span class="nm"><strong>آپلود بیست‌اسکریپت</strong><span>up.20script.ir</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
+      <a href="https://uupload.ir" target="_blank" rel="noopener" style="--c:#7048e8;--t:#f3eeff"><span class="nm"><strong>یوآپلود</strong><span>uupload.ir</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
     </div>
 
     <h3 class="sub">🌍 سایت‌های آپلود فایل خارجی</h3>
     <div class="up">
-      <a href="https://drive.google.com" target="_blank" rel="noopener"><span class="nm"><strong>گوگل درایو</strong><span>Google Drive</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
-      <a href="https://onedrive.live.com" target="_blank" rel="noopener"><span class="nm"><strong>وان‌درایو</strong><span>OneDrive</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
-      <a href="https://drive.proton.me" target="_blank" rel="noopener"><span class="nm"><strong>پروتون درایو</strong><span>Proton Drive</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
-      <a href="https://www.dropbox.com/login" target="_blank" rel="noopener"><span class="nm"><strong>دراپ‌باکس</strong><span>Dropbox</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
-      <a href="https://app.mediafire.com" target="_blank" rel="noopener"><span class="nm"><strong>مدیافایر</strong><span>MediaFire</span></span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></a>
+      <a href="https://drive.google.com" target="_blank" rel="noopener" style="--c:#188038;--t:#e7f6ec"><span class="nm"><strong>گوگل درایو<em class="rec" style="font-style:normal">پیشنهادی</em></strong><span>Google Drive</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
+      <a href="https://onedrive.live.com" target="_blank" rel="noopener" style="--c:#0f6cbd;--t:#e7f1fb"><span class="nm"><strong>وان درایو<em class="rec" style="font-style:normal">پیشنهادی</em></strong><span>OneDrive</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
+      <a href="https://drive.proton.me" target="_blank" rel="noopener" style="--c:#6d4aff;--t:#f1edff"><span class="nm"><strong>پروتون درایو<em class="rec" style="font-style:normal">پیشنهادی</em></strong><span>Proton Drive</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
+      <a href="https://www.dropbox.com/login" target="_blank" rel="noopener" style="--c:#3b5bdb;--t:#eaeefd"><span class="nm"><strong>دراپ‌باکس</strong><span>Dropbox</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
+      <a href="https://app.mediafire.com" target="_blank" rel="noopener" style="--c:#e03131;--t:#ffecec"><span class="nm"><strong>مدیافایر</strong><span>MediaFire</span></span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
     </div>
   </div>
 </section>
