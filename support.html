@@ -3,164 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="dark light">
+<meta name="color-scheme" content="light dark">
 <title>حمایت از کافی‌نت طلوع سبزوار</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#14173f; --muted:#5d6086; --line:#d9d4e6;
-    --ticket:#fffaf1; --btn:#14173f; --btn-text:#fff2dd;
-    --sun:#f6a93b; --sun-deep:#e0701f;
+    --bg:#eef3f1; --ink:#0f2b28; --muted:#58706c; --line:#cfdcd8;
+    --green:#0f5c52; --green-d:#0a3a35; --on-green:#eafaf4; --surface:#fff;
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --ink:#fff2dd; --muted:#b4b7dc; --line:#3a3f86;
-      --ticket:#1b2060; --btn:#f6a93b; --btn-text:#2a1700;
+      --bg:#0a1412; --ink:#e6f4ef; --muted:#93aaa5; --line:#1f3430;
+      --green:#2fb59f; --green-d:#0b2e2b; --on-green:#04201b; --surface:#12201d;
     }
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-tap-highlight-color:transparent}
   body{
-    font-family:'Vazirmatn',Tahoma,sans-serif;
-    min-height:100vh;position:relative;overflow-x:hidden;line-height:1.8;
-    background:linear-gradient(180deg,#171a52 0%,#322a7d 30%,#b94f78 66%,#f6a93b 94%,#ffd993 100%);
+    font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.8;min-height:100vh;
     padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0);
   }
-  /* rising sun behind the footer (static) */
-  .sun{
-    position:absolute;left:50%;bottom:-170px;width:420px;height:420px;margin-left:-210px;border-radius:50%;
-    background:radial-gradient(circle,#fff0c4 0 34%,#ffd27a 35% 52%,rgba(255,210,122,.35) 53% 70%,rgba(255,210,122,0) 71%);
-    pointer-events:none;
+  .wrap{max-width:420px;margin:0 auto;padding:1.5rem 1.25rem 3rem}
+
+  .top{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;font-weight:700;margin-bottom:2.25rem}
+  .top a{color:var(--muted);text-decoration:none}
+  .top a:hover{color:var(--ink)}
+
+  h1{font-size:clamp(2rem,9.5vw,2.6rem);font-weight:800;line-height:1.3;letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:.95rem;margin:.6rem 0 2rem;max-width:32ch}
+
+  /* Bank card */
+  .card{
+    position:relative;display:flex;flex-direction:column;justify-content:space-between;
+    width:100%;aspect-ratio:1.586;padding:6%;border:0;font:inherit;text-align:right;cursor:pointer;
+    color:#eafaf4;border-radius:22px;overflow:hidden;
+    background:linear-gradient(135deg,#17705f,#0a3a35 72%);
+    box-shadow:0 22px 38px -24px rgba(6,40,36,.8);
   }
-  .wrap{position:relative;z-index:1;max-width:420px;margin:0 auto;padding:2.5rem 1.25rem 3rem}
-
-  header{text-align:center;color:#fff7ea;margin-bottom:1.75rem}
-  .brand{font-size:.85rem;font-weight:700;opacity:.8}
-  h1{font-size:clamp(2.2rem,11vw,3rem);font-weight:900;line-height:1.25;margin:.35rem 0 .7rem;letter-spacing:-.01em}
-  .sub{font-size:.95rem;color:#e4dff8;max-width:30ch;margin:0 auto}
-
-  /* Ticket */
-  .ticket{filter:drop-shadow(0 18px 24px rgba(10,10,50,.35))}
-  .part{background:var(--ticket);color:var(--ink);position:relative}
-  .top{
-    padding:1.4rem 1.4rem 1.5rem;border-radius:24px 24px 0 0;
-    -webkit-mask:radial-gradient(13px at 0 100%,#0000 97%,#000) left/51% 100% no-repeat,radial-gradient(13px at 100% 100%,#0000 97%,#000) right/51% 100% no-repeat;
-            mask:radial-gradient(13px at 0 100%,#0000 97%,#000) left/51% 100% no-repeat,radial-gradient(13px at 100% 100%,#0000 97%,#000) right/51% 100% no-repeat;
+  .card::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:repeating-radial-gradient(circle at 100% 0,rgba(255,255,255,.07) 0 1px,transparent 1px 15px);
   }
-  .bottom{
-    padding:1.5rem 1.4rem 1.4rem;border-radius:0 0 24px 24px;
-    -webkit-mask:radial-gradient(13px at 0 0,#0000 97%,#000) left/51% 100% no-repeat,radial-gradient(13px at 100% 0,#0000 97%,#000) right/51% 100% no-repeat;
-            mask:radial-gradient(13px at 0 0,#0000 97%,#000) left/51% 100% no-repeat,radial-gradient(13px at 100% 0,#0000 97%,#000) right/51% 100% no-repeat;
-  }
-  .bottom::before{content:"";position:absolute;top:0;right:22px;left:22px;border-top:2px dashed var(--line)}
-
-  .label{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;font-weight:700;color:var(--muted)}
-  .label i{width:34px;height:24px;border-radius:6px;background:linear-gradient(135deg,#f6d38b,#d8a24a)}
-
+  .card > *{position:relative}
+  .row{display:flex;justify-content:space-between;align-items:center}
+  .kind{font-size:.78rem;font-weight:700;opacity:.85}
+  .chip{width:38px;height:28px;border-radius:6px;background:linear-gradient(135deg,#f3dc9f,#c99d44)}
   .num{
-    display:flex;flex-wrap:nowrap;justify-content:space-between;align-items:center;direction:ltr;
-    width:100%;margin:1rem 0 .9rem;padding:.85rem .9rem;cursor:pointer;
-    font:inherit;color:inherit;
-    background:color-mix(in srgb,var(--ink) 5%,transparent);
-    border:2px solid var(--line);border-radius:16px;
-    box-shadow:inset 0 0 0 4px var(--ticket),inset 0 0 0 5px var(--line);
+    display:flex;justify-content:space-between;direction:ltr;
+    padding:.55rem .8rem;border-radius:12px;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);
   }
-  .num:hover{border-color:var(--sun)}
-  .num span{font-size:clamp(1rem,5.6vw,1.45rem);font-weight:900;letter-spacing:.03em;font-variant-numeric:tabular-nums;line-height:1.4;white-space:nowrap}
-  .owner{font-size:.9rem;font-weight:700}
-  .owner small{display:block;font-size:.72rem;font-weight:400;color:var(--muted)}
+  .num span{font-size:clamp(1rem,5.6vw,1.35rem);font-weight:800;letter-spacing:.05em;font-variant-numeric:tabular-nums;white-space:nowrap;text-shadow:0 1px 0 rgba(0,0,0,.25)}
+  .owner{font-size:.88rem;font-weight:700}
+  .owner small{display:block;font-size:.68rem;font-weight:400;opacity:.7}
 
+  /* Actions */
+  .actions{display:flex;flex-direction:column;gap:12px;margin-top:1.5rem}
   .btn{
     display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
-    font:inherit;font-weight:800;font-size:1rem;cursor:pointer;text-decoration:none;
-    border-radius:16px;padding:13px 16px;border:0;
+    font:inherit;font-weight:700;font-size:1rem;cursor:pointer;text-decoration:none;
+    border-radius:16px;padding:13px 16px;border:1.5px solid transparent;
   }
-  .btn svg{width:21px;height:21px}
-  .copy{background:var(--btn);color:var(--btn-text)}
+  .btn svg{width:20px;height:20px}
+  .copy{background:var(--green);color:var(--on-green)}
   .copy .ok{display:none}
   .copy.done .ic{display:none}
   .copy.done .ok{display:block}
-  .or{text-align:center;color:var(--muted);font-size:.8rem;margin:.7rem 0}
-  .pay{
-    justify-content:space-between;background:transparent;color:var(--ink);
-    border:2px solid var(--sun);
-  }
-  .pay small{display:block;font-size:.72rem;font-weight:400;color:var(--muted);text-align:right}
+  .pay{background:var(--surface);color:var(--ink);border-color:var(--line);justify-content:space-between}
   .pay span{text-align:right;line-height:1.5}
+  .pay small{display:block;font-size:.72rem;font-weight:400;color:var(--muted)}
+  .pay:hover{border-color:var(--green)}
   .btn:active{transform:scale(.985)}
-  .pay:hover{background:rgba(246,169,59,.14)}
 
-  footer{text-align:center;margin-top:2rem;font-size:.88rem;color:#2a1700;font-weight:600}
-  footer a{display:inline-block;margin-top:2px;color:#2a1700;font-weight:800;text-underline-offset:5px;text-decoration-color:#14173f}
-
-  a:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+  footer{text-align:center;margin-top:2.25rem;font-size:.85rem;color:var(--muted)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--green);outline-offset:3px}
 </style>
 </head>
 <body>
-<div class="sun" aria-hidden="true"></div>
 <main class="wrap">
 
-  <header>
-    <p class="brand">کافی‌نت طلوع سبزوار</p>
-    <h1>طلوع هنوز<br>ادامه دارد</h1>
-    <p class="sub">کافی‌نت طلوع سبزوار با حمایت شما روشن می‌ماند. هر مبلغی کمک می‌کند.</p>
-  </header>
+  <nav class="top">
+    <span>حمایت از کافی‌نت طلوع</span>
+    <a href="/">صفحه اصلی ›</a>
+  </nav>
 
-  <section class="ticket" aria-label="پرداخت">
-    <div class="part top">
-      <div class="label"><span>کارت به کارت</span><i aria-hidden="true"></i></div>
-      <button class="num" type="button" id="num" aria-label="کپی شماره کارت ۵۰۴۱۷۲۱۲۲۸۰۶۹۷۷۰">
-        <span>5041</span><span>7212</span><span>2806</span><span>9770</span>
-      </button>
-      <p class="owner"><small>به نام</small>سید محمدرضا طلوع مقدم سبزوار</p>
-    </div>
+  <h1>طلوع هنوز ادامه دارد</h1>
+  <p class="sub">کافی‌نت طلوع سبزوار با حمایت شما روشن می‌ماند. هر مبلغی کمک می‌کند.</p>
 
-    <div class="part bottom">
-      <button class="btn copy" type="button" id="copy">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="ic"><rect x="9" y="9" width="11" height="11" rx="2.500"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></g><path class="ok" d="M5 13l4 4L19 7"/></svg>
-        <span id="lbl" aria-live="polite">کپی شماره کارت</span>
-      </button>
+  <button class="card" type="button" id="card" aria-label="کپی شماره کارت ۵۰۴۱۷۲۱۲۲۸۰۶۹۷۷۰">
+    <span class="row">
+      <span class="kind">کارت به کارت</span>
+      <span class="chip" aria-hidden="true"></span>
+    </span>
+    <span class="num" aria-hidden="true"><span>5041</span><span>7212</span><span>2806</span><span>9770</span></span>
+    <span class="owner"><small>به نام</small>سید محمدرضا طلوع مقدم سبزوار</span>
+  </button>
 
-      <p class="or">یا</p>
+  <div class="actions">
+    <button class="btn copy" type="button" id="copy">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g class="ic"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></g><path class="ok" d="M5 13l4 4L19 7"/></svg>
+      <span id="lbl" aria-live="polite">کپی شماره کارت</span>
+    </button>
+    <a class="btn pay" rel="nofollow noopener" target="_blank" href="https://daramet.com/cafenet55">
+      <span>پرداخت آنلاین<small>از طریق درگاه دارمت</small></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    </a>
+  </div>
 
-      <a class="btn pay" rel="nofollow noopener" href="https://daramet.com/cafenet55" target="_blank">
-        <span>پرداخت آنلاین<small>از طریق درگاه دارمت</small></span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <footer>سپاس از همراهی شما<br><a href="/">بازگشت به صفحه اصلی</a></footer>
+  <footer>سپاس از همراهی شما</footer>
 </main>
 
 <script>
 (function(){
-  var CARD="5041721228069770",
-      btn=document.getElementById("copy"),
-      num=document.getElementById("num"),
-      lbl=document.getElementById("lbl"),
-      orig=lbl.textContent,tm;
-  function done(){
-    lbl.textContent="کپی شد";btn.classList.add("done");
-    clearTimeout(tm);
-    tm=setTimeout(function(){lbl.textContent=orig;btn.classList.remove("done")},2000);
+  var C="5041721228069770",
+      b=document.getElementById("copy"),
+      c=document.getElementById("card"),
+      l=document.getElementById("lbl"),
+      o=l.textContent,t;
+  function ok(){
+    l.textContent="کپی شد";b.classList.add("done");
+    clearTimeout(t);
+    t=setTimeout(function(){l.textContent=o;b.classList.remove("done")},2000);
   }
-  function fallback(){
-    var t=document.createElement("textarea");
-    t.value=CARD;t.style.cssText="position:fixed;left:-9999px;top:0";
-    document.body.appendChild(t);t.select();
-    try{document.execCommand("copy");done()}catch(e){}
-    document.body.removeChild(t);
+  function fb(){
+    var a=document.createElement("textarea");
+    a.value=C;a.style.cssText="position:fixed;left:-9999px";
+    document.body.appendChild(a);a.select();
+    try{document.execCommand("copy");ok()}catch(e){}
+    document.body.removeChild(a);
   }
-  function copy(){
+  function cp(){
     if(navigator.clipboard&&navigator.clipboard.writeText)
-      navigator.clipboard.writeText(CARD).then(done).catch(fallback);
-    else fallback();
+      navigator.clipboard.writeText(C).then(ok).catch(fb);
+    else fb();
   }
-  btn.addEventListener("click",copy);
-  num.addEventListener("click",copy);
+  b.addEventListener("click",cp);
+  c.addEventListener("click",cp);
 })();
 </script>
 </body>
