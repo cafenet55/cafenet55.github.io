@@ -8,25 +8,30 @@
 <title>پیام‌گیر طلوع | ارسال فایل در پیام‌رسان‌ها</title>
 <meta name="description" content="ارسال فایل از طریق تلگرام، ایتا، سروش پلاس، روبیکا، شاد و بله به پیام‌گیر طلوع">
 <link rel="preconnect" href="https://i.imgur.com" crossorigin>
+<link rel="preload" href="./Vazirmatn.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="https://i.imgur.com/E2tKj4U.jpeg">
 <style>
+@font-face{
+  font-family:"Vazirmatn";font-style:normal;font-weight:100 900;font-display:swap;
+  src:url("./Vazirmatn.woff2") format("woff2");
+}
 :root{
   --bg:#f4f8ff; --card:#fff; --ink:#1d2b44; --muted:#62718b; --line:#e3eaf6;
   --brand:#2f7df6; --brand2:#7cc4ff;
+  --font:Vazirmatn,"Segoe UI",Tahoma,"Noto Sans Arabic",sans-serif;
 }
 *{box-sizing:border-box;margin:0}
 html{-webkit-text-size-adjust:100%}
 body{
-  font-family:Vazirmatn,"Segoe UI",Tahoma,"Noto Sans Arabic",sans-serif;
+  font-family:var(--font);
   color:var(--ink);line-height:1.8;min-height:100vh;
   background:
     radial-gradient(900px 420px at 85% -10%,#dcecff 0,transparent 60%),
     radial-gradient(700px 360px at 5% 0,#fff1dd 0,transparent 55%),
     var(--bg);
 }
+button{font-family:var(--font)}
 .wrap{max-width:760px;margin:0 auto;padding:28px 18px 40px}
-
-/* header */
 header{text-align:center;padding:18px 0 8px}
 .logo{
   width:96px;height:96px;border-radius:50%;margin:0 auto 14px;display:block;
@@ -34,13 +39,8 @@ header{text-align:center;padding:18px 0 8px}
   border:4px solid #fff;
   box-shadow:0 0 0 3px var(--brand2),0 10px 26px rgba(47,125,246,.25);
 }
-
-/* notice */
 .notice{margin:22px 4px 0;text-align:center;color:var(--muted);font-size:.9rem}
-
 h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
-
-/* buttons */
 .grid{display:grid;gap:12px;grid-template-columns:1fr}
 @media(min-width:620px){.grid{grid-template-columns:1fr 1fr}}
 .btn{
@@ -59,10 +59,9 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 .ic img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}
 .tx{flex:1;min-width:0}
 .tx strong{display:block;font-size:1.1rem;font-weight:800;line-height:1.5}
-.tx span{display:block;font-size:.86rem;opacity:.92;direction:ltr;text-align:right;font-family:system-ui,sans-serif}
+.tx span{display:block;font-size:.86rem;opacity:.92;direction:ltr;text-align:right;font-family:var(--font)}
 .go{flex:none;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.28);display:grid;place-items:center}
 .go svg{width:14px;height:14px}
-
 .tg{background:linear-gradient(135deg,#2aabee,#1e88d8)}
 .ei{background:linear-gradient(135deg,#ffb04a,#ff8a1f);color:#4a2400}
 .ei .go{background:rgba(74,36,0,.14)}
@@ -73,8 +72,6 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 .sh{background:linear-gradient(135deg,#43c75f 0,#a7e36d 45%,#ffe14a 100%);color:#16491f}
 .sh .go{background:rgba(255,255,255,.55)}
 .bl{background:linear-gradient(135deg,#3fd477,#27bf62)}
-
-/* phone card */
 .phone{
   margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:20px;
   padding:6px 18px;box-shadow:0 8px 22px rgba(30,50,90,.07)
@@ -85,7 +82,7 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 .phone .pi svg{width:24px;height:24px}
 .phone .pt{flex:1;min-width:160px}
 .phone small{color:var(--muted);display:block}
-.phone .num{font-size:1.35rem;font-weight:800;color:var(--brand);text-decoration:none;direction:ltr;display:inline-block;font-family:system-ui,sans-serif;letter-spacing:.5px}
+.phone .num{font-size:1.35rem;font-weight:800;color:var(--brand);text-decoration:none;direction:ltr;display:inline-block;font-family:var(--font);letter-spacing:.5px}
 .copy{
   border:0;cursor:pointer;font:inherit;font-weight:700;color:#fff;background:var(--brand);
   padding:9px 18px;border-radius:999px;transition:background .15s
@@ -93,8 +90,6 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 .copy.dl{text-decoration:none;display:inline-block;line-height:1.8}
 .copy:hover{background:#1f66d8}
 .copy:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
-
-/* big-file guide */
 .guide{margin-top:26px}
 .guide .lead{margin:0 4px 14px;color:var(--muted);font-size:.93rem}
 .gcard{
@@ -109,8 +104,6 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 .tip.place{background:#e8f8ee;color:#14663a}
 .tip.warn{background:#fff6e5;border:1px solid #ffd58a;color:#7a4a00}
 .sub{font-weight:800;font-size:.98rem;margin:16px 2px 8px}
-
-/* transfer apps: download blocks */
 .appbox{
   margin-top:12px;background:#f6faff;border:1px solid var(--line);border-radius:16px;
   padding:12px 14px
@@ -118,7 +111,7 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 .appbox:first-of-type{margin-top:14px}
 .ah{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
 .ah strong{font-weight:800;font-size:1.05rem;color:var(--brand);line-height:1.5}
-.ah span{direction:ltr;font-family:system-ui,sans-serif;font-size:.85rem;color:var(--muted)}
+.ah span{direction:ltr;font-family:var(--font);font-size:.85rem;color:var(--muted)}
 .plat{font-size:.82rem;font-weight:800;color:var(--muted);margin:8px 2px 6px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{
@@ -132,11 +125,8 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 .chip:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(30,50,90,.12)}
 .chip:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .chip small{font-size:.7rem;font-weight:700;color:var(--muted)}
-
 .prow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .prow .chips{flex:1}
-
-/* camscanner */
 .steps{list-style:none;padding:0;margin:12px 0 0;counter-reset:s;display:grid;gap:8px}
 .steps li{
   counter-increment:s;display:flex;gap:10px;align-items:flex-start;
@@ -148,8 +138,6 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
   background:var(--brand);color:#fff;font-weight:800;font-size:.8rem;display:grid;place-items:center;margin-top:2px
 }
 .steps b{color:var(--brand)}
-
-/* upload sites */
 .up{display:grid;gap:8px;grid-template-columns:1fr}
 @media(min-width:520px){.up{grid-template-columns:1fr 1fr}}
 .up a{
@@ -167,8 +155,7 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
   font-style:normal;font-size:.68rem;font-weight:700;color:#14663a;background:#d9f5e3;
   border:1px solid #a9e4bf;border-radius:999px;padding:0 8px;line-height:1.6;white-space:nowrap
 }
-
-/* save contact */
+.chip .rec{font-size:.66rem}
 .save{
   display:block;margin:16px auto 0;width:max-content;max-width:100%;text-align:center;text-decoration:none;
   background:var(--brand);color:#fff;border-radius:999px;
@@ -177,8 +164,6 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 }
 .save:hover{transform:translateY(-2px);background:#1f66d8}
 .save:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-
-/* all channels */
 .all{
   display:block;margin:12px auto 0;width:max-content;max-width:100%;text-align:center;text-decoration:none;
   background:#fff;color:var(--ink);border:1px solid #cfe0fb;border-radius:999px;
@@ -187,7 +172,6 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 }
 .all:hover{transform:translateY(-2px)}
 .all:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -200,37 +184,31 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
 
 <h2>ارسال فایل در پیام‌رسان‌ها</h2>
 <nav class="grid" aria-label="پیام‌رسان‌ها">
-
   <a class="btn tg" href="https://t.me/PayamGir55" target="_blank" rel="noopener">
     <span class="ic"><img src="https://i.imgur.com/6BSDA4m.png" alt="" width="54" height="54" loading="lazy"></span>
     <span class="tx"><strong>تلگرام</strong></span>
     <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
   </a>
-
   <a class="btn ei" href="https://eitaa.com/PayamGir55" target="_blank" rel="noopener">
     <span class="ic"><img src="https://i.imgur.com/2t6c6D6.png" alt="" width="54" height="54" loading="lazy"></span>
     <span class="tx"><strong>ایتا</strong></span>
     <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
   </a>
-
   <a class="btn so" href="https://splus.ir/PayamGir55" target="_blank" rel="noopener">
     <span class="ic"><img src="https://i.imgur.com/z7qKSxf.png" alt="" width="54" height="54" loading="lazy"></span>
     <span class="tx"><strong>سروش پلاس</strong></span>
     <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="#12306f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
   </a>
-
   <a class="btn ru" href="https://rubika.ir/PayamGir55" target="_blank" rel="noopener">
     <span class="ic"><img src="https://i.imgur.com/r3o3Va2.png" alt="" width="54" height="54" loading="lazy"></span>
     <span class="tx"><strong>روبیکا</strong></span>
     <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
   </a>
-
   <a class="btn sh" href="https://shad.ir/PayamGir55" target="_blank" rel="noopener">
     <span class="ic"><img src="https://i.imgur.com/vyfpww4.png" alt="" width="54" height="54" loading="lazy"></span>
     <span class="tx"><strong>شاد</strong></span>
     <span class="go"><svg viewBox="0 0 16 16" fill="none" stroke="#16491f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span>
   </a>
-
   <a class="btn bl" href="https://ble.ir/PayamGir55" target="_blank" rel="noopener">
     <span class="ic"><img src="https://i.imgur.com/cO8ML8b.png" alt="" width="54" height="54" loading="lazy"></span>
     <span class="tx"><strong>بله</strong></span>
@@ -260,7 +238,7 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
     <span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="#2f7df6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></span>
     <div class="pt">
       <small>ذخیره در مخاطبین گوشی</small>
-      <span class="num" style="font-size:1.1rem;direction:rtl;letter-spacing:0;font-family:inherit">پیامگیر کافی نت طلوع</span>
+      <span class="num" style="font-size:1.1rem;direction:rtl;letter-spacing:0">پیامگیر کافی نت طلوع</span>
     </div>
     <a class="copy dl" href="./Payamgir55.vcf" download>📱 ذخیره شماره</a>
   </div>
@@ -275,69 +253,26 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
     <div class="gh"><span class="pi">📲</span><h3>اپلیکیشن‌های انتقال فایل</h3></div>
     <p>ابتدا یکی از این برنامه‌ها را روی گوشی خود نصب کنید، سپس فایل را با آن بفرستید:</p>
 
-    <!-- ShareMe -->
-
     <div class="appbox">
       <div class="ah"><strong>شیرمی</strong><span>ShareMe</span></div>
       <div class="plat">نسخه اندروید</div>
-      <div class="prow">
-        <div class="chips">
-          <a class="chip" style="--c:#188038" href="https://play.google.com/store/apps/details?id=com.xiaomi.midrop&amp;hl=en" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 512 512" aria-hidden="true"><path fill="#00A0FF" d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z"/><path fill="#00E676" d="M345.8 174L89.22 32.64l-.16-.09c-4.42-2.4-8.86.54-8.86.54L260 256z"/><path fill="#FF3A44" d="M80.22 479.36s4.44 2.94 8.86.54l.16-.09L345.8 338 260 256z"/><path fill="#FFD500" d="M457.93 225.22l-66.52-38.18L298 256l93.41 68.96 66.52-38.18c19.07-11 19.07-41.56 0-61.56z"/></svg>گوگل پلی</a>
-          <a class="chip" style="--c:#1c7ed6" href="https://myket.ir/app/com.xiaomi.midrop" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9c1.5 4.5 12.5 4.5 14 0" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>مایکت</a>
-          <a class="chip" style="--c:#2f9e44" href="https://cafebazaar.ir/app/com.xiaomi.midrop" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10h16l-2 9a1.5 1.5 0 01-1.5 1.2H7.5A1.5 1.5 0 016 19l-2-9z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 10c2-1.2 4-1.8 8-1.8s6 .6 8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="9" cy="6" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="13.2" cy="5" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="16.8" cy="6.4" r="1.6" stroke="currentColor" stroke-width="1.4"/></svg>کافه بازار</a>
-          <a class="chip" style="--c:#e8590c" href="https://www.farsroid.com/shareme-file-sharing-data-transfer" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10"/></svg>فارسروید <small>لینک مستقیم</small></a>
-        </div>
-        
-      </div>
+      <div class="chips"><a class="chip" style="--c:#188038" href="https://play.google.com/store/apps/details?id=com.xiaomi.midrop&hl=en" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 512 512" aria-hidden="true"><path fill="#00A0FF" d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z"/><path fill="#00E676" d="M345.8 174L89.22 32.64l-.16-.09c-4.42-2.4-8.86.54-8.86.54L260 256z"/><path fill="#FF3A44" d="M80.22 479.36s4.44 2.94 8.86.54l.16-.09L345.8 338 260 256z"/><path fill="#FFD500" d="M457.93 225.22l-66.52-38.18L298 256l93.41 68.96 66.52-38.18c19.07-11 19.07-41.56 0-61.56z"/></svg>گوگل پلی</a><a class="chip" style="--c:#1c7ed6" href="https://myket.ir/app/com.xiaomi.midrop" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9c1.5 4.5 12.5 4.5 14 0" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>مایکت</a><a class="chip" style="--c:#2f9e44" href="https://cafebazaar.ir/app/com.xiaomi.midrop" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10h16l-2 9a1.5 1.5 0 01-1.5 1.2H7.5A1.5 1.5 0 016 19l-2-9z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 10c2-1.2 4-1.8 8-1.8s6 .6 8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="9" cy="6" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="13.2" cy="5" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="16.8" cy="6.4" r="1.6" stroke="currentColor" stroke-width="1.4"/></svg>کافه بازار</a><a class="chip" style="--c:#e8590c" href="https://www.farsroid.com/shareme-file-sharing-data-transfer" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10"/></svg>فارسروید <small>لینک مستقیم</small></a></div>
       <div class="plat">نسخه آیفون</div>
-      <div class="prow">
-        <div class="chips">
-          <a class="chip" style="--c:#1d2b44" href="https://apps.apple.com/us/app/shareme-file-sharing/id6599845869" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="asg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18c9fb"/><stop offset="1" stop-color="#1a6cf0"/></linearGradient></defs><rect width="24" height="24" rx="5.4" fill="url(#asg)"/><g transform="translate(3.4 3.4) scale(.717)"><path fill="#fff" d="M8.8086 14.9194l6.1107-11.0368c.0837-.1513.1682-.302.2437-.4584.0685-.142.1267-.2854.1646-.4403.0803-.3259.0588-.6656-.066-.9767-.1238-.3095-.3417-.5678-.6201-.7355a1.4175 1.4175 0 0 0-.921-.1924c-.3207.043-.6135.1935-.8443.4288-.1094.1118-.1996.2361-.2832.369-.092.1463-.175.2979-.259.4492l-.3864.6979-.3865-.6979c-.0837-.1515-.1667-.303-.2587-.4492-.0837-.1329-.1739-.2572-.2835-.369-.2305-.2353-.5233-.3857-.844-.429a1.4181 1.4181 0 0 0-.921.1926c-.2784.1677-.4964.426-.6203.7355-.1246.311-.1461.6508-.066.9767.038.155.0962.2984.1648.4403.0753.1564.1598.307.2437.4584l1.248 2.2543-4.8625 8.7825H2.0295c-.1676 0-.3351-.0007-.5026.0092-.1522.009-.3004.0284-.448.0714-.3108.0906-.5822.2798-.7783.548-.195.2665-.3006.5929-.3006.9279 0 .3352.1057.6612.3006.9277.196.2683.4675.4575.7782.548.1477.043.296.0623.4481.0715.1675.01.335.009.5026.009h13.0974c.0171-.0357.059-.1294.1-.2697.415-1.4151-.6156-2.843-2.0347-2.843zM3.113 18.5418l-.7922 1.5008c-.0818.1553-.1644.31-.2384.4705-.067.1458-.124.293-.1611.452-.0785.3346-.0576.6834.0645 1.0029.1212.3175.3346.583.607.7549.2727.172.5891.2416.9013.1975.3139-.044.6005-.1986.8263-.4402.1072-.1148.1954-.2424.2772-.3787.0902-.1503.1714-.3059.2535-.4612L6 19.4636c-.0896-.149-.9473-1.4704-2.887-.9218m20.5861-3.0056a1.4707 1.4707 0 0 0-.779-.5407c-.1476-.0425-.2961-.0616-.4483-.0705-.1678-.0099-.3352-.0091-.503-.0091H18.648l-4.3891-7.817c-.6655.7005-.9632 1.485-1.0773 2.1976-.1655 1.0333.0367 2.0934.546 3.0004l5.2741 9.3933c.084.1494.167.299.2591.4435.0837.131.1739.2537.2836.364.231.2323.5238.3809.8449.4232.3192.0424.643-.0244.9217-.1899.2784-.1653.4968-.4204.621-.7257.1246-.3072.146-.6425.0658-.9641-.0381-.1529-.0962-.2945-.165-.4346-.0753-.1543-.1598-.303-.2438-.4524l-1.216-2.1662h1.596c.1677 0 .3351.0009.5029-.009.1522-.009.3007-.028.4483-.0705a1.4707 1.4707 0 0 0 .779-.5407A1.5386 1.5386 0 0 0 24 16.452a1.539 1.539 0 0 0-.3009-.9158Z"/></g></svg>اپ‌استور</a>
-        </div>
-        
-      </div>
+      <div class="chips"><a class="chip" style="--c:#1d2b44" href="https://apps.apple.com/us/app/shareme-file-sharing/id6599845869" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="asg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18c9fb"/><stop offset="1" stop-color="#1a6cf0"/></linearGradient></defs><rect width="24" height="24" rx="5.4" fill="url(#asg2)"/><g transform="translate(3.4 3.4) scale(.717)"><path fill="#fff" d="M8.8086 14.9194l6.1107-11.0368c.0837-.1513.1682-.302.2437-.4584.0685-.142.1267-.2854.1646-.4403.0803-.3259.0588-.6656-.066-.9767-.1238-.3095-.3417-.5678-.6201-.7355a1.4175 1.4175 0 0 0-.921-.1924c-.3207.043-.6135.1935-.8443.4288-.1094.1118-.1996.2361-.2832.369-.092.1463-.175.2979-.259.4492l-.3864.6979-.3865-.6979c-.0837-.1515-.1667-.303-.2587-.4492-.0837-.1329-.1739-.2572-.2835-.369-.2305-.2353-.5233-.3857-.844-.429a1.4181 1.4181 0 0 0-.921.1926c-.2784.1677-.4964.426-.6203.7355-.1246.311-.1461.6508-.066.9767.038.155.0962.2984.1648.4403.0753.1564.1598.307.2437.4584l1.248 2.2543-4.8625 8.7825H2.0295c-.1676 0-.3351-.0007-.5026.0092-.1522.009-.3004.0284-.448.0714-.3108.0906-.5822.2798-.7783.548-.195.2665-.3006.5929-.3006.9279 0 .3352.1057.6612.3006.9277.196.2683.4675.4575.7782.548.1477.043.296.0623.4481.0715.1675.01.335.009.5026.009h13.0974c.0171-.0357.059-.1294.1-.2697.415-1.4151-.6156-2.843-2.0347-2.843zM3.113 18.5418l-.7922 1.5008c-.0818.1553-.1644.31-.2384.4705-.067.1458-.124.293-.1611.452-.0785.3346-.0576.6834.0645 1.0029.1212.3175.3346.583.607.7549.2727.172.5891.2416.9013.1975.3139-.044.6005-.1986.8263-.4402.1072-.1148.1954-.2424.2772-.3787.0902-.1503.1714-.3059.2535-.4612L6 19.4636c-.0896-.149-.9473-1.4704-2.887-.9218m20.5861-3.0056a1.4707 1.4707 0 0 0-.779-.5407c-.1476-.0425-.2961-.0616-.4483-.0705-.1678-.0099-.3352-.0091-.503-.0091H18.648l-4.3891-7.817c-.6655.7005-.9632 1.485-1.0773 2.1976-.1655 1.0333.0367 2.0934.546 3.0004l5.2741 9.3933c.084.1494.167.299.2591.4435.0837.131.1739.2537.2836.364.231.2323.5238.3809.8449.4232.3192.0424.643-.0244.9217-.1899.2784-.1653.4968-.4204.621-.7257.1246-.3072.146-.6425.0658-.9641-.0381-.1529-.0962-.2945-.165-.4346-.0753-.1543-.1598-.303-.2438-.4524l-1.216-2.1662h1.596c.1677 0 .3351.0009.5029-.009.1522-.009.3007-.028.4483-.0705a1.4707 1.4707 0 0 0 .779-.5407A1.5386 1.5386 0 0 0 24 16.452a1.539 1.539 0 0 0-.3009-.9158Z"/></g></svg>اپ‌استور</a></div>
     </div>
-
     <div class="appbox">
       <div class="ah"><strong>زاپیا</strong><span>Zapya</span></div>
       <div class="plat">نسخه اندروید</div>
-      <div class="prow">
-        <div class="chips">
-          <a class="chip" style="--c:#188038" href="https://play.google.com/store/apps/details?id=com.dewmobile.kuaiya.play" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 512 512" aria-hidden="true"><path fill="#00A0FF" d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z"/><path fill="#00E676" d="M345.8 174L89.22 32.64l-.16-.09c-4.42-2.4-8.86.54-8.86.54L260 256z"/><path fill="#FF3A44" d="M80.22 479.36s4.44 2.94 8.86.54l.16-.09L345.8 338 260 256z"/><path fill="#FFD500" d="M457.93 225.22l-66.52-38.18L298 256l93.41 68.96 66.52-38.18c19.07-11 19.07-41.56 0-61.56z"/></svg>گوگل پلی</a>
-          <a class="chip" style="--c:#1c7ed6" href="https://myket.ir/app/com.dewmobile.kuaiya.play" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9c1.5 4.5 12.5 4.5 14 0" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>مایکت</a>
-          <a class="chip" style="--c:#2f9e44" href="https://cafebazaar.ir/app/com.dewmobile.kuaiya.play" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10h16l-2 9a1.5 1.5 0 01-1.5 1.2H7.5A1.5 1.5 0 016 19l-2-9z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 10c2-1.2 4-1.8 8-1.8s6 .6 8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="9" cy="6" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="13.2" cy="5" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="16.8" cy="6.4" r="1.6" stroke="currentColor" stroke-width="1.4"/></svg>کافه بازار</a>
-          <a class="chip" style="--c:#e8590c" href="https://www.farsroid.com/zapya-for-android/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10"/></svg>فارسروید <small>لینک مستقیم</small></a>
-        </div>
-        
-      </div>
+      <div class="chips"><a class="chip" style="--c:#188038" href="https://play.google.com/store/apps/details?id=com.dewmobile.kuaiya.play" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 512 512" aria-hidden="true"><path fill="#00A0FF" d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z"/><path fill="#00E676" d="M345.8 174L89.22 32.64l-.16-.09c-4.42-2.4-8.86.54-8.86.54L260 256z"/><path fill="#FF3A44" d="M80.22 479.36s4.44 2.94 8.86.54l.16-.09L345.8 338 260 256z"/><path fill="#FFD500" d="M457.93 225.22l-66.52-38.18L298 256l93.41 68.96 66.52-38.18c19.07-11 19.07-41.56 0-61.56z"/></svg>گوگل پلی</a><a class="chip" style="--c:#1c7ed6" href="https://myket.ir/app/com.dewmobile.kuaiya.play" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9c1.5 4.5 12.5 4.5 14 0" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>مایکت</a><a class="chip" style="--c:#2f9e44" href="https://cafebazaar.ir/app/com.dewmobile.kuaiya.play" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10h16l-2 9a1.5 1.5 0 01-1.5 1.2H7.5A1.5 1.5 0 016 19l-2-9z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 10c2-1.2 4-1.8 8-1.8s6 .6 8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="9" cy="6" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="13.2" cy="5" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="16.8" cy="6.4" r="1.6" stroke="currentColor" stroke-width="1.4"/></svg>کافه بازار</a><a class="chip" style="--c:#e8590c" href="https://www.farsroid.com/zapya-for-android/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10"/></svg>فارسروید <small>لینک مستقیم</small></a></div>
       <div class="plat">نسخه آیفون</div>
-      <div class="prow">
-        <div class="chips">
-          <a class="chip" style="--c:#1d2b44" href="https://apps.apple.com/us/app/zapya-file-sharing/id576309271" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="asg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18c9fb"/><stop offset="1" stop-color="#1a6cf0"/></linearGradient></defs><rect width="24" height="24" rx="5.4" fill="url(#asg)"/><g transform="translate(3.4 3.4) scale(.717)"><path fill="#fff" d="M8.8086 14.9194l6.1107-11.0368c.0837-.1513.1682-.302.2437-.4584.0685-.142.1267-.2854.1646-.4403.0803-.3259.0588-.6656-.066-.9767-.1238-.3095-.3417-.5678-.6201-.7355a1.4175 1.4175 0 0 0-.921-.1924c-.3207.043-.6135.1935-.8443.4288-.1094.1118-.1996.2361-.2832.369-.092.1463-.175.2979-.259.4492l-.3864.6979-.3865-.6979c-.0837-.1515-.1667-.303-.2587-.4492-.0837-.1329-.1739-.2572-.2835-.369-.2305-.2353-.5233-.3857-.844-.429a1.4181 1.4181 0 0 0-.921.1926c-.2784.1677-.4964.426-.6203.7355-.1246.311-.1461.6508-.066.9767.038.155.0962.2984.1648.4403.0753.1564.1598.307.2437.4584l1.248 2.2543-4.8625 8.7825H2.0295c-.1676 0-.3351-.0007-.5026.0092-.1522.009-.3004.0284-.448.0714-.3108.0906-.5822.2798-.7783.548-.195.2665-.3006.5929-.3006.9279 0 .3352.1057.6612.3006.9277.196.2683.4675.4575.7782.548.1477.043.296.0623.4481.0715.1675.01.335.009.5026.009h13.0974c.0171-.0357.059-.1294.1-.2697.415-1.4151-.6156-2.843-2.0347-2.843zM3.113 18.5418l-.7922 1.5008c-.0818.1553-.1644.31-.2384.4705-.067.1458-.124.293-.1611.452-.0785.3346-.0576.6834.0645 1.0029.1212.3175.3346.583.607.7549.2727.172.5891.2416.9013.1975.3139-.044.6005-.1986.8263-.4402.1072-.1148.1954-.2424.2772-.3787.0902-.1503.1714-.3059.2535-.4612L6 19.4636c-.0896-.149-.9473-1.4704-2.887-.9218m20.5861-3.0056a1.4707 1.4707 0 0 0-.779-.5407c-.1476-.0425-.2961-.0616-.4483-.0705-.1678-.0099-.3352-.0091-.503-.0091H18.648l-4.3891-7.817c-.6655.7005-.9632 1.485-1.0773 2.1976-.1655 1.0333.0367 2.0934.546 3.0004l5.2741 9.3933c.084.1494.167.299.2591.4435.0837.131.1739.2537.2836.364.231.2323.5238.3809.8449.4232.3192.0424.643-.0244.9217-.1899.2784-.1653.4968-.4204.621-.7257.1246-.3072.146-.6425.0658-.9641-.0381-.1529-.0962-.2945-.165-.4346-.0753-.1543-.1598-.303-.2438-.4524l-1.216-2.1662h1.596c.1677 0 .3351.0009.5029-.009.1522-.009.3007-.028.4483-.0705a1.4707 1.4707 0 0 0 .779-.5407A1.5386 1.5386 0 0 0 24 16.452a1.539 1.539 0 0 0-.3009-.9158Z"/></g></svg>اپ‌استور</a>
-        </div>
-        
-      </div>
+      <div class="chips"><a class="chip" style="--c:#1d2b44" href="https://apps.apple.com/us/app/zapya-file-sharing/id576309271" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="asg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18c9fb"/><stop offset="1" stop-color="#1a6cf0"/></linearGradient></defs><rect width="24" height="24" rx="5.4" fill="url(#asg3)"/><g transform="translate(3.4 3.4) scale(.717)"><path fill="#fff" d="M8.8086 14.9194l6.1107-11.0368c.0837-.1513.1682-.302.2437-.4584.0685-.142.1267-.2854.1646-.4403.0803-.3259.0588-.6656-.066-.9767-.1238-.3095-.3417-.5678-.6201-.7355a1.4175 1.4175 0 0 0-.921-.1924c-.3207.043-.6135.1935-.8443.4288-.1094.1118-.1996.2361-.2832.369-.092.1463-.175.2979-.259.4492l-.3864.6979-.3865-.6979c-.0837-.1515-.1667-.303-.2587-.4492-.0837-.1329-.1739-.2572-.2835-.369-.2305-.2353-.5233-.3857-.844-.429a1.4181 1.4181 0 0 0-.921.1926c-.2784.1677-.4964.426-.6203.7355-.1246.311-.1461.6508-.066.9767.038.155.0962.2984.1648.4403.0753.1564.1598.307.2437.4584l1.248 2.2543-4.8625 8.7825H2.0295c-.1676 0-.3351-.0007-.5026.0092-.1522.009-.3004.0284-.448.0714-.3108.0906-.5822.2798-.7783.548-.195.2665-.3006.5929-.3006.9279 0 .3352.1057.6612.3006.9277.196.2683.4675.4575.7782.548.1477.043.296.0623.4481.0715.1675.01.335.009.5026.009h13.0974c.0171-.0357.059-.1294.1-.2697.415-1.4151-.6156-2.843-2.0347-2.843zM3.113 18.5418l-.7922 1.5008c-.0818.1553-.1644.31-.2384.4705-.067.1458-.124.293-.1611.452-.0785.3346-.0576.6834.0645 1.0029.1212.3175.3346.583.607.7549.2727.172.5891.2416.9013.1975.3139-.044.6005-.1986.8263-.4402.1072-.1148.1954-.2424.2772-.3787.0902-.1503.1714-.3059.2535-.4612L6 19.4636c-.0896-.149-.9473-1.4704-2.887-.9218m20.5861-3.0056a1.4707 1.4707 0 0 0-.779-.5407c-.1476-.0425-.2961-.0616-.4483-.0705-.1678-.0099-.3352-.0091-.503-.0091H18.648l-4.3891-7.817c-.6655.7005-.9632 1.485-1.0773 2.1976-.1655 1.0333.0367 2.0934.546 3.0004l5.2741 9.3933c.084.1494.167.299.2591.4435.0837.131.1739.2537.2836.364.231.2323.5238.3809.8449.4232.3192.0424.643-.0244.9217-.1899.2784-.1653.4968-.4204.621-.7257.1246-.3072.146-.6425.0658-.9641-.0381-.1529-.0962-.2945-.165-.4346-.0753-.1543-.1598-.303-.2438-.4524l-1.216-2.1662h1.596c.1677 0 .3351.0009.5029-.009.1522-.009.3007-.028.4483-.0705a1.4707 1.4707 0 0 0 .779-.5407A1.5386 1.5386 0 0 0 24 16.452a1.539 1.539 0 0 0-.3009-.9158Z"/></g></svg>اپ‌استور</a></div>
     </div>
-
     <div class="appbox">
       <div class="ah"><strong>شیرایت</strong><span>SHAREit</span></div>
       <div class="plat">نسخه اندروید</div>
-      <div class="prow">
-        <div class="chips">
-          <a class="chip" style="--c:#188038" href="https://play.google.com/store/apps/details?id=com.lenovo.anyshare.gps" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 512 512" aria-hidden="true"><path fill="#00A0FF" d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z"/><path fill="#00E676" d="M345.8 174L89.22 32.64l-.16-.09c-4.42-2.4-8.86.54-8.86.54L260 256z"/><path fill="#FF3A44" d="M80.22 479.36s4.44 2.94 8.86.54l.16-.09L345.8 338 260 256z"/><path fill="#FFD500" d="M457.93 225.22l-66.52-38.18L298 256l93.41 68.96 66.52-38.18c19.07-11 19.07-41.56 0-61.56z"/></svg>گوگل پلی</a>
-          <a class="chip" style="--c:#1c7ed6" href="https://myket.ir/app/com.lenovo.anyshare.gps" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9c1.5 4.5 12.5 4.5 14 0" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>مایکت</a>
-          <a class="chip" style="--c:#2f9e44" href="https://cafebazaar.ir/app/com.lenovo.anyshare.gps" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10h16l-2 9a1.5 1.5 0 01-1.5 1.2H7.5A1.5 1.5 0 016 19l-2-9z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 10c2-1.2 4-1.8 8-1.8s6 .6 8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="9" cy="6" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="13.2" cy="5" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="16.8" cy="6.4" r="1.6" stroke="currentColor" stroke-width="1.4"/></svg>کافه بازار</a>
-          <a class="chip" style="--c:#e8590c" href="https://www.farsroid.com/shareit-android/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10"/></svg>فارسروید <small>لینک مستقیم</small></a>
-        </div>
-        
-      </div>
+      <div class="chips"><a class="chip" style="--c:#188038" href="https://play.google.com/store/apps/details?id=com.lenovo.anyshare.gps" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 512 512" aria-hidden="true"><path fill="#00A0FF" d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z"/><path fill="#00E676" d="M345.8 174L89.22 32.64l-.16-.09c-4.42-2.4-8.86.54-8.86.54L260 256z"/><path fill="#FF3A44" d="M80.22 479.36s4.44 2.94 8.86.54l.16-.09L345.8 338 260 256z"/><path fill="#FFD500" d="M457.93 225.22l-66.52-38.18L298 256l93.41 68.96 66.52-38.18c19.07-11 19.07-41.56 0-61.56z"/></svg>گوگل پلی</a><a class="chip" style="--c:#1c7ed6" href="https://myket.ir/app/com.lenovo.anyshare.gps" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9c1.5 4.5 12.5 4.5 14 0" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>مایکت</a><a class="chip" style="--c:#2f9e44" href="https://cafebazaar.ir/app/com.lenovo.anyshare.gps" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10h16l-2 9a1.5 1.5 0 01-1.5 1.2H7.5A1.5 1.5 0 016 19l-2-9z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 10c2-1.2 4-1.8 8-1.8s6 .6 8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="9" cy="6" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="13.2" cy="5" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="16.8" cy="6.4" r="1.6" stroke="currentColor" stroke-width="1.4"/></svg>کافه بازار</a><a class="chip" style="--c:#e8590c" href="https://www.farsroid.com/shareit-android/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10"/></svg>فارسروید <small>لینک مستقیم</small></a></div>
       <div class="plat">نسخه آیفون</div>
-      <div class="prow">
-        <div class="chips">
-          <a class="chip" style="--c:#1d2b44" href="https://apps.apple.com/us/app/shareit-transfer-share-files/id725215120" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="asg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18c9fb"/><stop offset="1" stop-color="#1a6cf0"/></linearGradient></defs><rect width="24" height="24" rx="5.4" fill="url(#asg)"/><g transform="translate(3.4 3.4) scale(.717)"><path fill="#fff" d="M8.8086 14.9194l6.1107-11.0368c.0837-.1513.1682-.302.2437-.4584.0685-.142.1267-.2854.1646-.4403.0803-.3259.0588-.6656-.066-.9767-.1238-.3095-.3417-.5678-.6201-.7355a1.4175 1.4175 0 0 0-.921-.1924c-.3207.043-.6135.1935-.8443.4288-.1094.1118-.1996.2361-.2832.369-.092.1463-.175.2979-.259.4492l-.3864.6979-.3865-.6979c-.0837-.1515-.1667-.303-.2587-.4492-.0837-.1329-.1739-.2572-.2835-.369-.2305-.2353-.5233-.3857-.844-.429a1.4181 1.4181 0 0 0-.921.1926c-.2784.1677-.4964.426-.6203.7355-.1246.311-.1461.6508-.066.9767.038.155.0962.2984.1648.4403.0753.1564.1598.307.2437.4584l1.248 2.2543-4.8625 8.7825H2.0295c-.1676 0-.3351-.0007-.5026.0092-.1522.009-.3004.0284-.448.0714-.3108.0906-.5822.2798-.7783.548-.195.2665-.3006.5929-.3006.9279 0 .3352.1057.6612.3006.9277.196.2683.4675.4575.7782.548.1477.043.296.0623.4481.0715.1675.01.335.009.5026.009h13.0974c.0171-.0357.059-.1294.1-.2697.415-1.4151-.6156-2.843-2.0347-2.843zM3.113 18.5418l-.7922 1.5008c-.0818.1553-.1644.31-.2384.4705-.067.1458-.124.293-.1611.452-.0785.3346-.0576.6834.0645 1.0029.1212.3175.3346.583.607.7549.2727.172.5891.2416.9013.1975.3139-.044.6005-.1986.8263-.4402.1072-.1148.1954-.2424.2772-.3787.0902-.1503.1714-.3059.2535-.4612L6 19.4636c-.0896-.149-.9473-1.4704-2.887-.9218m20.5861-3.0056a1.4707 1.4707 0 0 0-.779-.5407c-.1476-.0425-.2961-.0616-.4483-.0705-.1678-.0099-.3352-.0091-.503-.0091H18.648l-4.3891-7.817c-.6655.7005-.9632 1.485-1.0773 2.1976-.1655 1.0333.0367 2.0934.546 3.0004l5.2741 9.3933c.084.1494.167.299.2591.4435.0837.131.1739.2537.2836.364.231.2323.5238.3809.8449.4232.3192.0424.643-.0244.9217-.1899.2784-.1653.4968-.4204.621-.7257.1246-.3072.146-.6425.0658-.9641-.0381-.1529-.0962-.2945-.165-.4346-.0753-.1543-.1598-.303-.2438-.4524l-1.216-2.1662h1.596c.1677 0 .3351.0009.5029-.009.1522-.009.3007-.028.4483-.0705a1.4707 1.4707 0 0 0 .779-.5407A1.5386 1.5386 0 0 0 24 16.452a1.539 1.539 0 0 0-.3009-.9158Z"/></g></svg>اپ‌استور</a>
-        </div>
-        
-      </div>
+      <div class="chips"><a class="chip" style="--c:#1d2b44" href="https://apps.apple.com/us/app/shareit-transfer-share-files/id725215120" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="asg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18c9fb"/><stop offset="1" stop-color="#1a6cf0"/></linearGradient></defs><rect width="24" height="24" rx="5.4" fill="url(#asg4)"/><g transform="translate(3.4 3.4) scale(.717)"><path fill="#fff" d="M8.8086 14.9194l6.1107-11.0368c.0837-.1513.1682-.302.2437-.4584.0685-.142.1267-.2854.1646-.4403.0803-.3259.0588-.6656-.066-.9767-.1238-.3095-.3417-.5678-.6201-.7355a1.4175 1.4175 0 0 0-.921-.1924c-.3207.043-.6135.1935-.8443.4288-.1094.1118-.1996.2361-.2832.369-.092.1463-.175.2979-.259.4492l-.3864.6979-.3865-.6979c-.0837-.1515-.1667-.303-.2587-.4492-.0837-.1329-.1739-.2572-.2835-.369-.2305-.2353-.5233-.3857-.844-.429a1.4181 1.4181 0 0 0-.921.1926c-.2784.1677-.4964.426-.6203.7355-.1246.311-.1461.6508-.066.9767.038.155.0962.2984.1648.4403.0753.1564.1598.307.2437.4584l1.248 2.2543-4.8625 8.7825H2.0295c-.1676 0-.3351-.0007-.5026.0092-.1522.009-.3004.0284-.448.0714-.3108.0906-.5822.2798-.7783.548-.195.2665-.3006.5929-.3006.9279 0 .3352.1057.6612.3006.9277.196.2683.4675.4575.7782.548.1477.043.296.0623.4481.0715.1675.01.335.009.5026.009h13.0974c.0171-.0357.059-.1294.1-.2697.415-1.4151-.6156-2.843-2.0347-2.843zM3.113 18.5418l-.7922 1.5008c-.0818.1553-.1644.31-.2384.4705-.067.1458-.124.293-.1611.452-.0785.3346-.0576.6834.0645 1.0029.1212.3175.3346.583.607.7549.2727.172.5891.2416.9013.1975.3139-.044.6005-.1986.8263-.4402.1072-.1148.1954-.2424.2772-.3787.0902-.1503.1714-.3059.2535-.4612L6 19.4636c-.0896-.149-.9473-1.4704-2.887-.9218m20.5861-3.0056a1.4707 1.4707 0 0 0-.779-.5407c-.1476-.0425-.2961-.0616-.4483-.0705-.1678-.0099-.3352-.0091-.503-.0091H18.648l-4.3891-7.817c-.6655.7005-.9632 1.485-1.0773 2.1976-.1655 1.0333.0367 2.0934.546 3.0004l5.2741 9.3933c.084.1494.167.299.2591.4435.0837.131.1739.2537.2836.364.231.2323.5238.3809.8449.4232.3192.0424.643-.0244.9217-.1899.2784-.1653.4968-.4204.621-.7257.1246-.3072.146-.6425.0658-.9641-.0381-.1529-.0962-.2945-.165-.4346-.0753-.1543-.1598-.303-.2438-.4524l-1.216-2.1662h1.596c.1677 0 .3351.0009.5029-.009.1522-.009.3007-.028.4483-.0705a1.4707 1.4707 0 0 0 .779-.5407A1.5386 1.5386 0 0 0 24 16.452a1.539 1.539 0 0 0-.3009-.9158Z"/></g></svg>اپ‌استور</a></div>
     </div>
 
     <div class="tip place"><span>📍</span><span>برای این روش حتماً باید در محل کافی‌نت طلوع حضور داشته باشید.</span></div>
@@ -369,8 +304,9 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
       <a href="https://app.mediafire.com" target="_blank" rel="noopener" style="--c:#e03131;--t:#ffecec"><span class="nm">مدیافایر</span><span class="go2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg></span></a>
     </div>
   </div>
+
   <div class="gcard">
-    <div class="gh"><span class="pi">📷</span><h3> تصویربرداری از جزوات با کم‌اسکنر</h3></div>
+    <div class="gh"><span class="pi">📷</span><h3>تصویربرداری از جزوات با کم‌اسکنر</h3></div>
     <p>اگر فایل شما روی کاغذ است یا فقط عکس دارید، با نرم‌افزار <strong>کم‌اسکنر (CamScanner)</strong> از آن تصویر تمیز و خروجی PDF بگیرید و برای ما بفرستید. کیفیت پرینت از عکس معمولی گوشی بسیار بهتر خواهد بود.</p>
     <ol class="steps">
       <li><span>نرم‌افزار کم‌اسکنر را از لینک‌های پایین نصب کنید.</span></li>
@@ -378,11 +314,13 @@ h2{font-size:1.1rem;font-weight:700;margin:0 4px 12px;color:var(--ink)}
       <li><span>پس از اسکن، <b>خروجی را به‌صورت PDF</b> ذخیره یا اشتراک‌گذاری کنید.</span></li>
       <li><span>فایل PDF را از طریق یکی از پیام‌رسان‌های بالا برای ما بفرستید.</span></li>
     </ol>
-    <div class="plat">دانلود کم‌اسکنر</div>
-    <div class="chips">
-      <a class="chip" style="--c:#188038" href="https://play.google.com/store/apps/details?id=com.intsig.camscanner" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 512 512" aria-hidden="true"><path fill="#00A0FF" d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z"/><path fill="#00E676" d="M345.8 174L89.22 32.64l-.16-.09c-4.42-2.4-8.86.54-8.86.54L260 256z"/><path fill="#FF3A44" d="M80.22 479.36s4.44 2.94 8.86.54l.16-.09L345.8 338 260 256z"/><path fill="#FFD500" d="M457.93 225.22l-66.52-38.18L298 256l93.41 68.96 66.52-38.18c19.07-11 19.07-41.56 0-61.56z"/></svg>گوگل پلی <small>اندروید</small></a>
-      <a class="chip" style="--c:#1d2b44" href="https://apps.apple.com/us/app/camscanner-pdf-scanner-app/id388627783" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="asg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18c9fb"/><stop offset="1" stop-color="#1a6cf0"/></linearGradient></defs><rect width="24" height="24" rx="5.4" fill="url(#asg2)"/><g transform="translate(3.4 3.4) scale(.717)"><path fill="#fff" d="M8.8086 14.9194l6.1107-11.0368c.0837-.1513.1682-.302.2437-.4584.0685-.142.1267-.2854.1646-.4403.0803-.3259.0588-.6656-.066-.9767-.1238-.3095-.3417-.5678-.6201-.7355a1.4175 1.4175 0 0 0-.921-.1924c-.3207.043-.6135.1935-.8443.4288-.1094.1118-.1996.2361-.2832.369-.092.1463-.175.2979-.259.4492l-.3864.6979-.3865-.6979c-.0837-.1515-.1667-.303-.2587-.4492-.0837-.1329-.1739-.2572-.2835-.369-.2305-.2353-.5233-.3857-.844-.429a1.4181 1.4181 0 0 0-.921.1926c-.2784.1677-.4964.426-.6203.7355-.1246.311-.1461.6508-.066.9767.038.155.0962.2984.1648.4403.0753.1564.1598.307.2437.4584l1.248 2.2543-4.8625 8.7825H2.0295c-.1676 0-.3351-.0007-.5026.0092-.1522.009-.3004.0284-.448.0714-.3108.0906-.5822.2798-.7783.548-.195.2665-.3006.5929-.3006.9279 0 .3352.1057.6612.3006.9277.196.2683.4675.4575.7782.548.1477.043.296.0623.4481.0715.1675.01.335.009.5026.009h13.0974c.0171-.0357.059-.1294.1-.2697.415-1.4151-.6156-2.843-2.0347-2.843zM3.113 18.5418l-.7922 1.5008c-.0818.1553-.1644.31-.2384.4705-.067.1458-.124.293-.1611.452-.0785.3346-.0576.6834.0645 1.0029.1212.3175.3346.583.607.7549.2727.172.5891.2416.9013.1975.3139-.044.6005-.1986.8263-.4402.1072-.1148.1954-.2424.2772-.3787.0902-.1503.1714-.3059.2535-.4612L6 19.4636c-.0896-.149-.9473-1.4704-2.887-.9218m20.5861-3.0056a1.4707 1.4707 0 0 0-.779-.5407c-.1476-.0425-.2961-.0616-.4483-.0705-.1678-.0099-.3352-.0091-.503-.0091H18.648l-4.3891-7.817c-.6655.7005-.9632 1.485-1.0773 2.1976-.1655 1.0333.0367 2.0934.546 3.0004l5.2741 9.3933c.084.1494.167.299.2591.4435.0837.131.1739.2537.2836.364.231.2323.5238.3809.8449.4232.3192.0424.643-.0244.9217-.1899.2784-.1653.4968-.4204.621-.7257.1246-.3072.146-.6425.0658-.9641-.0381-.1529-.0962-.2945-.165-.4346-.0753-.1543-.1598-.303-.2438-.4524l-1.216-2.1662h1.596c.1677 0 .3351.0009.5029-.009.1522-.009.3007-.028.4483-.0705a1.4707 1.4707 0 0 0 .779-.5407A1.5386 1.5386 0 0 0 24 16.452a1.539 1.539 0 0 0-.3009-.9158Z"/></g></svg>اپ‌استور <small>آیفون</small></a>
-    </div>
+    <div class="plat" style="margin-top:14px">دانلود کم‌اسکنر</div>
+    <div class="tip warn"><span>⚠️</span><span>ممکن است سایت لایت فیلتر باشد. نسخه‌های مود شده (پولی) در سایت لایت و فارسروید موجود است. نسخه پیشنهادی ما سایت لایت است.</span></div>
+    
+    <div class="plat">نسخه اندروید</div>
+    <div class="chips"><a class="chip" style="--c:#7048e8" href="https://liteapks.com/camscanner.html" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10"/></svg>سایت لایت <em class="rec">پیشنهادی</em> <small>نسخه مود</small></a><a class="chip" style="--c:#e8590c" href="https://www.farsroid.com/camscanner-android" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13.5h10"/></svg>فارسروید <small>نسخه مود</small></a><a class="chip" style="--c:#1c7ed6" href="https://myket.ir/app/com.intsig.camscanner" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 9c1.5 4.5 12.5 4.5 14 0" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>مایکت</a><a class="chip" style="--c:#2f9e44" href="https://cafebazaar.ir/app/com.intsig.camscanner" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10h16l-2 9a1.5 1.5 0 01-1.5 1.2H7.5A1.5 1.5 0 016 19l-2-9z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 10c2-1.2 4-1.8 8-1.8s6 .6 8 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="9" cy="6" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="13.2" cy="5" r="1.6" stroke="currentColor" stroke-width="1.4"/><circle cx="16.8" cy="6.4" r="1.6" stroke="currentColor" stroke-width="1.4"/></svg>کافه بازار</a><a class="chip" style="--c:#188038" href="https://play.google.com/store/apps/details?id=com.intsig.camscanner" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 512 512" aria-hidden="true"><path fill="#00A0FF" d="M48 59.49v393a4.33 4.33 0 007.37 3.07L260 256 55.37 56.42A4.33 4.33 0 0048 59.49z"/><path fill="#00E676" d="M345.8 174L89.22 32.64l-.16-.09c-4.42-2.4-8.86.54-8.86.54L260 256z"/><path fill="#FF3A44" d="M80.22 479.36s4.44 2.94 8.86.54l.16-.09L345.8 338 260 256z"/><path fill="#FFD500" d="M457.93 225.22l-66.52-38.18L298 256l93.41 68.96 66.52-38.18c19.07-11 19.07-41.56 0-61.56z"/></svg>گوگل پلی</a></div>
+    <div class="plat">نسخه آیفون</div>
+    <div class="chips"><a class="chip" style="--c:#1d2b44" href="https://apps.apple.com/us/app/camscanner-pdf-scanner-app/id388627783" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="asg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18c9fb"/><stop offset="1" stop-color="#1a6cf0"/></linearGradient></defs><rect width="24" height="24" rx="5.4" fill="url(#asg1)"/><g transform="translate(3.4 3.4) scale(.717)"><path fill="#fff" d="M8.8086 14.9194l6.1107-11.0368c.0837-.1513.1682-.302.2437-.4584.0685-.142.1267-.2854.1646-.4403.0803-.3259.0588-.6656-.066-.9767-.1238-.3095-.3417-.5678-.6201-.7355a1.4175 1.4175 0 0 0-.921-.1924c-.3207.043-.6135.1935-.8443.4288-.1094.1118-.1996.2361-.2832.369-.092.1463-.175.2979-.259.4492l-.3864.6979-.3865-.6979c-.0837-.1515-.1667-.303-.2587-.4492-.0837-.1329-.1739-.2572-.2835-.369-.2305-.2353-.5233-.3857-.844-.429a1.4181 1.4181 0 0 0-.921.1926c-.2784.1677-.4964.426-.6203.7355-.1246.311-.1461.6508-.066.9767.038.155.0962.2984.1648.4403.0753.1564.1598.307.2437.4584l1.248 2.2543-4.8625 8.7825H2.0295c-.1676 0-.3351-.0007-.5026.0092-.1522.009-.3004.0284-.448.0714-.3108.0906-.5822.2798-.7783.548-.195.2665-.3006.5929-.3006.9279 0 .3352.1057.6612.3006.9277.196.2683.4675.4575.7782.548.1477.043.296.0623.4481.0715.1675.01.335.009.5026.009h13.0974c.0171-.0357.059-.1294.1-.2697.415-1.4151-.6156-2.843-2.0347-2.843zM3.113 18.5418l-.7922 1.5008c-.0818.1553-.1644.31-.2384.4705-.067.1458-.124.293-.1611.452-.0785.3346-.0576.6834.0645 1.0029.1212.3175.3346.583.607.7549.2727.172.5891.2416.9013.1975.3139-.044.6005-.1986.8263-.4402.1072-.1148.1954-.2424.2772-.3787.0902-.1503.1714-.3059.2535-.4612L6 19.4636c-.0896-.149-.9473-1.4704-2.887-.9218m20.5861-3.0056a1.4707 1.4707 0 0 0-.779-.5407c-.1476-.0425-.2961-.0616-.4483-.0705-.1678-.0099-.3352-.0091-.503-.0091H18.648l-4.3891-7.817c-.6655.7005-.9632 1.485-1.0773 2.1976-.1655 1.0333.0367 2.0934.546 3.0004l5.2741 9.3933c.084.1494.167.299.2591.4435.0837.131.1739.2537.2836.364.231.2323.5238.3809.8449.4232.3192.0424.643-.0244.9217-.1899.2784-.1653.4968-.4204.621-.7257.1246-.3072.146-.6425.0658-.9641-.0381-.1529-.0962-.2945-.165-.4346-.0753-.1543-.1598-.303-.2438-.4524l-1.216-2.1662h1.596c.1677 0 .3351.0009.5029-.009.1522-.009.3007-.028.4483-.0705a1.4707 1.4707 0 0 0 .779-.5407A1.5386 1.5386 0 0 0 24 16.452a1.539 1.539 0 0 0-.3009-.9158Z"/></g></svg>اپ‌استور</a></div>
   </div>
 </section>
 
