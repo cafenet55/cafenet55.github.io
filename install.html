@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
-<title>کافی‌نت طلوع | دانلود تلگرام، اینستاگرام و ایتا</title>
-<meta name="description" content="لینک‌های دانلود رسمی تلگرام، اینستاگرام و ایتا برای اندروید، آیفون و دسکتاپ.">
+<title>کافی‌نت طلوع | دانلود تلگرام، اینستاگرام، تیک‌تاک، ایتا و کم‌اسکنر</title>
+<meta name="description" content="لینک‌های دانلود رسمی تلگرام، اینستاگرام، تیک‌تاک، ایتا و کم‌اسکنر برای اندروید، آیفون و دسکتاپ.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
@@ -54,16 +54,50 @@
     padding:1.4rem;border-top:4px solid var(--a);
   }
   .app.ig{--a:#e3237a}
+  .app.tt{--a:#fe2c55}
   .app.et{--a:#f08a14}
+  .app.cs{--a:#12a594}
   .head{display:flex;align-items:center;gap:14px;margin-bottom:.7rem}
   .logo{width:56px;height:56px;border-radius:17px;display:grid;place-items:center;flex-shrink:0;background:var(--a);color:#fff}
   .logo svg{width:32px;height:32px}
   .app.ig .logo{background:linear-gradient(45deg,#ff7a2f,#e3237a 55%,#6a35e0)}
+  .app.tt .logo{background:#000;border:1px solid var(--line)}
   .app.et .logo{background:#fff;border:1px solid var(--line)}
   .app.et .logo img{width:38px;height:38px;object-fit:contain;display:block}
+  .app.cs .logo{background:linear-gradient(135deg,#19c3ad,#1b7fd1)}
   h2{font-size:1.4rem;font-weight:800;line-height:1.3}
   .head small{display:block;color:var(--muted);font-size:.8rem;font-weight:600}
   .desc{color:var(--muted);font-size:.9rem;margin-bottom:1.1rem}
+
+  /* Steps */
+  .steps{
+    list-style:none;counter-reset:s;
+    margin:0 0 1.1rem;padding:.9rem 1rem;border-radius:14px;
+    background:var(--soft);font-size:.86rem;color:var(--muted);
+    display:flex;flex-direction:column;gap:6px;
+  }
+  .steps li{counter-increment:s;display:flex;gap:10px;align-items:flex-start}
+  .steps li::before{
+    content:counter(s);flex-shrink:0;
+    width:22px;height:22px;border-radius:50%;margin-top:3px;
+    background:var(--a);color:#fff;font-weight:800;font-size:.75rem;
+    display:grid;place-items:center;
+  }
+  .steps b{color:var(--text)}
+
+
+  .sub{font-size:.95rem;font-weight:800;margin:1.2rem 0 .6rem}
+  .sub:first-of-type{margin-top:0}
+  .note{
+    margin:0 0 .8rem;padding:.7rem .9rem;border-radius:12px;
+    background:var(--soft);border-right:3px solid var(--sun);
+    font-size:.82rem;color:var(--muted);
+  }
+  .tag{
+    font-size:.68rem;font-weight:800;padding:1px 8px;border-radius:999px;
+    background:var(--a);color:#fff;white-space:nowrap;
+  }
+  .tag.alt{background:transparent;color:var(--muted);border:1px solid var(--line)}
 
   .links{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:9px}
   .dl{
@@ -112,6 +146,7 @@
   <symbol id="desk" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></g></symbol>
   <symbol id="bazaar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"><path d="M4 10h16l-2 9a1.500 1.500 0 01-1.500 1.200H7.500A1.500 1.500 0 016 19l-2-9z"/><path d="M4 10c2-1.200 4-1.800 8-1.800s6 .6 8 1.800"/><circle cx="9" cy="6" r="1.500"/><circle cx="13.200" cy="5" r="1.500"/><circle cx="16.800" cy="6.400" r="1.500"/></g></symbol>
   <symbol id="myket" viewBox="0 0 24 24"><path d="M5 9c1.500 4.500 12.500 4.500 14 0" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="vid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.500v5l4.500-2.500z" fill="currentColor"/></g></symbol>
 </svg>
 
 <main class="page">
@@ -119,7 +154,7 @@
   <header class="hero">
     <div class="badge"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 20h14"/></svg></i>دانلود کن، نصب کن</div>
     <h1>نصب کن، وصل شو،<br><em>هر جا که هستی</em></h1>
-    <p class="lead">تلگرام رو نصب کن، اینستاگرام رو کنارش داشته باش، و برای اطمینان خاطر بیشتر، ایتا رو هم همراهت نگه دار.</p>
+    <p class="lead">تلگرام رو نصب کن، اینستاگرام و تیک‌تاک رو کنارش داشته باش، برای اطمینان خاطر بیشتر ایتا رو هم همراهت نگه دار، و با کم‌اسکنر جزوه‌هات رو برای پرینت آماده کن.</p>
   </header>
 
   <div class="apps">
@@ -153,6 +188,20 @@
       </div>
     </section>
 
+    <!-- TIKTOK -->
+    <section class="app tt">
+      <div class="head">
+        <span class="logo"><svg viewBox="0 0 24 24"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6"><path d="M15.4 4.2c.3 2.4 1.7 3.9 4 4.1v2.5c-1.500 0-2.800-.4-4-1.200v5.500a5 5 0 11-5-5c.3 0 .6 0 .9.1v2.600a2.500 2.500 0 10 1.600 2.300V4.200z" stroke="#25f4ee" transform="translate(-.7 .6)"/><path d="M15.400 4.200c.3 2.400 1.700 3.900 4 4.100v2.500c-1.500 0-2.800-.4-4-1.200v5.500a5 5 0 11-5-5c.3 0 .6 0 .9.1v2.600a2.500 2.500 0 101.600 2.300V4.200z" stroke="#fe2c55" transform="translate(.7 -.6)"/><path d="M15.400 4.200c.3 2.400 1.700 3.900 4 4.100v2.500c-1.500 0-2.800-.4-4-1.200v5.500a5 5 0 11-5-5c.3 0 .6 0 .9.1v2.600a2.500 2.500 0 101.600 2.300V4.200z" stroke="#fff"/></g></svg></span>
+        <div><h2>تیک‌تاک</h2><small>ویدیوهای کوتاه</small></div>
+      </div>
+      <p class="desc">ویدیوهای کوتاه، سرگرمی و آموزش؛ هر چیزی که به آن علاقه داری را در چند ثانیه پیدا کن.</p>
+      <div class="links">
+        <a class="dl" href="https://play.google.com/store/apps/details?id=com.zhiliaoapp.musically" target="_blank" rel="noopener"><svg class="i"><use href="#play"/></svg>گوگل‌پلی (اندروید)<svg class="go"><use href="#go"/></svg></a>
+        <a class="dl" href="https://apps.apple.com/app/tiktok/id835599320" target="_blank" rel="noopener"><svg class="i"><use href="#apple"/></svg>اپ‌استور (آیفون)<svg class="go"><use href="#go"/></svg></a>
+        <a class="dl" href="https://www.tiktok.com" target="_blank" rel="noopener"><svg class="i"><use href="#globe"/></svg>نسخه وب<svg class="go"><use href="#go"/></svg></a>
+      </div>
+    </section>
+
     <!-- EITAA -->
     <section class="app et">
       <div class="head">
@@ -170,6 +219,45 @@
       </div>
     </section>
 
+    <!-- CAMSCANNER -->
+    <section class="app cs">
+      <div class="head">
+        <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 012-2h2M16 4h2a2 2 0 012 2v2M20 16v2a2 2 0 01-2 2h-2M8 20H6a2 2 0 01-2-2v-2"/><path d="M4 12h16"/></svg></span>
+        <div><h2>کم‌اسکنر</h2><small>CamScanner · پرینت با کیفیت بالا</small></div>
+      </div>
+      <p class="desc">اگر فایلت روی کاغذ است یا فقط عکس داری، با کم‌اسکنر (CamScanner) تصویر تمیز و خروجی PDF بگیر و برای ما بفرست. کیفیت پرینت از عکس معمولی گوشی بسیار بهتر خواهد بود.</p>
+      <ol class="steps">
+        <li><span>نرم‌افزار کم‌اسکنر را از لینک‌های پایین نصب کن.</span></li>
+        <li><span>هنگام تصویربرداری، حالت فیلتر را روی <b>مجیک کالر (Magic Color)</b> بگذار تا تصویر شفاف و بدون سایه و لکه شود.</span></li>
+        <li><span>پس از اسکن، <b>خروجی را به‌صورت PDF</b> ذخیره یا اشتراک‌گذاری کن.</span></li>
+        <li><span>فایل PDF را از طریق یکی از پیام‌رسان‌ها برای ما بفرست.</span></li>
+      </ol>
+      <h3 class="sub">🎬 آموزش کم‌اسکنر</h3>
+      <div class="links">
+        <a class="dl" href="https://www.picofile.com/f/he001I3zVT/CamScanner-Video.mp4" target="_blank" rel="noopener"><svg class="i"><use href="#vid"/></svg>دانلود از پیکوفایل<svg class="go"><use href="#go"/></svg></a>
+        <a class="dl" href="https://uplod.ir/nq5bg8a9elsd/CamScanner_Video.mp4.htm" target="_blank" rel="noopener"><svg class="i"><use href="#vid"/></svg>دانلود از آپلود دات آی آر<svg class="go"><use href="#go"/></svg></a>
+        <a class="dl" href="https://drive.proton.me/urls/G65CV7G530#KTWUtcTEAkyS" target="_blank" rel="noopener"><svg class="i"><use href="#vid"/></svg>دانلود از پروتون درایو<svg class="go"><use href="#go"/></svg></a>
+        <a class="dl" href="https://t.me/CafeNet55/19811" target="_blank" rel="noopener"><svg class="i"><use href="#vid"/></svg>دانلود از تلگرام<svg class="go"><use href="#go"/></svg></a>
+      </div>
+
+      <h3 class="sub">دانلود کم‌اسکنر</h3>
+      <p class="note">⚠️ ممکن است سایت لایت فیلتر باشد. نسخه‌های مود شده (پولی) در سایت لایت و فارسروید موجود است. نسخه پیشنهادی ما سایت لایت است.</p>
+
+      <h3 class="sub">نسخه اندروید</h3>
+      <div class="links">
+        <a class="dl" href="https://liteapks.com/camscanner.html" target="_blank" rel="noopener"><svg class="i"><use href="#apk"/></svg>سایت لایت <span class="tag">پیشنهادی</span> <span class="tag alt">نسخه مود</span><svg class="go"><use href="#go"/></svg></a>
+        <a class="dl" href="https://www.farsroid.com/camscanner-android" target="_blank" rel="noopener"><svg class="i"><use href="#apk"/></svg>فارسروید <span class="tag alt">نسخه مود</span><svg class="go"><use href="#go"/></svg></a>
+        <a class="dl" href="https://myket.ir/app/com.intsig.camscanner" target="_blank" rel="noopener"><svg class="i"><use href="#myket"/></svg>مایکت<svg class="go"><use href="#go"/></svg></a>
+        <a class="dl" href="https://cafebazaar.ir/app/com.intsig.camscanner" target="_blank" rel="noopener"><svg class="i"><use href="#bazaar"/></svg>کافه‌بازار<svg class="go"><use href="#go"/></svg></a>
+        <a class="dl" href="https://play.google.com/store/apps/details?id=com.intsig.camscanner" target="_blank" rel="noopener"><svg class="i"><use href="#play"/></svg>گوگل‌پلی<svg class="go"><use href="#go"/></svg></a>
+      </div>
+
+      <h3 class="sub">نسخه آیفون</h3>
+      <div class="links">
+        <a class="dl" href="https://apps.apple.com/us/app/camscanner-pdf-scanner-app/id388627783" target="_blank" rel="noopener"><svg class="i"><use href="#apple"/></svg>اپ‌استور<svg class="go"><use href="#go"/></svg></a>
+      </div>
+    </section>
+
   </div>
 
   <section class="help">
@@ -182,7 +270,7 @@
     </div>
   </section>
 
-  <footer>تمام لینک‌های دانلود مستقیم و رسمی هستند.</footer>
+  <footer>لینک‌های دانلود مستقیم هستند؛ نسخه‌های مود (در صورت وجود) غیررسمی‌اند.</footer>
 </main>
 </body>
 </html>
